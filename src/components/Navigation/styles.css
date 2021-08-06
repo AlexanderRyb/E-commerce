@@ -1,0 +1,51 @@
+.navPanel {
+  background-color: #404040;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 auto;
+  align-items: center;
+  height: 55px;
+  color: white;
+}
+form {
+  width: 40%;
+  position: relative;
+}
+.text-input {
+  height: 35px;
+  width: 100%;
+  border-style: none;
+  border-radius: 5px;
+}
+.submit-button{
+  font-size: 0;
+  position: absolute;
+  background-color: white;
+  z-index: 2;
+  top: 2px;
+  right: 0;
+  height: 90%;
+  width: 5%;
+  border-style: none;
+  background-image: url("search.png");
+  background-size: 90%;
+  background-repeat: no-repeat;
+}
+a {
+  font-size: 20px;
+  text-decoration: none;
+}
+a:visited {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+.cart-button{
+  background-image: url("/src/components/Products/shopping-cart.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.cart-text{
+  color: white;
+}

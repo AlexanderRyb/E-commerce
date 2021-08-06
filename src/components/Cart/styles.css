@@ -1,0 +1,19 @@
+.temp-cart{
+    display: flex;
+    width: 50%;
+}
+form{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+}
+.submit-form-button{
+    margin-top: 5px;
+    background-color: #265a88;
+    width: 200px;
+    height: 50px;
+    border-style: none;
+    border-radius: 5px;
+    color: white
+}
