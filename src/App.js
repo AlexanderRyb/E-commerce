@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Navigation from "./components/Navigation/Navigation";
+import Products from "./components/Products/Products";
+import Cart from "./components/Cart/Cart";
+import { Route, BrowserRouter as Router } from "react-router-dom";
+import productList from "./components/Products/productList.json";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Component } from "react";
+
+export class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      cart: [],
+      search: productList,
+    };
+  }
+  dataSearch = (e) => {
+    const value = e.target.value.toLowerCase();
+
+    const filter = productList.filter((item) => {
+      return item.description.toLowerCase().includes(value);
+    });
+    this.setState({ search: filter });
+    console.log(this.state.search);
+  };
+
+  render() {
+    return (
+      <div>
+        <Router>
+          <Navigation dataSearch={this.dataSearch} />
+          <Route
+            path="/"
+            exact
+            render={() => <Products parentState={this.state} />}
+          />
+
+          <Route
+            path="/cart"
+            render={() => <Cart parentState={this.state} />}
+          />
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;

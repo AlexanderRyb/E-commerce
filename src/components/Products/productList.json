@@ -1,0 +1,182 @@
+[
+  {    
+    "id": "1",
+    "description": "Mi Notebook Pro 15 i5/8/512/MX250",
+    "price": "23999",
+    "image": "/images/miNotebookPro.jpg", 
+    "category": "notebook",
+    "quantity": "1"
+    
+  },
+  {
+    "id": "2",
+    "description": "Ноутбук Mi RedmiBook 14 II R5/16/512/W",
+    "price": "82.99",
+    "image": "/images/miRedmiBook.jpg",
+    "category": "notebook",
+    "quantity": "1"
+
+  },
+  {    
+    "id": "3",
+    "description": "ARTLINE Gaming X31 (X31v08)",
+    "price": "200.00",
+    "image": "/images/pc1.jpg",
+    "category": "PC",
+    "quantity": "1"
+
+  },
+  {    
+    "id": "4",
+    "description": "Apple iPhone 6 16GB silver",
+    "price": "122.99",
+    "image": "/images/iphone6.jpg",
+    "category": "notebook",
+    "quantity": "1"
+
+  },
+  {   
+    "id": "5",
+    "description": "Samsung Galaxy A72 8/256GB Violet",
+    "price": "1499",
+    "image": "/images/samsungGalaxy.jpg",
+    "category": "phone",
+    "quantity": "1"
+
+  },
+  {
+    "id": "6",
+    "description": "Nokia 800 Tough Black",
+    "price": "122.99",
+    "image": "/images/nokia800.jpg",
+    "category": "phone",
+    "quantity": "1"
+
+  },
+  {    
+    "id": "7",
+    "description": "24\" Gazer TV24-HS2G Smart TV Graphite",
+    "price": "122.99",
+    "image": "/images/gazerTV.jpg",
+    "category": "tv",
+    "quantity": "1"
+
+  },
+  {   
+    "id": "8",
+    "description": "ARTLINE Gaming X44",
+    "price": "122.99",
+    "image": "/images/artline44.jpg",
+    "category": "pc",
+    "quantity": "1"
+
+  },
+  {    
+    "id": "9",
+    "description": "Philips 58PUS7505",
+    "price": "122.99",
+    "image": "/images/philips58.jpg",
+    "category": "phone",
+    "quantity": "1"
+
+  },
+  {    
+    "id": "10",
+    "description": "Apple iPhone 12 128GB",
+    "price": "122.99",
+    "image": "/images/iphone12.jpg",
+    "category": "phone",
+    "quantity": "1"
+
+  },
+  {    
+    "id": "11",
+    "description": "Sony Xperia XZ2 (H8216)",
+    "price": "122.99",
+    "image": "/images/sonyXperia.jpg",
+    "category": "phone",
+    "quantity": "1"
+
+  },
+  {    
+    "id": "12",
+    "description": "Ulefone Armor X5 Pro 4/64Gb ",
+    "price": "122.99",
+    "image": "/images/ulefone.jpg",
+    "category": "phone",
+    "quantity": "1"
+
+  },
+  {   
+    "id": "13",
+    "description": "Huawei Mate 40 Pro 8/256GB",
+    "price": "122.99",
+    "image": "/images/huaweiMate.jpg",
+    "category": "phone",
+    "quantity": "1"
+
+  },
+  {  
+    "id": "14",
+    "description": " ARTLINE Overlord X56",
+    "price": "122.99",
+    "image": "/images/artlineOverlord.jpg",
+    "category": "pc",
+    "quantity": "1"
+
+  },
+  {  
+    "id": "15",
+    "description": " Lenovo 320 AMD (8S5B20P11116)",
+    "price": "122.99",
+    "image": "/images/lenovo320.jpg",
+    "category": "notebook",
+    "quantity": "1"
+
+  },
+  {  
+    "id": "16",
+    "description": "  MacBook Air 13 M1",
+    "price": "122.99",
+    "image": "/images/appleMac.jpg",
+    "category": "notebook",
+    "quantity": "1"
+
+  },
+  {  
+    "id": "17",
+    "description": "ASUS M570D",
+    "price": "122.99",
+    "image": "/images/asusM.jpg",
+    "category": "notebook",
+    "quantity": "1"
+
+  },
+  {  
+    "id": "18",
+    "description": "ARTLINE Gaming X39 ",
+    "price": "122.99",
+    "image": "/images/artline_gaming.jpg",
+    "category": "pc",
+    "quantity": "1"
+
+  },
+   {  
+    "id": "19",
+    "description": "Ноутбук Acer Extensa EX215-31 (NX.EFTEU.01P) Black",
+    "price": "9999.99",
+    "image": "/images/acer_ex.jpg",
+    "category": "notebook",
+    "quantity": "1"
+
+  },
+  {  
+    "id": "20",
+    "description": "Ноутбук Acer Spin 5 SP513-54N (NX.HQUEU.00A) Gray",
+    "price": "9989",
+    "image": "/images/acer_spin.jpg",
+    "category": "notebook",
+    "quantity": "1"
+
+  }
+]
