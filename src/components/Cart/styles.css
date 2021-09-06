@@ -17,3 +17,9 @@ form{
     border-radius: 5px;
     color: white
 }
+.cart-item-row{
+    margin-right: auto;
+}
+.item-cart-price{
+    font-size: 22px;
+}

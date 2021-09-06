@@ -178,5 +178,14 @@
     "category": "notebook",
     "quantity": "1"
 
+  },
+  {  
+    "id": "21",
+    "description": "Xiaomi Mi 11i 8/256 Cosmic Black (MZB08VGEU)",
+    "price": "5000",
+    "image": "/images/xiaomi11.jpg",
+    "category": "phone",
+    "quantity": "1"
+
   }
 ]

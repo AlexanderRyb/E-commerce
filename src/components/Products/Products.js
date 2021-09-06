@@ -1,4 +1,3 @@
-import productList from "./productList.json";
 import "./styles.css";
 import React, { Component } from "react";
 
@@ -21,7 +20,7 @@ class Products extends Component {
 
   addToCart(item) {
     let index = this.state.cart.findIndex(checkDuplicate);
-
+//checks if the item is already present in the cart. Only adds it if it's not.
     function checkDuplicate(x) {
       return x.id === item.id;
     }
@@ -39,6 +38,7 @@ class Products extends Component {
   }
 
   render() {
+
     const renderSearchResult = this.props.parentState.search.map(
       (searchedItem) => (
         <div key={searchedItem.id} className="product-card">
@@ -54,13 +54,7 @@ class Products extends Component {
       )
     );
 
-    return (
-      <main>
-        {renderSearchResult}
-        
-       
-      </main>
-    );
+    return <main>{renderSearchResult}</main>;
   }
 }
 export default Products;

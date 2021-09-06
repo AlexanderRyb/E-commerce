@@ -7,7 +7,7 @@ export class Navigation extends Component {
     return (
       <header>
         <div className="navPanel">
-          <input onChange={this.props.dataSearch}></input>
+          <input className="searchbar" onChange={this.props.dataSearch}></input>
 
           <div className="shop-link">
             <Link to="/">Shop</Link>
@@ -15,7 +15,7 @@ export class Navigation extends Component {
 
           <Link to="/Cart">
             <div className="cart-button"></div>
-            <p className="cart-text">ваш кошик</p>
+            <p className="cart-text">Cart</p>
           </Link>
         </div>
       </header>

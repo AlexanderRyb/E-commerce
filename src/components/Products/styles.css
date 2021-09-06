@@ -35,9 +35,9 @@ main{
 }
 .price{
   width: 50%;
-  color: #000000;
+  color: #444;
   font-size: 18px;
-  font-weight: 600;
+    font-weight: 600;
 }
 
 .product-card> button{
@@ -71,11 +71,6 @@ button:hover{
   padding: 20px 30px;
   align-content: flex-start;
 }
-/* .cart-item-row>*{
-  border: 1px solid black;
-
-} */
-
 .title{
   height: 60px;
   border-bottom: 1px solid #E1E8EE;
