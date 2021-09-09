@@ -1,8 +1,6 @@
 import "./styles.css";
 import React, { Component } from "react";
 
-
-
 class Products extends Component {
   constructor() {
     super();
@@ -20,33 +18,30 @@ class Products extends Component {
     }
   }
 
-  componentDidUpdate(){
+  componentDidUpdate() {
     var stored = JSON.stringify(this.state.cart);
     localStorage.setItem("data", stored);
-}
+  }
   addToCart(item) {
-//checks if the item is already present in the cart. Only adds it if it's not.
+    //checks if the item is already present in the cart. Only adds it if it's not.
     let index = this.state.cart.findIndex(checkDuplicate);
     function checkDuplicate(x) {
       return x.id === item.id;
     }
 
     if (index == -1) {
-      this.setState({ cart: [...this.state.cart, item] });   
-       
-      console.log("not a duplicate");
+      this.setState({ cart: [...this.state.cart, item] });
 
+      console.log("not a duplicate");
     } else {
       //item is already in the cart
       this.setState({ cart: [...this.state.cart] });
-  
+
       console.log("duplicate!");
     }
   }
 
-
   render() {
-
     const renderSearchResult = this.props.parentState.search.map(
       (searchedItem) => (
         <div key={searchedItem.id} className="product-card">
@@ -62,10 +57,7 @@ class Products extends Component {
       )
     );
 
-    return <main>
-     
-      {renderSearchResult}
-    </main>;
+    return <main>{renderSearchResult}</main>;
   }
 }
 export default Products;

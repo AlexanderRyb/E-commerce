@@ -17,29 +17,58 @@ export class cart extends Component {
       this.setState({ cart: retrievedData });
     }
   }
+  componentDidUpdate(){
+
+  }
 
   removeItem(item) {
     let filteredCart = this.state.cart.filter((x) => {
       return x.id !== item.id;
     });
-    console.log(filteredCart);
-
     this.setState({ cart: filteredCart });
-    console.log(filteredCart);
-
     var stored = JSON.stringify(filteredCart);
-
     localStorage.setItem("data", stored);
-    console.log(this.state.cart);
+  }
+
+  incrementQuantity(item) {
+    item.quantity++;
+//access specific item in the cart and change it, then add cart in local storage.
+let myItem = this.state.cart.filter(obj => {
+  return obj.id === item.id
+})
+
+myItem.quantity = item.quantity;
+this.setState({ state: this.state });
+var stored = JSON.stringify(this.state.cart);
+localStorage.setItem("data", stored)
+    
+
+  }
+  decrementQuantity(item) {
+    item.quantity--;
+    let myItem = this.state.cart.filter(obj => {
+      return obj.id === item.id
+    })
+    
+    myItem.quantity = item.quantity;
+    this.setState({ state: this.state });
+    var stored = JSON.stringify(this.state.cart);
+    localStorage.setItem("data", stored)
+
   }
 
   submit() {
-    console.log(this.state.cart);
+    alert("work in progress");
   }
-
   render() {
     var cartRow = "";
+    var cartSum = 0;
+    
     if (this.state.cart != null) {
+      cartSum = this.state.cart.reduce(function (total, item) {
+        return total + item.price*item.quantity;
+      }, 0);
+
       cartRow = this.state.cart.map((item) => (
         <div className="cart-item-row" key={item.id}>
           <button
@@ -48,8 +77,12 @@ export class cart extends Component {
           ></button>
           <img className="mini-image" src={item.image} alt=""></img>
           <p className="cart-description">{item.description}</p>
-          <div>+ {item.quantity} -</div>
-          <div className="item-cart-price">{item.price + "₴"}</div>
+          <div>
+            <button onClick={() => this.incrementQuantity(item)}>+</button>
+            {item.quantity}
+            <button onClick={() => this.decrementQuantity(item)}>-</button>
+          </div>
+          <div className="item-cart-price">{item.price*item.quantity + "₴"}</div>
         </div>
       ));
     }
@@ -60,7 +93,8 @@ export class cart extends Component {
 
     return (
       <main>
-          <div className="temp-cart">{cartRow}</div>
+        <div className="temp-cart">{cartRow}</div>
+        <div>Загальна сумма - {cartSum} гривень</div>
         <button
           type="submit"
           className="submit-form-button"

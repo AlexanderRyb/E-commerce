@@ -19,6 +19,7 @@ form{
 }
 .cart-item-row{
     margin-right: auto;
+    width: 100%;
 }
 .item-cart-price{
     font-size: 22px;
