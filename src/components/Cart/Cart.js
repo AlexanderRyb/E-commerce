@@ -32,7 +32,6 @@ export class cart extends Component {
 
   incrementQuantity(item) {
     item.quantity++;
-//access specific item in the cart and change it, then add cart in local storage.
 let myItem = this.state.cart.filter(obj => {
   return obj.id === item.id
 })
