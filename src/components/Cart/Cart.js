@@ -40,8 +40,7 @@ myItem.quantity = item.quantity;
 this.setState({ state: this.state });
 var stored = JSON.stringify(this.state.cart);
 localStorage.setItem("data", stored)
-    
-
+    console.log("test")
   }
   decrementQuantity(item) {
     item.quantity--;
