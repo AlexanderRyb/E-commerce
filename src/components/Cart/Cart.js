@@ -17,11 +17,7 @@ export class cart extends Component {
       this.setState({ cart: retrievedData });
     }
   }
-  componentDidUpdate(){
-
-  }
-
-  removeItem(item) {
+   removeItem(item) {
     let filteredCart = this.state.cart.filter((x) => {
       return x.id !== item.id;
     });
@@ -40,27 +36,30 @@ myItem.quantity = item.quantity;
 this.setState({ state: this.state });
 var stored = JSON.stringify(this.state.cart);
 localStorage.setItem("data", stored)
-    console.log("test")
   }
   decrementQuantity(item) {
-    item.quantity--;
-    let myItem = this.state.cart.filter(obj => {
-      return obj.id === item.id
-    })
     
-    myItem.quantity = item.quantity;
-    this.setState({ state: this.state });
-    var stored = JSON.stringify(this.state.cart);
-    localStorage.setItem("data", stored)
+    item.quantity--;
+    if(item.quantity < 1){
+      this.removeItem(item)
+    }
+    
 
   }
 
   submit() {
-    alert("work in progress");
+  let cartCount = this.state.cart.length
+
+    console.log("You have bought "+cartCount+" items. You need to pay a lot");
+    this.setState({cart: []})
+    console.log(this.state.cart)
+    localStorage.removeItem("data")
   }
+
   render() {
     var cartRow = "";
     var cartSum = 0;
+
     
     if (this.state.cart != null) {
       cartSum = this.state.cart.reduce(function (total, item) {
@@ -84,11 +83,8 @@ localStorage.setItem("data", stored)
         </div>
       ));
     }
-    var cartCount = "";
-    if (this.state.cart) {
-      cartCount = this.state.cart.length;
-    }
-
+   
+  
     return (
       <main>
         <div className="temp-cart">{cartRow}</div>
@@ -96,7 +92,7 @@ localStorage.setItem("data", stored)
         <button
           type="submit"
           className="submit-form-button"
-          onClick={this.submit}
+          onClick={this.submit.bind(this)}
         >
           Submit
         </button>
