@@ -3,7 +3,7 @@
 }
 
 .navPanel {
-  background-color: #404040;
+  background-color: #3F4E5D;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -56,6 +56,9 @@ a:visited {
 .searchbar{
   height: 60%;
   width: 300px;
-  border-radius: 10px;
+  border-radius: 5px;
   border-style: none;
+}
+textarea:focus, input:focus{
+  outline: none;
 }

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./styles.css";
 import React, { Component } from "react";
 
+
 export class Navigation extends Component {
   render() {
     return (
@@ -14,7 +15,7 @@ export class Navigation extends Component {
           </div>
 
           <Link to="/Cart">
-            <div className="cart-button"></div>
+            <div onClick={console.log(this.props.cart)} className="cart-button"></div>
             <p className="cart-text">Cart</p>
           </Link>
         </div>

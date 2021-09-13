@@ -10,7 +10,7 @@ export class App extends Component {
   constructor() {
     super();
     this.state = {
-      cart: [],
+     
       search: productList,
     };
   }
@@ -23,12 +23,12 @@ export class App extends Component {
     this.setState({ search: filter });
     console.log(this.state.search);
   };
-
+  
   render() {
     return (
-      <div>
+      <div >
         <Router>
-          <Navigation dataSearch={this.dataSearch} />
+          <Navigation cart={this.cart} dataSearch={this.dataSearch} />
           <Route
             path="/"
             exact

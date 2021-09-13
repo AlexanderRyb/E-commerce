@@ -9,6 +9,7 @@ export class cart extends Component {
   }
 
   //
+  
   componentDidMount() {
     var retrievedData = localStorage.getItem("data");
     retrievedData = JSON.parse(retrievedData);
@@ -17,7 +18,7 @@ export class cart extends Component {
       this.setState({ cart: retrievedData });
     }
   }
-   removeItem(item) {
+  removeItem(item) {
     let filteredCart = this.state.cart.filter((x) => {
       return x.id !== item.id;
     });
@@ -28,63 +29,82 @@ export class cart extends Component {
 
   incrementQuantity(item) {
     item.quantity++;
-let myItem = this.state.cart.filter(obj => {
-  return obj.id === item.id
-})
+    let myItem = this.state.cart.filter((obj) => {
+      return obj.id === item.id;
+    });
 
-myItem.quantity = item.quantity;
-this.setState({ state: this.state });
-var stored = JSON.stringify(this.state.cart);
-localStorage.setItem("data", stored)
+    myItem.quantity = item.quantity;
+    this.setState({ state: this.state });
+    var stored = JSON.stringify(this.state.cart);
+    localStorage.setItem("data", stored);
   }
   decrementQuantity(item) {
-    
     item.quantity--;
-    if(item.quantity < 1){
-      this.removeItem(item)
+    if (item.quantity < 1) {
+      this.removeItem(item);
     }
-    
-
+    this.setState({ state: this.state });
+    var stored = JSON.stringify(this.state.cart);
+    localStorage.setItem("data", stored);
   }
 
   submit() {
-  let cartCount = this.state.cart.length
-
-    console.log("You have bought "+cartCount+" items. You need to pay a lot");
-    this.setState({cart: []})
-    console.log(this.state.cart)
-    localStorage.removeItem("data")
+    let cartCount = this.state.cart.length;
+    let cartSum = this.state.cart.reduce(function (total, item) {
+      return total + item.price * item.quantity;
+    }, 0);
+    console.log(
+      "You have bought " + cartCount + " items. You need to pay " + cartSum
+    );
+    this.setState({ cart: [] });
+    localStorage.removeItem("data");
   }
 
   render() {
     var cartRow = "";
     var cartSum = 0;
 
-    
     if (this.state.cart != null) {
       cartSum = this.state.cart.reduce(function (total, item) {
-        return total + item.price*item.quantity;
+        return total + item.price * item.quantity;
       }, 0);
 
       cartRow = this.state.cart.map((item) => (
         <div className="cart-item-row" key={item.id}>
-          <button
-            className="remove-item"
-            onClick={() => this.removeItem(item)}
-          ></button>
-          <img className="mini-image" src={item.image} alt=""></img>
-          <p className="cart-description">{item.description}</p>
-          <div>
-            <button onClick={() => this.incrementQuantity(item)}>+</button>
-            {item.quantity}
-            <button onClick={() => this.decrementQuantity(item)}>-</button>
+          <div className="image-block">
+            <img className="mini-image" src={item.image} alt=""></img>
           </div>
-          <div className="item-cart-price">{item.price*item.quantity + "₴"}</div>
+
+          <div className="information-block">
+            <div className="description-block">
+
+              <p className="cart-description">{item.description}</p>
+
+            
+              <button
+                className="remove-item"
+                onClick={() => this.removeItem(item)}
+              ></button>
+            </div>
+
+            <div className="price-block">
+              <div className="item-price">{item.price+"₴"}</div>
+            <div className="quantity-block">
+                <button className="plus-button" onClick={() => this.incrementQuantity(item)}>+</button>
+                <div className="item-quantity">
+                {item.quantity}
+                </div>
+                <button className="minus-button" onClick={() => this.decrementQuantity(item)}>-</button>
+              </div>
+              <div className="item-total-price">
+                {item.price * item.quantity + "₴"}
+              </div>
+            </div>
+          </div>
         </div>
       ));
     }
-   
-  
+
     return (
       <main>
         <div className="temp-cart">{cartRow}</div>

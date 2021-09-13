@@ -57,7 +57,9 @@ class Products extends Component {
       )
     );
 
-    return <main>{renderSearchResult}</main>;
+    return <main>
+
+      {renderSearchResult}</main>;
   }
 }
 export default Products;
