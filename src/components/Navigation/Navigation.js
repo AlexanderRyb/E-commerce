@@ -10,13 +10,22 @@ export class Navigation extends Component {
         <div className="navPanel">
           <input className="searchbar" onChange={this.props.dataSearch}></input>
 
-          <div className="shop-link">
-            <Link to="/">Shop</Link>
+            <Link className="shop-link" to="/">
+            
+            <div >
+              Shop
+              </div>
+
+
+            </Link>
+         
+         
+           
+          <Link  className="cart-link" to="/Cart">
+          <div>
+            Cart
           </div>
 
-          <Link to="/Cart">
-            <div onClick={console.log(this.props.cart)} className="cart-button"></div>
-            <p className="cart-text">Cart</p>
           </Link>
         </div>
       </header>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./styles.css";
+ 
 export class cart extends Component {
   constructor() {
     super();
@@ -7,8 +8,7 @@ export class cart extends Component {
       cart: [],
     };
   }
-
-  //
+    //
   
   componentDidMount() {
     var retrievedData = localStorage.getItem("data");
@@ -107,6 +107,7 @@ export class cart extends Component {
 
     return (
       <main>
+        <div>test div</div>
         <div className="temp-cart">{cartRow}</div>
         <div>Загальна сумма - {cartSum} гривень</div>
         <button
