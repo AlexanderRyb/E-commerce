@@ -3,8 +3,9 @@ import Products from "./components/Products/Products";
 import Cart from "./components/Cart/Cart";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import productList from "./components/Products/productList.json";
-
 import React, { Component } from "react";
+
+
 
 export class App extends Component {
   constructor() {
@@ -23,6 +24,8 @@ export class App extends Component {
     this.setState({ search: filter });
     console.log(this.state.search);
   };
+
+  
   
   render() {
     return (
@@ -39,7 +42,10 @@ export class App extends Component {
             path="/cart"
             render={() => <Cart parentState={this.state} />}
           />
+       
+      
         </Router>
+        
       </div>
     );
   }

@@ -82,3 +82,15 @@ form {
 .item-quantity {
   margin-top: 7px;
 }
+.main-cart{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+ 
+}
+.total-sum-block{
+  margin-top:30px;
+ font: 14px Roboto, sans-serif;
+
+}

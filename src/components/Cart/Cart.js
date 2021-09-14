@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./styles.css";
- 
+
+
 export class cart extends Component {
   constructor() {
     super();
@@ -44,8 +45,6 @@ export class cart extends Component {
       this.removeItem(item);
     }
     this.setState({ state: this.state });
-    var stored = JSON.stringify(this.state.cart);
-    localStorage.setItem("data", stored);
   }
 
   submit() {
@@ -53,11 +52,16 @@ export class cart extends Component {
     let cartSum = this.state.cart.reduce(function (total, item) {
       return total + item.price * item.quantity;
     }, 0);
-    console.log(
+    alert(
       "You have bought " + cartCount + " items. You need to pay " + cartSum
     );
     this.setState({ cart: [] });
     localStorage.removeItem("data");
+  
+
+ 
+
+
   }
 
   render() {
@@ -106,10 +110,9 @@ export class cart extends Component {
     }
 
     return (
-      <main>
-        <div>test div</div>
+      <main className="main-cart">
         <div className="temp-cart">{cartRow}</div>
-        <div>Загальна сумма - {cartSum} гривень</div>
+        <div className="total-sum-block">Total sum - {cartSum}</div>
         <button
           type="submit"
           className="submit-form-button"
