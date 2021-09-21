@@ -1,9 +1,13 @@
 import Navigation from "./components/Navigation/Navigation";
+import { Provider} from 'react-redux'
+import store from "./my-redux/store";
+import CartContainer  from "./components/CartContainer/CartContainer";
+
 import Products from "./components/Products/Products";
-import Cart from "./components/Cart/Cart";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import productList from "./components/Products/productList.json";
 import React, { Component } from "react";
+
 
 
 
@@ -29,24 +33,26 @@ export class App extends Component {
   
   render() {
     return (
+      <Provider store={store}>
       <div >
         <Router>
           <Navigation cart={this.cart} dataSearch={this.dataSearch} />
           <Route
             path="/"
             exact
-            render={() => <Products parentState={this.state} />}
+            render={() => <Products  />}
           />
 
           <Route
             path="/cart"
-            render={() => <Cart parentState={this.state} />}
+            render={() => <CartContainer parentState={this.state} />}
           />
        
       
         </Router>
         
       </div>
+      </Provider>
     );
   }
 }

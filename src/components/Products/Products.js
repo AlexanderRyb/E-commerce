@@ -1,65 +1,55 @@
 import "./styles.css";
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { addToCart } from "../../my-redux/actions";
 
-class Products extends Component {
-  constructor() {
-    super();
-    this.state = {
-      cart: [],
-      search: [],
-    };
-  }
-  componentDidMount() {
-    var retrievedData = localStorage.getItem("data");
-    retrievedData = JSON.parse(retrievedData);
-
-    if (retrievedData) {
-      this.setState({ cart: retrievedData });
-    }
-  }
-
-  componentDidUpdate() {
-    var stored = JSON.stringify(this.state.cart);
-    localStorage.setItem("data", stored);
-  }
-  addToCart(item) {
-    //checks if the item is already present in the cart. Only adds it if it's not.
-    let index = this.state.cart.findIndex(checkDuplicate);
-    function checkDuplicate(x) {
-      return x.id === item.id;
-    }
-
-    if (index == -1) {
-      this.setState({ cart: [...this.state.cart, item] });
-
-      console.log("not a duplicate");
-    } else {
-      //item is already in the cart
-      this.setState({ cart: [...this.state.cart] });
-
-      console.log("duplicate!");
-    }
-  }
-
+export class Products extends Component {
+ 
   render() {
-    const renderSearchResult = this.props.parentState.search.map(
-      (searchedItem) => (
-        <div key={searchedItem.id} className="product-card">
-          {searchedItem.title}
-          <img
-            src={searchedItem.image}
-            alt={`Preview of ${searchedItem.title}`}
-          />
-          <p className="description">{searchedItem.description}</p>
-          <p className="price">{searchedItem.price} ₴</p>
-          <button onClick={() => this.addToCart(searchedItem)}></button>
+  let cartItem="";
+  if(this.props.cart != null){
+    cartItem = this.props.cart.map((item)=>(
+      <div key={item.id}>
+        {item.id}
+      </div>
+    ))
+  }
+
+    
+    return (
+      <main>
+        {this.props.items.map(item => 
+        <div key={item.id} className='product-card'>
+          {item.title}
+       <img
+        src={item.image}
+         alt={`Preview of ${item.title}`}
+       />
+       <p className="description">{item.description}</p>
+    <p className="price">{item.price} ₴</p>
+  
+       <button onClick={() => this.props.addToCart(item)}></button>
+        
         </div>
-      )
+        
+        )}
+        {cartItem}
+      </main>
     );
-
-    return <main>
-
-      {renderSearchResult}</main>;
   }
 }
-export default Products;
+const mapStateToProps = state=> {
+  return {
+    cart: state.cart,
+    items: state.items
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: item => dispatch(addToCart(item))
+
+
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Products);

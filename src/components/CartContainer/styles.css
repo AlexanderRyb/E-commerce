@@ -21,7 +21,7 @@ form {
   width: 100%;
   display: flex;
 
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(219, 216, 216);
   padding: 20px 30px;
 }
 .item-cart-price {
@@ -86,6 +86,7 @@ form {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  border: 1px solid red;
 
  
 }
