@@ -63,6 +63,13 @@ const Reducer = (state = initialState, action) => {
       }
 
     case "SUBMIT":
+      let itemCount = state.cart.length
+      console.log(itemCount)
+      let cartSum = state.cart.reduce(function (total, item) {
+        return total + item.price * item.quantity;
+      }, 0);
+
+      alert('Ви купили '+itemCount+' товарів. До оплати '+cartSum+' гривень.')
       return {
         ...state,
         cart: [],
