@@ -4,12 +4,12 @@ import { connect } from "react-redux";
 import { removeFromCart } from "../../my-redux/actions";
 import { increment } from "../../my-redux/actions";
 import { decrement } from "../../my-redux/actions";
-
+import { submit } from "../../my-redux/actions";
 
 export class CartContainer extends Component {
   render() {
     let cartItem = "";
-    if (this.props.cart != null) {
+    if (this.props.cart) {
       cartItem = this.props.cart.map((item) => (
         <div className="cart-item-row" key={item.id}>
           <div className="image-block">
@@ -51,17 +51,22 @@ export class CartContainer extends Component {
         </div>
       ));
     }
-
-    return <main>{cartItem}
-    <div className="total-sum-block">Total sum - </div>
+    let cartSum = this.props.cart.reduce(function (total, item) {
+      return total + item.price * item.quantity;
+    }, 0);
+    return (
+      <main>
+        {cartItem}
+        <div className="total-sum-block">Total sum -{cartSum} </div>
         <button
           type="submit"
           className="submit-form-button"
-         
+          onClick={() => this.props.submit()}
         >
           Submit
         </button>
-    </main>;
+      </main>
+    );
   }
 }
 const mapStateToProps = (state) => {
@@ -74,6 +79,7 @@ const mapDispatchToProps = (dispatch) => {
     removeFromCart: (item) => dispatch(removeFromCart(item)),
     increment: (item) => dispatch(increment(item)),
     decrement: (item) => dispatch(decrement(item)),
+    submit: () => dispatch(submit()),
   };
 };
 

@@ -91,7 +91,8 @@ form {
  
 }
 .total-sum-block{
+  width: 100%;
   margin-top:30px;
- font: 14px Roboto, sans-serif;
+ font: 20px Roboto, sans-serif;
 
 }
