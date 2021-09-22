@@ -1,14 +1,3 @@
-export const changeText = () => {
-  return {
-    type: "CHANGE_TEXT",
-  };
-};
-
-export const changeBack = () => {
-  return {
-    type: "CHANGE_BACK",
-  };
-};
 export const addToCart = (item) => {
   return {
     type: "ADDTOCART",
