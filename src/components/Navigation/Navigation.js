@@ -5,6 +5,10 @@ import { connect } from "react-redux";
 import { search } from "../../my-redux/actions";
 export class Navigation extends Component {
   render() {
+    let numberOfItems = this.props.itemsInCart
+    if(numberOfItems==0){
+      numberOfItems = ""
+    }
     return (
       <header>
      
@@ -30,7 +34,7 @@ export class Navigation extends Component {
                        
           </div>
           <div className="cart-count">
-            {this.props.itemsInCart}
+            {numberOfItems}
             </div>
 
           </Link>
