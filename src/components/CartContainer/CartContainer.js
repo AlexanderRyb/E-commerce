@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./styles.css";
 import { connect } from "react-redux";
 import { removeFromCart } from "../../my-redux/actions";

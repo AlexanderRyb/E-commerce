@@ -6,7 +6,8 @@ import { search } from "../../my-redux/actions";
 export class Navigation extends Component {
   render() {
     let numberOfItems = this.props.itemsInCart
-    if(numberOfItems==0){
+    //if there are no items in the cart, 0 is not displayed
+    if(numberOfItems===0){
       numberOfItems = ""
     }
     return (
@@ -18,7 +19,9 @@ export class Navigation extends Component {
                        
                              }
                  ></input>
-            <Link className="shop-link" to="/">
+                 <div className="links">
+                   
+                 <Link className="shop-link" to="/">
             
             <div >
               Shop
@@ -38,6 +41,18 @@ export class Navigation extends Component {
             </div>
 
           </Link>
+          <Link className="sign-up-link">
+          <div>Sign Up</div>
+
+          </Link>
+          <Link className="log-in-link">
+          <div>
+            Log In
+          </div>
+          </Link>
+                 </div>
+            
+
         </div>
       </header>
     );

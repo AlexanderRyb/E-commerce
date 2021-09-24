@@ -3,32 +3,31 @@ import productList from "../components/Products/productList.json";
 const initialState = {
   items: productList,
   filteredItems: productList,
-  cart: [],
+  cart: []
 };
 const Reducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADDTOCART":
+      //checks if items is already in the cart
       let itemIndex = state.cart.findIndex(checkItemIndex);
       function checkItemIndex(item) {
-        return item.id == action.payload.id;
+        return item.id === action.payload.id;
       }
       if (itemIndex === -1) {
-        console.log(itemIndex);
-        console.log(" not duplicate");
+       
 
         return {
           ...state,
           cart: state.cart.concat(action.payload),
         };
       } else {
-        console.log("duplicate");
         return state;
       }
 
     case "REMOVE":
       return {
         ...state,
-        cart: state.cart.filter((id) => id !== action.id),
+        cart: state.cart.filter((id) => id !== action.id)
       };
     case "INCREMENT":
       const index = state.cart.findIndex(checkIndex);
@@ -63,6 +62,7 @@ const Reducer = (state = initialState, action) => {
       }
 
     case "SUBMIT":
+
       let itemCount = state.cart.length
       console.log(itemCount)
       let cartSum = state.cart.reduce(function (total, item) {

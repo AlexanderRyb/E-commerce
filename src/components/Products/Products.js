@@ -7,9 +7,7 @@ export class Products extends Component {
   render() {
     let searchResuts = [];
     if (this.props.filteredItems !== []) {
-      console.log("this");
-
-      console.log(this.props.filteredItems);
+     
       searchResuts = this.props.filteredItems.map((item) => (
         <div key={item.id} className="product-card">
           {item.title}
@@ -19,9 +17,8 @@ export class Products extends Component {
 
           <button onClick={() => this.props.addToCart(item)}></button>
         </div>
-      ));
+      ))
     } else {
-      console.log("that");
 
       searchResuts = this.props.items.map((item) => (
         <div key={item.id} className="product-card">
@@ -42,7 +39,7 @@ const mapStateToProps = (state) => {
   return {
     cart: state.cart,
     items: state.items,
-    filteredItems: state.filteredItems,
+    filteredItems: state.filteredItems
   };
 };
 const mapDispatchToProps = (dispatch) => {
