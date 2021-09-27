@@ -41,15 +41,11 @@ export class Navigation extends Component {
             </div>
 
           </Link>
-          <Link className="sign-up-link">
-          <div>Sign Up</div>
+          {/* <Link className="sign-up-link" to="/CreateAccount">
+          <div>Create Account</div>
 
-          </Link>
-          <Link className="log-in-link">
-          <div>
-            Log In
-          </div>
-          </Link>
+          </Link> */}
+          
                  </div>
             
 

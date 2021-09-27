@@ -90,6 +90,12 @@ const Reducer = (state = initialState, action) => {
           filteredItems: productList,
         };
       }
+      case "SUBMITREGISTRATION":
+       alert(action.payload)
+        return{
+          state
+        }
+
     default:
       return state;
   }

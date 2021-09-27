@@ -62,7 +62,7 @@ export  function CartContainer(props) {
     cartSum="The cart is empty"
   }
   else{
-    cartSum="total sum is "+cartSum
+    cartSum="Total sum:"+cartSum+"₴"
   }
 
 

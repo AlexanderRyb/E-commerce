@@ -33,3 +33,9 @@ export const search = (query) => {
     payload: query,
   };
 };
+export const submitRegistration = (data) =>{
+  return {
+    type: "SUBMITREGISTRATION",
+    payload: data
+  }
+}
