@@ -19,16 +19,23 @@ form {
 }
 .cart-item-row {
   width: 100%;
+  height: 100px;
   display: flex;
+  padding-bottom: 10px;
+  padding-top: 10px;
+
 
   border-bottom: 1px solid rgb(219, 216, 216);
-  padding: 20px 30px;
+  
 }
 .item-cart-price {
   font-size: 22px;
 }
 .image-block {
-  width: 10%;
+  width: 5%;
+  height: 100%;
+}
+.mini-image{
   height: 100%;
 }
 .information-block {
@@ -37,7 +44,7 @@ form {
 .description-block {
   width: 100%;
   display: flex;
-  font: 14px Roboto, sans-serif;
+  font: 18px Roboto, sans-serif;
   margin-bottom: 10px;
 }
 .price-block {
