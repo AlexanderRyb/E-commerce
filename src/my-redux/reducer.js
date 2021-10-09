@@ -3,7 +3,11 @@ import productList from "../components/Products/productList.json";
 const initialState = {
   items: productList,
   filteredItems: productList,
-  cart: []
+  wishList: [],
+  cart: [],
+  users: []
+  
+  
 };
 const Reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -90,11 +94,26 @@ const Reducer = (state = initialState, action) => {
           filteredItems: productList,
         };
       }
-      case "SUBMITREGISTRATION":
-       alert(action.payload)
+      case "ADDTOWISHLIST":
+
         return{
-          state
+          ...state, 
+          wishList: state.wishList.concat(action.payload)
         }
+        
+        
+      // case "SUBMITREGISTRATION":
+      //   console.log(state.users)
+      //   let newProfile = {
+      //     userName: action.name, 
+      //     userPassword: action.password
+      //   }
+      //   return  {
+      //     ...state,
+      //     users: state.users.concat(newProfile)
+          
+      //   }
+        
 
     default:
       return state;

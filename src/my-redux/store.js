@@ -20,7 +20,8 @@ export const saveState = (state) => {
   }
 };
 const persistedStore = loadState();
-const store = createStore(Reducer, persistedStore);
+const store = createStore(Reducer, persistedStore,
+  );
 
 store.subscribe(() => {
   saveState(store.getState());

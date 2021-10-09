@@ -66,16 +66,15 @@ form {
   color: white;
 }
 .searchbar{
-  height: 60%;
+  height: 100%;
   width: 300px;
   border-radius: 5px;
   border-style: none;
-
 }
 textarea:focus, input:focus{
   outline: none;
 }
-.shop-link, .cart-link, .sign-up-link, .log-in-link{
+.shop-link, .cart-link, .sign-up-link, .log-in-link, .wishlist-link{
   width: 200px;
   height: 100%;
   margin: 0;
@@ -94,7 +93,7 @@ textarea:focus, input:focus{
   align-items: center;
 
 }
-.shop-link:hover, .cart-link:hover, .sign-up-link:hover,.log-in-link:hover {
+.shop-link:hover, .cart-link:hover, .wishlist-link:hover {
   background-color: #667583fd;
 
 }
@@ -102,5 +101,26 @@ textarea:focus, input:focus{
   font-size: 17px;
   margin-left: -40px;
 
+
+}
+.custom-search-botton {
+  height: 35px;
+  position: absolute;
+  right: -4px; 
+  top: 0px;
+  bottom: 3px;
+  border: 0;
+  color: black;
+  outline: none;
+  margin: 0;
+  padding: 0 10px;
+  z-index: 2;
+}
+.search-block{
+  position: relative;
+  height: 60%;
+  width: 300px;
+  border-radius: 5px;
+  border-style: none;
 
 }

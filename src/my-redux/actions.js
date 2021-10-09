@@ -33,9 +33,16 @@ export const search = (query) => {
     payload: query,
   };
 };
-export const submitRegistration = (data) =>{
+export const submitRegistration = (name, password) =>{
   return {
     type: "SUBMITREGISTRATION",
-    payload: data
+    name: name,
+    password: password
+  }
+}
+export const addToWishList = (item) =>  {
+  return {
+    type: "ADDTOWISHLIST",
+    payload: item
   }
 }

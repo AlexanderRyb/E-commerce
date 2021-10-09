@@ -6,9 +6,9 @@ import CartContainer  from "./components/CartContainer/CartContainer";
 import Products from "./components/Products/Products";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import React, { Component } from "react";
-import CreateAccount from "./components/CreateAccount/CreateAccount";
+//import CreateAccount from "./components/CreateAccount/CreateAccount";
 import Login from "./components/Login/Login";
-
+import Wishlist from "./components/Wishlist/Wishlist";
 
 
 export class App extends Component {
@@ -31,17 +31,17 @@ export class App extends Component {
             path="/cart"
             render={() => <CartContainer parentState={this.state} />}
           />
-          <Route
-          path="/CreateAccount"
-          render={() => <CreateAccount  />}
-
-          />
+         
           <Route
           path="/login"
           render={() => <Login  />}
 
           />
-           
+            <Route
+          path="/wishlist"
+          render={() => <Wishlist  />}
+
+          />
 
           
        

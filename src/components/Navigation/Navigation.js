@@ -14,11 +14,18 @@ export class Navigation extends Component {
       <header>
      
         <div className="navPanel">
-                <input className="searchbar"
+          <div className="search-block">
+          <input className="searchbar"
                       onChange={(e) => this.props.search(e.target.value)
                        
                              }
-                 ></input>
+                 >
+
+                 </input>
+          <button class="custom-search-botton" type="submit">search</button>  
+
+          </div>
+              
                  <div className="links">
                    
                  <Link className="shop-link" to="/">
@@ -41,10 +48,10 @@ export class Navigation extends Component {
             </div>
 
           </Link>
-          {/* <Link className="sign-up-link" to="/CreateAccount">
-          <div>Create Account</div>
-
-          </Link> */}
+          <Link className="wishlist-link" to="/wishlist">
+          <div>Wishlist</div>
+          </Link>
+       
           
                  </div>
             
