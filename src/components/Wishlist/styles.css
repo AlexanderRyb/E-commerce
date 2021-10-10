@@ -1,0 +1,13 @@
+.wishlist-button{
+    height: 40px;
+    border: none;
+  }
+  .wishlist-product-card{
+    display:flex;
+  width: 50%;
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+  }
+  .wishlist-product-card>img{
+    width: 60px;
+  }

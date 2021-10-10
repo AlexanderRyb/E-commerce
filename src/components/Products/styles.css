@@ -42,17 +42,18 @@ main{
 }
 
 .cart-button{
-  background-color: #e31837;
-  background-image: url(shopping-cart.svg);
-  background-size: 60%;
-  background-position: center;
-  background-repeat: no-repeat;
   color: white;
   border-style: none;
   border-radius: 5px;
   padding: 0;
   width: 42px;
   height: 42px
+}
+.svg{
+  background-image: url(shoppingCartAlt.svg);
+  width: 100%;
+  height: 100%;
+
 }
 
 button:hover{
@@ -87,8 +88,4 @@ border-radius: 5px;
 
 .cart-description{
   flex-grow: 1;
-}
-.wishlist-button{
-  height: 40px;
-  border: none;
 }

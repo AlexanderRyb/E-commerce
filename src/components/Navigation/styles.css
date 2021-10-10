@@ -57,14 +57,7 @@ form {
   color: white;
   text-decoration: none;
 }
-.cart-button{
-  background-image: url("/src/components/Products/shopping-cart.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-.cart-text{
-  color: white;
-}
+
 .searchbar{
   height: 100%;
   width: 300px;
