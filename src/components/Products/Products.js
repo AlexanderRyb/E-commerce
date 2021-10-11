@@ -18,7 +18,6 @@ export class Products extends Component {
         
           <button onClick={()=> this.props.addToWishList(item)} className="wishlist-button" >wishlist</button>
           <button onClick={() => this.props.addToCart(item)} className="cart-button">
-            <img src="shoppingCartAlt" alt="okay" className="svg"></img>
           </button>
         </div>
       ))
