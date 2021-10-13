@@ -88,3 +88,8 @@ button:hover {
 .cart-description {
   flex-grow: 1;
 }
+.wishlist-button{
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+}
