@@ -33,16 +33,22 @@ export const search = (query) => {
     payload: query,
   };
 };
-export const submitRegistration = (name, password) =>{
+export const submitRegistration = (name, password) => {
   return {
     type: "SUBMITREGISTRATION",
     name: name,
-    password: password
-  }
-}
-export const addToWishList = (item) =>  {
+    password: password,
+  };
+};
+export const addToWishList = (item) => {
   return {
     type: "ADDTOWISHLIST",
-    payload: item
-  }
-}
+    payload: item,
+  };
+};
+export const removeFromWishlist = (id) => {
+  return {
+    type: "REMOVEFROMWISHLIST",
+    id,
+  };
+};

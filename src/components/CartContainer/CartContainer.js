@@ -6,11 +6,7 @@ import { increment } from "../../my-redux/actions";
 import { decrement } from "../../my-redux/actions";
 import { submit } from "../../my-redux/actions";
 
-
-
-
-export  function CartContainer(props) {
-
+export function CartContainer(props) {
   let cartItem = "";
   if (props.cart) {
     cartItem = props.cart.map((item) => (
@@ -56,33 +52,27 @@ export  function CartContainer(props) {
   }
   let cartSum = props.cart.reduce(function (total, item) {
     return total + item.price * item.quantity;
-    
   }, 0);
-  if (cartSum<1){
-    cartSum="The cart is empty"
+  if (cartSum < 1) {
+    cartSum = "The cart is empty";
+  } else {
+    cartSum = "Total sum:" + cartSum + "₴";
   }
-  else{
-    cartSum="Total sum:"+cartSum+"₴"
-  }
-
 
   return (
-   
     <main>
-    {cartItem}
-    <div className="total-sum-block">{cartSum} </div>
-    <button
-      type="submit"
-      className="submit-form-button"
-      onClick={() => props.submit()}
-    >
-      Submit
-    </button>
-  </main>
-
-  )
+      {cartItem}
+      <div className="total-sum-block">{cartSum} </div>
+      <button
+        type="submit"
+        className="submit-form-button"
+        onClick={() => props.submit()}
+      >
+        Submit
+      </button>
+    </main>
+  );
 }
-
 
 const mapStateToProps = (state) => {
   return {

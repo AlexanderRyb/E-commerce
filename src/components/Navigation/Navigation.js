@@ -5,76 +5,55 @@ import { connect } from "react-redux";
 import { search } from "../../my-redux/actions";
 export class Navigation extends Component {
   render() {
-    let numberOfItems = this.props.itemsInCart
+    let numberOfCartItems = this.props.itemsInCart;
+    let numberOfWishlistItems = this.props.itemsInWishlist;
     //if there are no items in the cart, 0 is not displayed
-    if(numberOfItems===0){
-      numberOfItems = ""
+    if (numberOfCartItems === 0) {
+      numberOfCartItems = "";
+    }
+    if (numberOfWishlistItems === 0) {
+      numberOfWishlistItems = "";
     }
     return (
       <header>
-     
         <div className="navPanel">
           <div className="search-block">
-          <input className="searchbar"
-                      onChange={(e) => this.props.search(e.target.value)
-                       
-                             }
-                 >
-
-                 </input>
-          <button class="custom-search-botton" type="submit">search</button>  
-
+            <input
+              className="searchbar"
+              placeholder="search..."
+              onChange={(e) => this.props.search(e.target.value)}
+            ></input>
           </div>
-              
-                 <div className="links">
-                   
-                 <Link className="shop-link" to="/">
-            
-            <div >
-              Shop
-              </div>
 
-
+          <div className="links">
+            <Link className="shop-link" to="/">
+              <div>Shop</div>
             </Link>
-         
-           
-          <Link  className="cart-link" to="/Cart">
-          <div>
-            Cart 
-                       
+
+            <Link className="cart-link" to="/Cart">
+              <div>Cart</div>
+              <div className="cart-count">{numberOfCartItems}</div>
+            </Link>
+            <Link className="wishlist-link" to="/wishlist">
+              <div>Wishlist</div>
+              <div className="wishlist-count">{numberOfWishlistItems}</div>
+            </Link>
           </div>
-          <div className="cart-count">
-            {numberOfItems}
-            </div>
-
-          </Link>
-          <Link className="wishlist-link" to="/wishlist">
-          <div>Wishlist</div>
-          </Link>
-       
-          
-                 </div>
-            
-
         </div>
       </header>
     );
   }
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-itemsInCart: state.cart.length
-  }
-}
-const mapDispatchToProps  = dispatch => {
+    itemsInCart: state.cart.length,
+    itemsInWishlist: state.wishList.length,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
   return {
     search: (query) => dispatch(search(query)),
- 
+  };
+};
 
-  }
-}
-
-
-export default connect (mapStateToProps,
-  mapDispatchToProps
-  ) (Navigation)
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

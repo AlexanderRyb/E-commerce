@@ -5,9 +5,7 @@ const initialState = {
   filteredItems: productList,
   wishList: [],
   cart: [],
-  users: []
-  
-  
+  users: [],
 };
 const Reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -18,8 +16,6 @@ const Reducer = (state = initialState, action) => {
         return item.id === action.payload.id;
       }
       if (itemIndex === -1) {
-       
-
         return {
           ...state,
           cart: state.cart.concat(action.payload),
@@ -31,7 +27,7 @@ const Reducer = (state = initialState, action) => {
     case "REMOVE":
       return {
         ...state,
-        cart: state.cart.filter((id) => id !== action.id)
+        cart: state.cart.filter((id) => id !== action.id),
       };
     case "INCREMENT":
       const index = state.cart.findIndex(checkIndex);
@@ -66,14 +62,19 @@ const Reducer = (state = initialState, action) => {
       }
 
     case "SUBMIT":
-
-      let itemCount = state.cart.length
-      console.log(itemCount)
+      let itemCount = state.cart.length;
+      console.log(itemCount);
       let cartSum = state.cart.reduce(function (total, item) {
         return total + item.price * item.quantity;
       }, 0);
 
-      alert('Ви купили '+itemCount+' товарів. До оплати '+cartSum+' гривень.')
+      alert(
+        "Ви купили " +
+          itemCount +
+          " товарів. До оплати " +
+          cartSum +
+          " гривень."
+      );
       return {
         ...state,
         cart: [],
@@ -94,26 +95,38 @@ const Reducer = (state = initialState, action) => {
           filteredItems: productList,
         };
       }
-      case "ADDTOWISHLIST":
+    case "ADDTOWISHLIST":
+      let wishlistItemIndex = state.wishList.findIndex(checkWishlistItemIndex);
+      function checkWishlistItemIndex(item) {
+        return item.id === action.payload.id;
+      }
+      if (wishlistItemIndex === -1) {
+        return {
+          ...state,
+          wishList: state.wishList.concat(action.payload),
+        };
+      } else {
+        return state;
+      }
 
-        return{
-          ...state, 
-          wishList: state.wishList.concat(action.payload)
-        }
-        
-        
-      // case "SUBMITREGISTRATION":
-      //   console.log(state.users)
-      //   let newProfile = {
-      //     userName: action.name, 
-      //     userPassword: action.password
-      //   }
-      //   return  {
-      //     ...state,
-      //     users: state.users.concat(newProfile)
-          
-      //   }
-        
+    case "REMOVEFROMWISHLIST":
+      console.log("remove");
+      return {
+        ...state,
+        wishList: state.wishList.filter((id) => id !== action.id),
+      };
+
+    // case "SUBMITREGISTRATION":
+    //   console.log(state.users)
+    //   let newProfile = {
+    //     userName: action.name,
+    //     userPassword: action.password
+    //   }
+    //   return  {
+    //     ...state,
+    //     users: state.users.concat(newProfile)
+
+    //   }
 
     default:
       return state;

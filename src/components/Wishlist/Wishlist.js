@@ -1,46 +1,45 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import { connect } from "react-redux";
+import { removeFromWishlist } from "../../my-redux/actions";
+import { addToCart } from "../../my-redux/actions";
+
 import "./styles.css";
 
-
-
 class Wishlist extends Component {
-    render() {     
+  render() {
+    let listOfWishedItems = [];
+    console.log(this.props.wishList);
+    listOfWishedItems = this.props.wishList.map((item) => (
+      <div key={item.id} className="wishlist-product-card">
+        {item.title}
+        <img src={item.image} alt={`Preview of ${item.title}`} />
+        <p className="description">{item.description}</p>
+        <p className="price">{item.price} ₴</p>
+        <button
+          onClick={() => this.props.addToCart(item)}
+          className="cart-button"
+        ></button>
+        <button
+          className="remove-item"
+          onClick={() => this.props.removeFromWishlist(item)}
+        ></button>
+      </div>
+    ));
 
-        let listOfWishedItems = [];
-        console.log(this.props.wishList)
-        listOfWishedItems = this.props.wishList.map((item) => (
-          <div key={item.id} className="wishlist-product-card">
-            {item.title}
-            <img src={item.image} alt={`Preview of ${item.title}`} />
-            <p className="description">{item.description}</p>
-            <p className="price">{item.price} ₴</p>
-            <button onClick={() => this.props.addToCart(item)} className="cart-button"></button>
-          
-
-          </div>
-        ))
-      
-
-        return (
-            <div>
-                {listOfWishedItems}
-            </div>
-        )
-    }
+    return <div className="wishlist-container">{listOfWishedItems}</div>;
+  }
 }
 const mapStateToProps = (state) => {
-    return {
-      wishList: state.wishList,
-      filteredItems: state.filteredItems
-    
-    };
+  return {
+    wishList: state.wishList,
+    filteredItems: state.filteredItems,
   };
-  const mapDispatchToProps = (dispatch) => {
-    return {
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (item) => dispatch(addToCart(item)),
+    removeFromWishlist: (item) => dispatch(removeFromWishlist(item)),
+  };
+};
 
-    };
-  };
-  
-  export default connect(mapStateToProps, mapDispatchToProps)(Wishlist);
-  
+export default connect(mapStateToProps, mapDispatchToProps)(Wishlist);

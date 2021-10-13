@@ -1,13 +1,15 @@
-.wishlist-button{
-    height: 40px;
-    border: none;
-  }
-  .wishlist-product-card{
-    display:flex;
+.wishlist-product-card {
+  display: flex;
   width: 50%;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(197, 189, 189);
   margin-bottom: 10px;
-  }
-  .wishlist-product-card>img{
-    width: 60px;
-  }
+}
+.wishlist-product-card > .cart-button {
+  margin-right: 10px;
+}
+.wishlist-product-card > img {
+  width: 60px;
+}
+.wishlist-container {
+  margin-top: 50px;
+}

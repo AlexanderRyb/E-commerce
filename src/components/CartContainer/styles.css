@@ -27,9 +27,7 @@ form {
   padding-bottom: 10px;
   padding-top: 10px;
 
-
   border-bottom: 1px solid rgb(219, 216, 216);
-  
 }
 .item-cart-price {
   font-size: 22px;
@@ -39,7 +37,7 @@ form {
   width: 7%;
   height: 100%;
 }
-.mini-image{
+.mini-image {
   height: 100%;
 }
 .information-block {
@@ -73,7 +71,7 @@ form {
 }
 
 .plus-button {
-    margin: 0;
+  margin: 0;
 
   border: none;
   background-color: white;
@@ -82,7 +80,7 @@ form {
   border-right: 1px solid rgb(238, 234, 234);
 }
 .minus-button {
-    margin: 0;
+  margin: 0;
   border: none;
   height: 100%;
   width: 25%;
@@ -94,17 +92,14 @@ form {
 .item-quantity {
   margin-top: 7px;
 }
-.main-cart{
+.main-cart {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   border: 1px solid red;
-
- 
 }
-.total-sum-block{
+.total-sum-block {
   width: 100%;
-  margin-top:30px;
- font: 22px Kameron;
-
+  margin-top: 30px;
+  font: 22px Kameron;
 }
