@@ -86,7 +86,7 @@ const Reducer = (state = initialState, action) => {
         return {
           ...state,
           filteredItems: productList.filter((item) =>
-            item.description.includes(action.payload)
+            item.description.toLowerCase().includes(action.payload)
           ),
         };
       } else {
