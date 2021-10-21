@@ -30,10 +30,10 @@ main {
 }
 .description {
   width: 100%;
-  font: 14px Roboto, sans-serif;
+  font: 16px Roboto, sans-serif;
 }
 .price {
-  width: 30%;
+  width: 35%;
   color: #444;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;

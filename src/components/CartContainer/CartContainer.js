@@ -61,6 +61,11 @@ export function CartContainer(props) {
 
   return (
     <main>
+      <form id="cart-form">
+<div>data form</div>
+      </form>
+      <div className="cart-container">
+
       {cartItem}
       <div className="total-sum-block">{cartSum} </div>
       <button
@@ -70,6 +75,8 @@ export function CartContainer(props) {
       >
         Submit
       </button>
+      </div>
+
     </main>
   );
 }
