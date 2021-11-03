@@ -107,3 +107,23 @@ form {
   margin-top: 30px;
   font: 22px Kameron;
 }
+#cart-form{
+  width: 500px;
+  border: 1px solid red;
+  display: block;
+ padding: 20px
+
+
+}
+#cart-form>input{
+  border: none;
+  border-bottom: 1px solid grey;
+  width: 50%;
+}
+#cart-form>label{
+  font-size: 20px;
+  width: 100px;
+  display:inline-block
+
+
+}
