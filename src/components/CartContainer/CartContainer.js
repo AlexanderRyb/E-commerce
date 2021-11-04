@@ -60,7 +60,7 @@ export function CartContainer(props) {
   }
 
   return (
-    <main>
+    <main className="cart-container">
       <form id="cart-form">
 <label htmlFor="customer-name">Name</label>
 <input id="customer-name" className="form-input"></input>
@@ -80,7 +80,8 @@ export function CartContainer(props) {
 
 
       </form>
-      <div className="cart-container">
+
+      <div className="cart-products-container">
 
       {cartItem}
       <div className="total-sum-block">{cartSum} </div>
