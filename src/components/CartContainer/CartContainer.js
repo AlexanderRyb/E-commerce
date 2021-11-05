@@ -56,7 +56,7 @@ export function CartContainer(props) {
   if (cartSum < 1) {
     cartSum = "The cart is empty";
   } else {
-    cartSum = "Total sum:" + cartSum + "₴";
+    cartSum = cartSum + "₴";
   }
 
   return (
@@ -84,7 +84,12 @@ export function CartContainer(props) {
       <div className="cart-products-container">
 
       {cartItem}
-      <div className="total-sum-block">{cartSum} </div>
+      <div className="total-sum-block">
+        <div className="cart-sum-text">Total sum:</div>        
+        <div className="cart-sum-number">
+        {cartSum}
+        </div>
+         </div>
       <button
         type="submit"
         className="submit-form-button"
