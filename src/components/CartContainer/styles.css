@@ -14,6 +14,7 @@ form {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 10px;
   background-color: #265a88;
   width: 200px;
   height: 50px;
@@ -137,7 +138,7 @@ form {
 }
 #cart-form>label{
   font-size: 20px;
-  width: 100px;
+  width: 150px;
   display:inline-block
 
 
