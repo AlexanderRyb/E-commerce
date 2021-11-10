@@ -65,7 +65,7 @@ export function CartContainer(props) {
 <label htmlFor="customer-name">Name</label>
 <input id="customer-name" className="form-input"></input>
 <br/>
-<label htmlFor="customer-surname">second name</label>
+<label htmlFor="customer-surname">Second name</label>
 <input htmlFor="customer-surname" className="form-input"></input>
 <br/>
 
