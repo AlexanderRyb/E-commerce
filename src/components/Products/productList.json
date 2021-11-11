@@ -190,5 +190,21 @@
     "image": "/images/nokia.jpg",
     "category": "phone",
     "quantity": 1
+  },
+  {
+    "id": "25",
+    "description": "Apple MacBook Air 2018 Gold",
+    "price": 12000,
+    "image": "/images/macBook.jpg",
+    "category": "notebook",
+    "quantity": 1
+  },
+  {
+    "id": "26",
+    "description": "Ноутбук Dell Vostro 3400",
+    "price": 20000,
+    "image": "/images/Vostro.jpg",
+    "category": "notebook",
+    "quantity": 1
   }
 ]
