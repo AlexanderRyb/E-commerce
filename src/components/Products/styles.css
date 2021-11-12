@@ -75,15 +75,7 @@ button:hover {
   font-size: 18px;
   font-weight: 400;
 }
-.remove-item {
-  width: 20px;
-  height: 20px;
-  background-image: url(remove.svg);
-  border-style: none;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 5px;
-}
+
 
 .cart-description {
   flex-grow: 1;
