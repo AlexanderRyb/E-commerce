@@ -3,7 +3,7 @@
 }
 
 .navPanel {
-  background-color: #3f4e5d;
+  background-color: #404040;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -42,7 +42,6 @@ form {
   height: 90%;
   width: 5%;
   border-style: none;
-  background-image: url("search.png");
   background-size: 90%;
   background-repeat: no-repeat;
 }

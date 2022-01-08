@@ -3,8 +3,14 @@ import "./styles.css";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { search } from "../../my-redux/actions";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
+
+
 export class Navigation extends Component {
+  
   render() {
+
     let numberOfCartItems = this.props.itemsInCart;
     let numberOfWishlistItems = this.props.itemsInWishlist;
     //if there are no items in the cart, 0 is not displayed
@@ -35,7 +41,7 @@ export class Navigation extends Component {
               <div className="cart-count">{numberOfCartItems}</div>
             </Link>
             <Link className="wishlist-link" to="/wishlist">
-              <div>Wishlist</div>
+              <FontAwesomeIcon icon={faHeart} />
               <div className="wishlist-count">{numberOfWishlistItems}</div>
             </Link>
           </div>
