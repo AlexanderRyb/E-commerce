@@ -3,9 +3,8 @@ import "./styles.css";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { search } from "../../my-redux/actions";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
-
+import {ReactComponent as Wishlist} from './heart.svg'
+import {ReactComponent as Cart} from './cart.svg'
 
 export class Navigation extends Component {
   
@@ -37,11 +36,11 @@ export class Navigation extends Component {
             </Link>
 
             <Link className="cart-link" to="/Cart">
-              <div>Cart</div>
+              <Cart fill="white" width={25} />
               <div className="cart-count">{numberOfCartItems}</div>
             </Link>
             <Link className="wishlist-link" to="/wishlist">
-              <FontAwesomeIcon icon={faHeart} />
+             <Wishlist fill="white" width={25} />
               <div className="wishlist-count">{numberOfWishlistItems}</div>
             </Link>
           </div>

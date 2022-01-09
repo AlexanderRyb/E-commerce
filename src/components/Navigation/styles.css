@@ -66,6 +66,7 @@ textarea:focus,
 input:focus {
   outline: none;
 }
+
 .shop-link,
 .cart-link,
 .sign-up-link,
@@ -121,4 +122,12 @@ input:focus {
   width: 300px;
   border-radius: 5px;
   border-style: none;
+}
+img{
+  color: tomato;
+  fill: #ffffff;
+
+}
+div svg path {
+  stroke-width: 93px;
 }
