@@ -36,11 +36,20 @@ export class Navigation extends Component {
             </Link>
 
             <Link className="cart-link" to="/Cart">
-              <Cart fill="white" width={25} />
+              <Cart fill="white" width={25} className="nav-icon" />
               <div className="cart-count">{numberOfCartItems}</div>
             </Link>
             <Link className="wishlist-link" to="/wishlist">
-             <Wishlist fill="white" width={25} />
+             <Wishlist 
+             className="nav-icon"
+             fill="white"
+
+
+             width={25}
+             >
+
+               
+               </Wishlist>
               <div className="wishlist-count">{numberOfWishlistItems}</div>
             </Link>
           </div>
