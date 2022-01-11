@@ -3,11 +3,11 @@ import "./styles.css";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { search } from "../../my-redux/actions";
-import {ReactComponent as Wishlist} from './heart.svg'
-import {ReactComponent as Cart} from './cart.svg'
+import { ReactComponent as Wishlist } from "./heart.svg";
+import { ReactComponent as Cart } from "./cart.svg";
+import { ReactComponent as Grid } from "./grid.svg";
 
 export class Navigation extends Component {
-  
   render() {
     let numberOfCartItems = this.props.itemsInCart;
     let numberOfWishlistItems = this.props.itemsInWishlist;
@@ -16,12 +16,10 @@ export class Navigation extends Component {
 
     //if there are no items in the cart, 0 is not displayed
     if (numberOfCartItems === 0) {
-      
       cartEmpty = true;
     }
     if (numberOfWishlistItems === 0) {
       wishlistEmpty = true;
-
     }
     return (
       <header>
@@ -36,25 +34,23 @@ export class Navigation extends Component {
 
           <div className="links">
             <Link className="shop-link" to="/">
-              <div>Shop</div>
+              <Grid fill="white" width={25} className="nav-icon" id="shop-icon"></Grid>
             </Link>
 
             <Link className="cart-link" to="/Cart">
               <Cart fill="white" width={25} className="nav-icon" />
-              <div id="cart-count" className={cartEmpty? "hidden": null} >{numberOfCartItems}</div>
+              <div id="cart-count" className={cartEmpty ? "hidden" : null}>
+                {numberOfCartItems}
+              </div>
             </Link>
             <Link className="wishlist-link" to="/wishlist">
-             <Wishlist 
-             className="nav-icon"
-             fill="white"
-
-
-             width={25}
-             >
-
-               
-               </Wishlist>
-              <div id="wishlist-count" className={wishlistEmpty? "hidden" : null} >{numberOfWishlistItems}</div>
+              <Wishlist className="nav-icon" fill="white" width={25}></Wishlist>
+              <div
+                id="wishlist-count"
+                className={wishlistEmpty ? "hidden" : null}
+              >
+                {numberOfWishlistItems}
+              </div>
             </Link>
           </div>
         </div>

@@ -1,6 +1,10 @@
 * {
   margin: 0 auto;
 }
+header{
+  position: sticky;
+  top: 0;
+}
 
 .navPanel {
   background-color: #404040;
@@ -11,15 +15,13 @@
   align-items: center;
   justify-content: flex-end;
   vertical-align: middle;
-
-  box-shadow: 0 0 10px rgb(0 0 0 / 7%);
-
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   height: 55px;
   color: white;
 }
 .links {
   width: 70%;
-  height: 100%;
+  height: 70%;
   justify-content: flex-end;
   margin: 0;
   display: flex;
@@ -86,19 +88,24 @@ input:focus {
   align-content: center;
   flex-direction: column;
 }
+.shop-link{
+  border-left: 1px solid white;
+  
 
+}
 .cart-link{
   border-right: 1px solid white;
   border-left: 1px solid white;
 
 }
 .cart-link,
-.wishlist-link {
+.wishlist-link,
+.shop-link {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
-  height: 50%;
+  height: 100%;
 }
 
 #wishlist-count, #cart-count {
@@ -139,15 +146,18 @@ input:focus {
 }
 
 .nav-icon{
-  margin: 0;
-  padding: 5px;
+  margin: 0 ;
+  padding: 7px;
   border-radius: 3px;  
   display: inline;
-  float: left;
+
 }
 .nav-icon:hover{
   background-color: #565656;
 }
 .hidden{
   display: none;
+}
+#shop-icon{
+  margin: auto
 }
