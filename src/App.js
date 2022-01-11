@@ -7,6 +7,7 @@ import Products from "./components/Products/Products";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import React, { Component } from "react";
 import Wishlist from "./components/Wishlist/Wishlist";
+import Categories from "./components/Categories/Categories";
 
 export class App extends Component {
   render() {
@@ -15,6 +16,7 @@ export class App extends Component {
         <div>
           <Router>
             <Navigation cart={this.cart} dataSearch={this.dataSearch} />
+            <Categories></Categories>
             <Route path="/" exact render={() => <Products />} />
 
             <Route

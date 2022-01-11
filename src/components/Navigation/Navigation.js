@@ -33,17 +33,22 @@ export class Navigation extends Component {
           </div>
 
           <div className="links">
-            <Link className="shop-link" to="/">
-              <Grid fill="white" width={25} className="nav-icon" id="shop-icon"></Grid>
+            <div className="shop-link">
+            <Link  to="/">
+              <Grid fill="white" width={25} className="nav-icon" id="shop-icon" to="/"></Grid>
             </Link>
-
-            <Link className="cart-link" to="/Cart">
+            </div>
+   <div className="cart-link">
+   <Link  to="/Cart">
               <Cart fill="white" width={25} className="nav-icon" />
               <div id="cart-count" className={cartEmpty ? "hidden" : null}>
                 {numberOfCartItems}
               </div>
             </Link>
-            <Link className="wishlist-link" to="/wishlist">
+   </div>
+
+   <div className="wishlist-link">
+   <Link  to="/wishlist">
               <Wishlist className="nav-icon" fill="white" width={25}></Wishlist>
               <div
                 id="wishlist-count"
@@ -52,6 +57,11 @@ export class Navigation extends Component {
                 {numberOfWishlistItems}
               </div>
             </Link>
+
+   </div>
+
+         
+      
           </div>
         </div>
       </header>

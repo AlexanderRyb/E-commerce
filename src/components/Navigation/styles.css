@@ -15,7 +15,8 @@ header{
   align-items: center;
   justify-content: flex-end;
   vertical-align: middle;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   height: 55px;
   color: white;
 }
@@ -111,18 +112,20 @@ input:focus {
 #wishlist-count, #cart-count {
   margin: 0;
   float: left;
-  font-size: 14px;
+  font-size: 12px;
+  font: Arial, Helvetica;
   width: 10px;
   height: 10px;
   line-height: 10px;
+  color: white;
   padding: 5px;
   background-color: #E31837;
   border-radius: 20px;
   text-align: center;
-  font-weight: 500;
+  font-weight: 600;
   position: relative;
-  left: -10px;
-  top: -10px;
+  left: 15px;
+  top: -5px;
 }
 .custom-search-botton {
   height: 35px;
