@@ -9,15 +9,19 @@ import {ReactComponent as Cart} from './cart.svg'
 export class Navigation extends Component {
   
   render() {
-
     let numberOfCartItems = this.props.itemsInCart;
     let numberOfWishlistItems = this.props.itemsInWishlist;
+    let cartEmpty = false;
+    let wishlistEmpty = false;
+
     //if there are no items in the cart, 0 is not displayed
     if (numberOfCartItems === 0) {
-      numberOfCartItems = "";
+      
+      cartEmpty = true;
     }
     if (numberOfWishlistItems === 0) {
-      numberOfWishlistItems = "";
+      wishlistEmpty = true;
+
     }
     return (
       <header>
@@ -37,7 +41,7 @@ export class Navigation extends Component {
 
             <Link className="cart-link" to="/Cart">
               <Cart fill="white" width={25} className="nav-icon" />
-              <div className="cart-count">{numberOfCartItems}</div>
+              <div id="cart-count" className={cartEmpty? "hidden": null} >{numberOfCartItems}</div>
             </Link>
             <Link className="wishlist-link" to="/wishlist">
              <Wishlist 
@@ -50,7 +54,7 @@ export class Navigation extends Component {
 
                
                </Wishlist>
-              <div className="wishlist-count">{numberOfWishlistItems}</div>
+              <div id="wishlist-count" className={wishlistEmpty? "hidden" : null} >{numberOfWishlistItems}</div>
             </Link>
           </div>
         </div>

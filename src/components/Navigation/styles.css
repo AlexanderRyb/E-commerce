@@ -10,6 +10,8 @@
   margin: 0 auto;
   align-items: center;
   justify-content: flex-end;
+  vertical-align: middle;
+
   box-shadow: 0 0 10px rgb(0 0 0 / 7%);
 
   height: 55px;
@@ -21,6 +23,9 @@
   justify-content: flex-end;
   margin: 0;
   display: flex;
+  align-items: center;
+  vertical-align: middle;
+
 }
 form {
   width: 40%;
@@ -82,17 +87,22 @@ input:focus {
   flex-direction: column;
 }
 
+.cart-link{
+  border-right: 1px solid white;
+  border-left: 1px solid white;
+
+}
 .cart-link,
 .wishlist-link {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
+  height: 50%;
 }
 
-.wishlist-count, .cart-count {
+#wishlist-count, #cart-count {
   margin: 0;
-  display: inline;
   float: left;
   font-size: 14px;
   width: 10px;
@@ -137,4 +147,7 @@ input:focus {
 }
 .nav-icon:hover{
   background-color: #565656;
+}
+.hidden{
+  display: none;
 }
