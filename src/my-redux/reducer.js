@@ -110,11 +110,34 @@ const Reducer = (state = initialState, action) => {
       }
 
     case "REMOVEFROMWISHLIST":
-      console.log("remove");
       return {
         ...state,
         wishList: state.wishList.filter((id) => id !== action.id),
       };
+     case "SHOWCOMPUTERS": 
+     return {
+       ...state,
+       filteredItems: productList.filter((element) => element.category == "PC")
+
+     }
+     case "SHOWNOTEBOOKS": 
+     return {
+       ...state,
+       filteredItems: productList.filter((element) => element.category == "notebook")
+
+     }
+     case "SHOWSMARTPHONES": 
+     return {
+       ...state,
+       filteredItems: productList.filter((element) => element.category == "phone")
+
+     }
+
+     case "SHOWEVERYCATEGORY": 
+     return {
+       ...state, 
+       filteredItems: productList
+     }
 
     // case "SUBMITREGISTRATION":
     //   console.log(state.users)

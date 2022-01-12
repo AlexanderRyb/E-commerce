@@ -52,3 +52,25 @@ export const removeFromWishlist = (id) => {
     id,
   };
 };
+export const showComputers = ()  => {
+  return {
+    type: "SHOWCOMPUTERS"
+  }
+}
+export const showNotebooks = ()  => {
+  return {
+    type: "SHOWNOTEBOOKS"
+  }
+}
+
+export const showSmartphones = ()  => {
+  return {
+    type: "SHOWSMARTPHONES"
+  }
+}
+export const showEveryCategory = () => {
+  return{
+    type: "SHOWEVERYCATEGORY"
+  }
+}
+

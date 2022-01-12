@@ -19,7 +19,7 @@
     "id": "3",
     "description": "ARTLINE Gaming X31 (X31v08)",
     "price": 8800,
-    "image": "/images/pc1.jpg",
+    "image": "/images/PC1.jpg",
     "category": "PC",
     "quantity": 1
   },
@@ -60,7 +60,7 @@
     "description": "ARTLINE Gaming X44",
     "price": 12000,
     "image": "/images/artline44.jpg",
-    "category": "pc",
+    "category": "PC",
     "quantity": 1
   },
   {
@@ -108,7 +108,7 @@
     "description": " ARTLINE Overlord X56",
     "price": 14999,
     "image": "/images/artlineOverlord.jpg",
-    "category": "pc",
+    "category": "PC",
     "quantity": 1
   },
   {
@@ -140,7 +140,7 @@
     "description": "ARTLINE Gaming X39 ",
     "price": 15999,
     "image": "/images/artline_gaming.jpg",
-    "category": "pc",
+    "category": "PC",
     "quantity": 1
   },
   {

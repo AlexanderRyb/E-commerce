@@ -6,6 +6,8 @@ import { search } from "../../my-redux/actions";
 import { ReactComponent as Wishlist } from "./heart.svg";
 import { ReactComponent as Cart } from "./cart.svg";
 import { ReactComponent as Grid } from "./grid.svg";
+import { showEveryCategory } from "../../my-redux/actions";
+
 
 export class Navigation extends Component {
   render() {
@@ -35,7 +37,7 @@ export class Navigation extends Component {
           <div className="links">
             <div className="shop-link">
             <Link  to="/">
-              <Grid fill="white" width={25} className="nav-icon" id="shop-icon" to="/"></Grid>
+              <Grid fill="white" width={25} className="nav-icon"  onClick={() => this.props.showEveryCategory()} id="shop-icon" to="/"></Grid>
             </Link>
             </div>
    <div className="cart-link">
@@ -77,6 +79,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     search: (query) => dispatch(search(query)),
+    showEveryCategory: () => dispatch(showEveryCategory())
+
   };
 };
 
