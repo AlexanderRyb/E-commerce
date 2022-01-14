@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/static/css/main.7eb500bc.chunk.css",
-    "main.js": "/static/js/main.56709cd1.chunk.js",
-    "main.js.map": "/static/js/main.56709cd1.chunk.js.map",
+    "main.js": "/static/js/main.424d57d2.chunk.js",
+    "main.js.map": "/static/js/main.424d57d2.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.530a12e4.js",
     "runtime-main.js.map": "/static/js/runtime-main.530a12e4.js.map",
-    "static/js/2.9aabca73.chunk.js": "/static/js/2.9aabca73.chunk.js",
-    "static/js/2.9aabca73.chunk.js.map": "/static/js/2.9aabca73.chunk.js.map",
+    "static/js/2.8c378693.chunk.js": "/static/js/2.8c378693.chunk.js",
+    "static/js/2.8c378693.chunk.js.map": "/static/js/2.8c378693.chunk.js.map",
     "index.html": "/index.html",
     "static/css/main.7eb500bc.chunk.css.map": "/static/css/main.7eb500bc.chunk.css.map",
-    "static/js/2.9aabca73.chunk.js.LICENSE.txt": "/static/js/2.9aabca73.chunk.js.LICENSE.txt",
+    "static/js/2.8c378693.chunk.js.LICENSE.txt": "/static/js/2.8c378693.chunk.js.LICENSE.txt",
     "static/media/cart.cde05510.svg": "/static/media/cart.cde05510.svg",
     "static/media/grid.72a7df46.svg": "/static/media/grid.72a7df46.svg",
     "static/media/heart.4e0846b5.svg": "/static/media/heart.4e0846b5.svg",
@@ -17,8 +17,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.530a12e4.js",
-    "static/js/2.9aabca73.chunk.js",
+    "static/js/2.8c378693.chunk.js",
     "static/css/main.7eb500bc.chunk.css",
-    "static/js/main.56709cd1.chunk.js"
+    "static/js/main.424d57d2.chunk.js"
   ]
 }
