@@ -14,7 +14,7 @@ export class App extends Component {
     return (
       <Provider store={store}>
         <div>
-          <HashRouter hashType="hashbang" >
+          <HashRouter hashType="noslash" >
             <Navigation cart={this.cart} dataSearch={this.dataSearch} />
             <Categories></Categories>
             <Route path="/" exact render={() => <Products />} />
