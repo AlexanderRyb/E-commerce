@@ -18,7 +18,6 @@ export class App extends Component {
             <Navigation cart={this.cart} dataSearch={this.dataSearch} />
             <Categories></Categories>
             <Route path="/" exact render={() => <Products />} />
-            <Route path="/E-commerce/"  render={() => <Products />} />
 
 
             <Route
