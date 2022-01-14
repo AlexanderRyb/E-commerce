@@ -4,7 +4,7 @@ import store from "./my-redux/store";
 import CartContainer from "./components/CartContainer/CartContainer";
 
 import Products from "./components/Products/Products";
-import { Route, BrowserRouter as Router } from "react-router-dom";
+import { Route,  HashRouter } from "react-router-dom";
 import React, { Component } from "react";
 import Wishlist from "./components/Wishlist/Wishlist";
 import Categories from "./components/Categories/Categories";
@@ -14,7 +14,7 @@ export class App extends Component {
     return (
       <Provider store={store}>
         <div>
-          <Router>
+          <HashRouter hashType="hashbang" >
             <Navigation cart={this.cart} dataSearch={this.dataSearch} />
             <Categories></Categories>
             <Route path="/" exact render={() => <Products />} />
@@ -27,7 +27,7 @@ export class App extends Component {
             />
 
             <Route path="/wishlist" render={() => <Wishlist />} />
-          </Router>
+          </HashRouter>
         </div>
       </Provider>
     );
