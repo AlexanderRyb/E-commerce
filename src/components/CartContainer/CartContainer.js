@@ -5,6 +5,7 @@ import { removeFromCart } from "../../my-redux/actions";
 import { increment } from "../../my-redux/actions";
 import { decrement } from "../../my-redux/actions";
 import { submit } from "../../my-redux/actions";
+import Form from "./Form";
 
 export function CartContainer(props) {
   let cartItem = "";
@@ -55,51 +56,43 @@ export function CartContainer(props) {
   }, 0);
   if (cartSum < 1) {
     cartSum = "The cart is empty";
+    console.log(props.cart)
+
   } else {
     cartSum = cartSum + "₴";
+    console.log(props.cart.length)
+
+  }
+  let checkCart = (props.cart.length>0)
+  console.log(checkCart+" here it is")
+  let cartContent =  <main className="cart-container">
+  <Form></Form>   
+    <div className="cart-products-container">
+
+    {cartItem}
+    <div className="total-sum-block">
+      <div className="cart-sum-text">Total sum:</div>        
+      <div className="cart-sum-number">
+      {cartSum}
+      </div>
+       </div>
+    <button
+      type="submit"
+      className="submit-form-button"
+      onClick={() => props.submit()}
+    >
+      Submit
+    </button>
+    </div>
+
+  </main>
+
+  if(!checkCart){
+    cartContent = <div>Nothing here!</div>
   }
 
   return (
-    <main className="cart-container">
-      <form id="cart-form">
-<label htmlFor="customer-name">Name</label>
-<input id="customer-name" className="form-input"></input>
-<br/>
-<label htmlFor="customer-surname">Second name</label>
-<input htmlFor="customer-surname" className="form-input"></input>
-<br/>
-
-
-<label htmlFor="customer-phone">phone</label>
-<input id="customer-phone" className="form-input"></input>
-<br/>
-
-
-<label htmlFor="customer-address">address</label>
-<input id="customer-address" className="form-input"></input>
-
-
-      </form>
-
-      <div className="cart-products-container">
-
-      {cartItem}
-      <div className="total-sum-block">
-        <div className="cart-sum-text">Total sum:</div>        
-        <div className="cart-sum-number">
-        {cartSum}
-        </div>
-         </div>
-      <button
-        type="submit"
-        className="submit-form-button"
-        onClick={() => props.submit()}
-      >
-        Submit
-      </button>
-      </div>
-
-    </main>
+   cartContent
   );
 }
 

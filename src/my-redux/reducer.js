@@ -117,19 +117,19 @@ const Reducer = (state = initialState, action) => {
      case "SHOWCOMPUTERS": 
      return {
        ...state,
-       filteredItems: productList.filter((element) => element.category == "PC")
+       filteredItems: productList.filter((element) => element.category === "PC")
 
      }
      case "SHOWNOTEBOOKS": 
      return {
        ...state,
-       filteredItems: productList.filter((element) => element.category == "notebook")
+       filteredItems: productList.filter((element) => element.category === "notebook")
 
      }
      case "SHOWSMARTPHONES": 
      return {
        ...state,
-       filteredItems: productList.filter((element) => element.category == "phone")
+       filteredItems: productList.filter((element) => element.category === "phone")
 
      }
 
