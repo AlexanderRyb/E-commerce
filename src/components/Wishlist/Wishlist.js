@@ -8,7 +8,6 @@ import "./styles.css";
 class Wishlist extends Component {
   render() {
     let listOfWishedItems = [];
-    console.log(this.props.wishList);
     listOfWishedItems = this.props.wishList.map((item) => (
       <div key={item.id} className="wishlist-product-card">
         {item.title}

@@ -2,6 +2,8 @@ import "./styles.css";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addToCart } from "../../my-redux/actions";
+import Categories from "../Categories/Categories";
+
 import { addToWishList } from "../../my-redux/actions";
 
 export class Products extends Component {
@@ -29,7 +31,9 @@ export class Products extends Component {
       ));
     }
 
-    return <main>{searchResuts}</main>;
+    return <main>
+      <Categories></Categories>
+      {searchResuts}</main>;
   }
 }
 const mapStateToProps = (state) => {

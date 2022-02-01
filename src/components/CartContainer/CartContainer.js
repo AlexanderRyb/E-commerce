@@ -8,6 +8,7 @@ import { submit } from "../../my-redux/actions";
 import Form from "./Form";
 
 export function CartContainer(props) {
+
   let cartItem = "";
   if (props.cart) {
     cartItem = props.cart.map((item) => (
@@ -56,15 +57,12 @@ export function CartContainer(props) {
   }, 0);
   if (cartSum < 1) {
     cartSum = "The cart is empty";
-    console.log(props.cart)
 
   } else {
     cartSum = cartSum + "₴";
-    console.log(props.cart.length)
 
   }
   let checkCart = (props.cart.length>0)
-  console.log(checkCart+" here it is")
   let cartContent =  <main className="cart-container">
   <Form></Form>   
     <div className="cart-products-container">
@@ -76,19 +74,18 @@ export function CartContainer(props) {
       {cartSum}
       </div>
        </div>
-    <button
+        </div>
+        <button
       type="submit"
       className="submit-form-button"
       onClick={() => props.submit()}
     >
       Submit
     </button>
-    </div>
-
   </main>
 
   if(!checkCart){
-    cartContent = <div>Nothing here!</div>
+    cartContent = <div>Nothing in your cart. </div>
   }
 
   return (

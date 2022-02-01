@@ -10,11 +10,16 @@ form {
   flex-direction: column;
   border-radius: 5px;
 }
+.input-container{
+  width: 100%;
+  display: flex;
+  margin-bottom: 20px;
+}
 .submit-form-button {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 10px;
+  margin-top: 10px;
   background-color: #265a88;
   width: 200px;
   height: 50px;
@@ -26,11 +31,13 @@ form {
 .cart-container {
   box-shadow: 0 2px 5px rgb(48 48 48 / 5%);
   padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
 }
-.cart-products-container{
-  -webkit-box-shadow: 0px 0px 14px -4px rgba(0,0,0,0.68); 
-  box-shadow: 0px 0px 7px -4px rgba(0,0,0,0.68);
-  width: 50%;
+.cart-products-container {
+  -webkit-box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.68);
+  box-shadow: 0px 0px 7px -4px rgba(0, 0, 0, 0.68);
+  width: 51%;
   margin-right: 0;
 }
 .cart-item-row {
@@ -86,7 +93,6 @@ form {
 
 .plus-button {
   margin: 0;
-
   border: none;
   background-color: white;
   width: 25%;
@@ -98,9 +104,7 @@ form {
   border: none;
   height: 100%;
   width: 25%;
-
   background-color: white;
-
   border-left: 1px solid rgb(238, 234, 234);
 }
 .item-quantity {
@@ -118,36 +122,41 @@ form {
   display: flex;
   justify-content: space-between;
 }
-.cart-sum-text{
+.cart-sum-text {
   width: auto;
   margin-left: 10px;
 }
-.cart-sum-number{
+.cart-sum-number {
   width: auto;
   margin-right: 60px;
-
 }
-#cart-form{
+#cart-form {
   width: 500px;
   display: block;
- padding: 20px;
- border: 1px solid grey;
+  padding: 20px;
+}
+#cart-form>h1{
+  font-size: 20px;
+  font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif;
 
 }
-#cart-form>input{
+.input-container > input {
   border: none;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid rgb(242, 242, 242);
   width: 50%;
 }
-#cart-form>label{
+.input-container > label {
   font-size: 20px;
   width: 150px;
-  display:inline-block
-
+  display: inline-block;
+  color: #303030;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
 
 }
-
-.remove-item{
+.remove-item {
   width: 20px;
   height: 20px;
   background-image: url(remove1.svg);
@@ -156,5 +165,4 @@ form {
   background-repeat: no-repeat;
   border-radius: 5px;
   background-color: white;
-
 }
