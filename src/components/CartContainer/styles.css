@@ -51,6 +51,7 @@ form {
 }
 .item-cart-price {
   font-size: 22px;
+
   font-family: Arial, "Segoe UI", Helvetica, sans-serif;
 }
 .image-block {
@@ -79,7 +80,9 @@ form {
 .item-total-price {
   margin: 0;
   font-size: 20px;
-  font-family: Kameron;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+
   width: 100px;
 }
 .quantity-block {
@@ -139,6 +142,7 @@ form {
   font-size: 20px;
   font-weight: 400;
   font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 20px;
 
 }
 .input-container > input {
@@ -152,13 +156,13 @@ form {
   display: inline-block;
   color: #303030;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
   font-family: Arial, Helvetica, sans-serif;
 
 }
 .remove-item {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   background-image: url(remove1.svg);
   border-style: none;
   background-position: center;

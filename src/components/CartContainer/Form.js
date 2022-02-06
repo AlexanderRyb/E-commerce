@@ -1,5 +1,6 @@
 import React from "react";
 
+
 export default function Form() {
   return (
     <form id="cart-form">
@@ -10,7 +11,7 @@ export default function Form() {
       </div>
       <div className="input-container">
         <label htmlFor="customer-phone">Phone</label>
-        <input id="customer-phone" className="form-input"></input>
+        <input id="customer-phone" className="form-input" required></input>
       </div>
 <div className="input-container">
 <label htmlFor="customer-email">E-mail</label>
@@ -24,3 +25,5 @@ export default function Form() {
     </form>
   );
 }
+
+

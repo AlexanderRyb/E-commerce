@@ -8,6 +8,7 @@ import { addToWishList } from "../../my-redux/actions";
 
 export class Products extends Component {
   render() {
+  
     let searchResuts = [];
     if (this.props.filteredItems !== []) {
       searchResuts = this.props.filteredItems.map((item) => (
@@ -23,7 +24,8 @@ export class Products extends Component {
           >
             wishlist
           </button>
-          <button
+          <button 
+          
             onClick={() => this.props.addToCart(item)}
             className="cart-button"
           ></button>

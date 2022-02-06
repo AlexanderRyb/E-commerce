@@ -1,11 +1,14 @@
 import productList from "../components/Products/productList.json";
 
+
 const initialState = {
   items: productList,
   filteredItems: productList,
   wishList: [],
   cart: [],
   users: [],
+  submitData: [],
+  cartButtonBackground: "shoppingCart.svg" //for changing button background once it's clicked
 };
 const Reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -62,19 +65,22 @@ const Reducer = (state = initialState, action) => {
       }
 
     case "SUBMIT":
+ 
       let itemCount = state.cart.length;
       console.log(itemCount);
       let cartSum = state.cart.reduce(function (total, item) {
         return total + item.price * item.quantity;
       }, 0);
+      console.log(
 
-      alert(
         "Ви купили " +
           itemCount +
           " товарів. До оплати " +
           cartSum +
           " гривень."
       );
+      
+
       return {
         ...state,
         cart: [],

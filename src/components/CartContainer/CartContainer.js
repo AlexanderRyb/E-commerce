@@ -7,8 +7,9 @@ import { decrement } from "../../my-redux/actions";
 import { submit } from "../../my-redux/actions";
 import Form from "./Form";
 
-export function CartContainer(props) {
 
+export function CartContainer(props) {
+  
   let cartItem = "";
   if (props.cart) {
     cartItem = props.cart.map((item) => (
@@ -78,7 +79,9 @@ export function CartContainer(props) {
         <button
       type="submit"
       className="submit-form-button"
-      onClick={() => props.submit()}
+      onClick={() => props.submit()     
+      }
+
     >
       Submit
     </button>
