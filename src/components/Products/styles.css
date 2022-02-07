@@ -40,18 +40,30 @@ main {
   font-weight: 600;
 }
 
-.cart-button {
+.cart-button-unselected {
   color: white;
   border-style: none;
   border-radius: 5px;
   padding: 0;
   width: 42px;
   height: 42px;
+  background-image: url("shoppingCart.svg");
   background-size: 85%;
   background-repeat: no-repeat;
   background-color: white;
 }
-
+.cart-button-selected{
+  color: white;
+  border-style: none;
+  border-radius: 5px;
+  padding: 0;
+  width: 42px;
+  height: 42px;
+  background-image: url("checked.svg");
+  background-size: 85%;
+  background-repeat: no-repeat;
+  background-color: white;
+}
 button:hover {
   cursor: pointer;
 }
