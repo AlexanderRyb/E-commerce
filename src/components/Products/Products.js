@@ -9,10 +9,10 @@ import { addToWishList } from "../../my-redux/actions";
 export class Products extends Component {
  
   render() {
-     
+     console.log(this.props.cart)
+     console.log(this.props.wishList)
   
 
-     // console.log(this.props.cart)
 
 
   
@@ -26,15 +26,17 @@ export class Products extends Component {
           <p className="price">{item.price} ₴</p>
           <button
             onClick={() => this.props.addToWishList(item)}
-            className="wishlist-button"
+
+            className={this.props.wishList.some(e=> e.id === item.id)? 'wishlist-button-selected': 'wishlist-button-unselected'}
+
           >
-            wishlist
+            
           </button>
           <button    
 
             onClick={() => this.props.addToCart(item)}
+
             className={this.props.cart.some(e=> e.id === item.id)? 'cart-button-selected': 'cart-button-unselected'}
-            //if item.id is in cart 1 class, if it's not 0
           ></button>
         </div>
       ));
@@ -48,6 +50,7 @@ export class Products extends Component {
 const mapStateToProps = (state) => {
   return {
     cart: state.cart,
+    wishList: state.wishList,
     items: state.items,
     filteredItems: state.filteredItems,
   };

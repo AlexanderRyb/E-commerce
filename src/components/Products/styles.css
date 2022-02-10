@@ -90,8 +90,22 @@ button:hover {
 .cart-description {
   flex-grow: 1;
 }
-.wishlist-button{
+.wishlist-button-selected{
   height: 35px;
+  width: 35px;
   border: none;
   border-radius: 5px;
+  background-image: url("heart-filled.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+.wishlist-button-unselected{
+  height: 35px;
+  width: 35px;
+  border: none;
+  border-radius: 5px;
+  background-image: url("heart.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }

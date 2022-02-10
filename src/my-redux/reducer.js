@@ -8,7 +8,6 @@ const initialState = {
   cart: [],
   users: [],
   submitData: [],
-  cartButtonBackground: "shoppingCart.svg" //for changing button background once it's clicked
 };
 const Reducer = (state = initialState, action) => {
   switch (action.type) {
