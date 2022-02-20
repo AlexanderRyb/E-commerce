@@ -31,13 +31,13 @@ class Wishlist extends Component {
 }
 const mapStateToProps = (state) => {
   return {
+  cart: state.cart,
     wishList: state.wishList,
     filteredItems: state.filteredItems,
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    cart: state.cart,
     addToCart: (item) => dispatch(addToCart(item)),
     removeFromWishlist: (item) => dispatch(removeFromWishlist(item)),
   };
