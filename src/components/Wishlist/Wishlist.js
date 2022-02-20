@@ -16,10 +16,11 @@ class Wishlist extends Component {
         <p className="price">{item.price} ₴</p>
         <button
           onClick={() => this.props.addToCart(item)}
-          className="cart-button"
+          className={this.props.cart.some(e=> e.id === item.id)? 'cart-button-selected': 'cart-button-unselected'}
+          
         ></button>
         <button
-          className="remove-item"
+          className="remove-item"          
           onClick={() => this.props.removeFromWishlist(item)}
         ></button>
       </div>
@@ -36,6 +37,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
+    cart: state.cart,
     addToCart: (item) => dispatch(addToCart(item)),
     removeFromWishlist: (item) => dispatch(removeFromWishlist(item)),
   };
