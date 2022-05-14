@@ -74,9 +74,7 @@ export function CartContainer(props) {
       <div className="cart-sum-number">
       {cartSum}
       </div>
-       </div>
-        </div>
-        <button
+      <button
       type="submit"
       className="submit-form-button"
       onClick={() => props.submit()     
@@ -85,6 +83,9 @@ export function CartContainer(props) {
     >
       Submit
     </button>
+       </div>
+        </div>
+      
   </main>
 
   if(!checkCart){
