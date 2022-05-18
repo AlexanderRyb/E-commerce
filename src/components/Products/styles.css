@@ -60,6 +60,7 @@ main {
   width: 42px;
   height: 42px;
   background-image: url("checked.svg");
+  
   background-size: 85%;
   background-repeat: no-repeat;
   background-color: white;
@@ -75,7 +76,7 @@ button:hover {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-}
+}f
 
 .title {
   height: 60px;
@@ -95,7 +96,8 @@ button:hover {
   width: 35px;
   border: none;
   border-radius: 5px;
-  background-image: url("heart-filled.svg");
+  background-image: url("filled-heart.png");
+  background-color: white;
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -105,7 +107,8 @@ button:hover {
   width: 35px;
   border: none;
   border-radius: 5px;
-  background-image: url("heart.svg");
+  background-image: url("default-heart.png");
   background-size: cover;
+  background-color: white;
   background-repeat: no-repeat;
 }

@@ -37,7 +37,8 @@ export class Products extends Component {
             onClick={() => this.props.addToCart(item)}
 
             className={this.props.cart.some(e=> e.id === item.id)? 'cart-button-selected': 'cart-button-unselected'}
-          ></button>
+          >
+          </button>
         </div>
       ));
     }
