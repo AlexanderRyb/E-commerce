@@ -66,15 +66,8 @@ export function CartContainer(props) {
   let checkCart = (props.cart.length>0)
   let cartContent =  <main className="cart-container">
   <Form></Form>   
-    <div className="cart-products-container">
-
-    {cartItem}
-    <div className="total-sum-block">
-      <div className="cart-sum-text">Total sum:</div>        
-      <div className="cart-sum-number">
-      {cartSum}
-      </div>
-      <button
+  
+  <button
       type="submit"
       className="submit-form-button"
       onClick={() => props.submit()     
@@ -83,6 +76,13 @@ export function CartContainer(props) {
     >
       Submit
     </button>
+    <div className="cart-products-container">
+
+    {cartItem}
+    <div className="total-sum-block">
+      <div className="cart-sum">Total:{cartSum}</div>       
+     
+      
        </div>
         </div>
       

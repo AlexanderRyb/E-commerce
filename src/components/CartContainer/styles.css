@@ -24,7 +24,8 @@ form {
   border-style: none;
   border-radius: 5px;
   color: white;
-  font-size: 26px;
+  font: 12px Arial,Helvetica,sans-serif;
+  font-weight: 700;
 }
 .cart-container {
   box-shadow: 0 2px 5px rgb(48 48 48 / 5%);
@@ -123,16 +124,10 @@ form {
   display: flex;
   padding: 10px;
 
-  justify-content: space-between;
+  justify-content: center;
 }
-.cart-sum-text {
-  width: auto;
-  margin-left: 10px;
-}
-.cart-sum-number {
-  width: auto;
-  margin-right: 60px;
-}
+
+
 #cart-form {
   width: 500px;
   display: block;

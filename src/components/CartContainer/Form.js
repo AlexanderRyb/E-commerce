@@ -22,6 +22,7 @@ export default function Form() {
         <label htmlFor="customer-address">Address</label>
         <input id="customer-address" className="form-input"></input>
       </div>
+      
     </form>
   );
 }
