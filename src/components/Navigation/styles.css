@@ -71,6 +71,15 @@ form {
   border-radius: 5px;
   border-style: none;
 }
+.searchbar-button{
+  margin-left: -29px;
+  width: 30px;
+  height: 105%;
+  background-image: url("search.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 textarea:focus,
 input:focus {
   outline: none;
@@ -143,6 +152,7 @@ input:focus {
 }
 .search-block {
   position: relative;
+  display: flex;
   height: 60%;
   width: 300px;
   border-radius: 5px;

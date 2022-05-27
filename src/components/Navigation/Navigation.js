@@ -32,7 +32,10 @@ export class Navigation extends Component {
               placeholder="search..."
               onChange={(e) => this.props.search(e.target.value)}
             ></input>
+          <div className="searchbar-button"></div>
+
           </div>
+
 
           <div className="links">
             <div className="shop-link">
