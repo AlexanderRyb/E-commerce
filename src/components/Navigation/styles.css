@@ -9,7 +9,7 @@ header{
 .navPanel {
   background-color: #404040;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   width: 100%;
   margin: 0 auto;
   align-items: center;
@@ -66,7 +66,7 @@ form {
 
 .searchbar {
   height: 100%;
-  width: 300px;
+  width: 100%;
   padding-left: 10px;
   border-radius: 5px;
   border-style: none;
@@ -154,9 +154,10 @@ input:focus {
   position: relative;
   display: flex;
   height: 60%;
-  width: 300px;
+  width: 30%;
   border-radius: 5px;
   border-style: none;
+  margin-left: 10px;
 }
 
 .nav-icon{
@@ -174,4 +175,21 @@ input:focus {
 }
 #shop-icon{
   margin: auto
+}
+
+
+@media screen and (max-width: 1000px) {
+  .navPanel {
+    
+  }
+  .links{
+
+  }
+  .shop-link, .cart-link, .wishlist-link{
+    border: none;
+  
+
+      
+  }
+
 }
