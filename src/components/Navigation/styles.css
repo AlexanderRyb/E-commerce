@@ -1,7 +1,7 @@
 * {
   margin: 0 auto;
 }
-header{
+header {
   position: sticky;
   top: 0;
 }
@@ -28,7 +28,6 @@ header{
   display: flex;
   align-items: center;
   vertical-align: middle;
-
 }
 form {
   width: 40%;
@@ -71,7 +70,7 @@ form {
   border-radius: 5px;
   border-style: none;
 }
-.searchbar-button{
+.searchbar-button {
   margin-left: -29px;
   width: 30px;
   height: 105%;
@@ -99,15 +98,12 @@ input:focus {
   align-content: center;
   flex-direction: column;
 }
-.shop-link{
+.shop-link {
   border-left: 1px solid white;
-  
-
 }
-.cart-link{
+.cart-link {
   border-right: 1px solid white;
   border-left: 1px solid white;
-
 }
 .cart-link,
 .wishlist-link,
@@ -119,7 +115,8 @@ input:focus {
   height: 100%;
 }
 
-#wishlist-count, #cart-count {
+#wishlist-count,
+#cart-count {
   margin: 0;
   float: left;
   font-size: 12px;
@@ -129,7 +126,7 @@ input:focus {
   line-height: 10px;
   color: white;
   padding: 5px;
-  background-color: #E31837;
+  background-color: #e31837;
   border-radius: 20px;
   text-align: center;
   font-weight: 600;
@@ -160,36 +157,26 @@ input:focus {
   margin-left: 10px;
 }
 
-.nav-icon{
-  margin: 0 ;
+.nav-icon {
+  margin: 0;
   padding: 7px;
-  border-radius: 3px;  
+  border-radius: 3px;
   display: inline;
-
 }
-.nav-icon:hover{
+.nav-icon:hover {
   background-color: #565656;
 }
-.hidden{
+.hidden {
   display: none;
 }
-#shop-icon{
-  margin: auto
+#shop-icon {
+  margin: auto;
 }
 
-
 @media screen and (max-width: 1000px) {
-  .navPanel {
-    
-  }
-  .links{
-
-  }
-  .shop-link, .cart-link, .wishlist-link{
+  .shop-link,
+  .cart-link,
+  .wishlist-link {
     border: none;
-  
-
-      
   }
-
 }
