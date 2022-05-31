@@ -45,6 +45,11 @@ export class Products extends Component {
 
     return <main>
       <Categories></Categories>
+      <div class="slider">
+  <input type = "range" min="0" max="100" onchange="rangevalue.value=value"/>
+	<output id="rangevalue">50</output>
+  </div>
+  
       {searchResuts}</main>;
   }
 }
