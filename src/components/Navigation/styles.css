@@ -88,8 +88,11 @@ input:focus {
 .cart-link,
 .sign-up-link,
 .log-in-link,
-.wishlist-link {
-  width: 200px;
+.wishlist-link,
+.registration-page-link
+
+ {
+  width: 150px;
   height: 100%;
   margin: 0;
 
@@ -98,6 +101,9 @@ input:focus {
   align-content: center;
   flex-direction: column;
 }
+
+
+
 .shop-link {
   border-left: 1px solid white;
 }

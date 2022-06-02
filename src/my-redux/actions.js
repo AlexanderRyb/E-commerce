@@ -85,3 +85,10 @@ export const updateMinPrice = (value) => {
     value
   }
 }
+
+export const updatePriceRange = (min, max) => {
+  return{
+    type: "UPDATEPRICERANGE",
+    min, max
+  }
+}

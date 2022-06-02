@@ -157,6 +157,16 @@ const Reducer = (state = initialState, action) => {
         filteredItems: productList.filter((item) => item.price > action.value),
       };
 
+    case "UPDATEPRICERANGE":
+      return {
+        ...state,
+        minValue: action.value,
+        maxValue: action.value,
+        filteredItems: productList.filter(
+          (item) => item.price > state.minValue && item.price < state.maxValue
+        ),
+      };
+
     default:
       return state;
   }

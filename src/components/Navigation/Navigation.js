@@ -6,8 +6,8 @@ import { search } from "../../my-redux/actions";
 import { ReactComponent as Wishlist } from "./heart.svg";
 import { ReactComponent as Cart } from "./cart.svg";
 import { ReactComponent as Grid } from "./grid.svg";
+import { ReactComponent as User} from "./user.svg"
 import { showEveryCategory } from "../../my-redux/actions";
-
 
 export class Navigation extends Component {
   render() {
@@ -32,41 +32,63 @@ export class Navigation extends Component {
               placeholder="search..."
               onChange={(e) => this.props.search(e.target.value)}
             ></input>
-          <div className="searchbar-button"></div>
-
+            <div className="searchbar-button"></div>
           </div>
 
-
           <div className="links">
-            <div className="shop-link">
-            <Link  to="/">
-              <Grid fill="white" width={25} className="nav-icon"  onClick={() => this.props.showEveryCategory()} id="shop-icon" to="/"></Grid>
-            </Link>
+            <div className="registration-page-link">
+              <Link to="/login">
+                <User
+                fill="white"
+                width={30}
+                className="nav-icon"
+
+                >
+
+                </User>
+               
+              
+              </Link>
+             
+
             </div>
-   <div className="cart-link">
-   <Link  to="/Cart">
-              <Cart fill="white" width={25} className="nav-icon" />
-              <div id="cart-count" className={cartEmpty ? "hidden" : null}>
-                {numberOfCartItems}
-              </div>
-            </Link>
-   </div>
 
-   <div className="wishlist-link">
-   <Link  to="/wishlist">
-              <Wishlist className="nav-icon" fill="white" width={25}></Wishlist>
-              <div
-                id="wishlist-count"
-                className={wishlistEmpty ? "hidden" : null}
-              >
-                {numberOfWishlistItems}
-              </div>
-            </Link>
+            <div className="shop-link">
+              <Link to="/">
+                <Grid
+                  fill="white"
+                  width={30}
+                  className="nav-icon"
+                  onClick={() => this.props.showEveryCategory()}
+                  id="shop-icon"
+                  to="/"
+                ></Grid>
+              </Link>
+            </div>
+            <div className="cart-link">
+              <Link to="/Cart">
+                <Cart fill="white" width={30} className="nav-icon" />
+                <div id="cart-count" className={cartEmpty ? "hidden" : null}>
+                  {numberOfCartItems}
+                </div>
+              </Link>
+            </div>
 
-   </div>
-
-         
-      
+            <div className="wishlist-link">
+              <Link to="/wishlist">
+                <Wishlist
+                  className="nav-icon"
+                  fill="white"
+                  width={25}
+                ></Wishlist>
+                <div
+                  id="wishlist-count"
+                  className={wishlistEmpty ? "hidden" : null}
+                >
+                  {numberOfWishlistItems}
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       </header>
@@ -82,8 +104,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     search: (query) => dispatch(search(query)),
-    showEveryCategory: () => dispatch(showEveryCategory())
-
+    showEveryCategory: () => dispatch(showEveryCategory()),
   };
 };
 

@@ -1,7 +1,7 @@
 import "./styles.css";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addToCart } from "../../my-redux/actions";
+import { addToCart, updatePriceRange } from "../../my-redux/actions";
 import Categories from "../Categories/Categories";
 
 import { addToWishList } from "../../my-redux/actions";
@@ -93,7 +93,8 @@ const mapDispatchToProps = (dispatch) => {
     addToCart: (item) => dispatch(addToCart(item)),
     addToWishList: (item) => dispatch(addToWishList(item)),
     updateMaxPrice: (value) => dispatch(updateMaxPrice(value)),
-    updateMinPrice: (value) => dispatch(updateMinPrice(value))
+    updateMinPrice: (value) => dispatch(updateMinPrice(value)),
+    updatePriceRange: (min, max) => dispatch(updatePriceRange(min,max))
   };
 };
 
