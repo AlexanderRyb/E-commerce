@@ -1,6 +1,5 @@
 import productList from "../components/Products/productList.json";
 
-
 const initialState = {
   items: productList,
   filteredItems: productList,
@@ -8,7 +7,8 @@ const initialState = {
   cart: [],
   users: [],
   submitData: [],
-  maxValue: 40000
+  maxValue: 40000,
+  minValue: 0,
 };
 const Reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -65,21 +65,18 @@ const Reducer = (state = initialState, action) => {
       }
 
     case "SUBMIT":
- 
       let itemCount = state.cart.length;
       console.log(itemCount);
       let cartSum = state.cart.reduce(function (total, item) {
         return total + item.price * item.quantity;
       }, 0);
       console.log(
-
         "Ви купили " +
           itemCount +
           " товарів. До оплати " +
           cartSum +
           " гривень."
       );
-      
 
       return {
         ...state,
@@ -120,39 +117,45 @@ const Reducer = (state = initialState, action) => {
         ...state,
         wishList: state.wishList.filter((id) => id !== action.id),
       };
-     case "SHOWCOMPUTERS": 
-     return {
-       ...state,
-       filteredItems: productList.filter((element) => element.category === "PC")
+    case "SHOWCOMPUTERS":
+      return {
+        ...state,
+        filteredItems: productList.filter(
+          (element) => element.category === "PC"
+        ),
+      };
+    case "SHOWNOTEBOOKS":
+      return {
+        ...state,
+        filteredItems: productList.filter(
+          (element) => element.category === "notebook"
+        ),
+      };
+    case "SHOWSMARTPHONES":
+      return {
+        ...state,
+        filteredItems: productList.filter(
+          (element) => element.category === "phone"
+        ),
+      };
 
-     }
-     case "SHOWNOTEBOOKS": 
-     return {
-       ...state,
-       filteredItems: productList.filter((element) => element.category === "notebook")
-
-     }
-     case "SHOWSMARTPHONES": 
-     return {
-       ...state,
-       filteredItems: productList.filter((element) => element.category === "phone")
-
-     }
-
-     case "SHOWEVERYCATEGORY": 
-     return {
-       ...state, 
-       filteredItems: productList
-     }
-     case "UPDATEMAXPRICE":
-       return {
-         ...state, 
-         maxValue: action.value,
-         filteredItems: productList.filter((item) =>
-            item.price<action.value
-          ),
-
-       }
+    case "SHOWEVERYCATEGORY":
+      return {
+        ...state,
+        filteredItems: productList,
+      };
+    case "UPDATEMAXPRICE":
+      return {
+        ...state,
+        maxValue: action.value,
+        filteredItems: productList.filter((item) => item.price < action.value),
+      };
+    case "UPDATEMINPRICE":
+      return {
+        ...state,
+        minValue: action.value,
+        filteredItems: productList.filter((item) => item.price > action.value),
+      };
 
     default:
       return state;

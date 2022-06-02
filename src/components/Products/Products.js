@@ -6,11 +6,14 @@ import Categories from "../Categories/Categories";
 
 import { addToWishList } from "../../my-redux/actions";
 import { updateMaxPrice } from "../../my-redux/actions";
+import { updateMinPrice } from "../../my-redux/actions";
 
 export class Products extends Component {
   render() {
     console.log(this.props.maxValue);
+    console.log(this.props.minValue);
     let maxValue = this.props.maxValue
+    let minValue = this.props.minValue
 
     let searchResuts = [];
     if (this.props.filteredItems !== []) {
@@ -53,6 +56,20 @@ export class Products extends Component {
             onChange={(event) => this.props.updateMaxPrice(event.target.value)}
           />
           <h1 id="rangevalue"  >{maxValue}</h1>
+
+        <div className="min-slider">
+          <input
+          type="range"
+          min="0"
+          max="40000"
+          id="min-price"
+          onChange={(event) => this.props.updateMinPrice(event.target.value)}
+
+
+          />
+          <h1 id="minValue">{minValue}</h1>
+
+        </div>
         </div>
 
         {searchResuts}
@@ -66,7 +83,9 @@ const mapStateToProps = (state) => {
     wishList: state.wishList,
     items: state.items,
     filteredItems: state.filteredItems,
-    maxValue: state.maxValue
+    maxValue: state.maxValue,
+    minValue: state.minValue,
+
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -74,6 +93,7 @@ const mapDispatchToProps = (dispatch) => {
     addToCart: (item) => dispatch(addToCart(item)),
     addToWishList: (item) => dispatch(addToWishList(item)),
     updateMaxPrice: (value) => dispatch(updateMaxPrice(value)),
+    updateMinPrice: (value) => dispatch(updateMinPrice(value))
   };
 };
 

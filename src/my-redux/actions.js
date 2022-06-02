@@ -79,4 +79,9 @@ export const updateMaxPrice = (value) => {
     value
   }
 }
-
+export const updateMinPrice = (value) => {
+  return{
+    type: "UPDATEMINPRICE",
+    value
+  }
+}
