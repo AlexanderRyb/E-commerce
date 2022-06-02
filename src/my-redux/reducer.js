@@ -8,6 +8,7 @@ const initialState = {
   cart: [],
   users: [],
   submitData: [],
+  maxValue: 40000
 };
 const Reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -143,18 +144,15 @@ const Reducer = (state = initialState, action) => {
        ...state, 
        filteredItems: productList
      }
+     case "UPDATEMAXPRICE":
+       return {
+         ...state, 
+         maxValue: action.value,
+         filteredItems: productList.filter((item) =>
+            item.price<action.value
+          ),
 
-    // case "SUBMITREGISTRATION":
-    //   console.log(state.users)
-    //   let newProfile = {
-    //     userName: action.name,
-    //     userPassword: action.password
-    //   }
-    //   return  {
-    //     ...state,
-    //     users: state.users.concat(newProfile)
-
-    //   }
+       }
 
     default:
       return state;

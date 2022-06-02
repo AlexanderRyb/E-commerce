@@ -73,4 +73,10 @@ export const showEveryCategory = () => {
     type: "SHOWEVERYCATEGORY"
   }
 }
+export const updateMaxPrice = (value) => {
+  return{
+    type: "UPDATEMAXPRICE",
+    value
+  }
+}
 
