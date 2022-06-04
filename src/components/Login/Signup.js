@@ -1,16 +1,16 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import "./styles.css";
+import { Link } from "react-router-dom";
 
 
 export default class Login extends Component {
   render() {
     return (
       <div>
-        <form>
+        <form className="registration-form">
           <h1>Register</h1>
           <hr />
-          <label for="email">Email</label>
+          <label htmlFor="email">Email</label>
           <input
             type="text"
             placeholder="Enter Email"
@@ -18,7 +18,7 @@ export default class Login extends Component {
             id="email"
             required
           />
-          <label for="psw">Password</label>
+          <label htmlFor="psw">Password</label>
           <input
             type="password"
             placeholder="Enter Password"
@@ -26,7 +26,7 @@ export default class Login extends Component {
             id="psw"
             required
           ></input>
-          <label for="psw-repeat">
+          <label htmlFor="psw-repeat">
             <b>Repeat Password</b>
           </label>
           <input
@@ -37,16 +37,21 @@ export default class Login extends Component {
             required
           />
 
-          <button type="submit" class="registerbtn">
+          <button type="submit" className="registerbtn">
             Register
           </button>
 
-          <div class="container signin">
+          <div className="container signin">
             <p>
-              Already have an account? <a href="#">Sign in</a>.
+              Already have an account?
+              <Link to="/signin">
+              <a to="/#">Sign in</a>.
+                </Link> 
             </p>
           </div>
         </form>
+        
+      
       </div>
     );
   }

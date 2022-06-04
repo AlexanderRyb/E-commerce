@@ -166,6 +166,14 @@ const Reducer = (state = initialState, action) => {
           (item) => item.price > state.minValue && item.price < state.maxValue
         ),
       };
+    case 'ADDNEWUSER':
+      return {
+        ...state
+        //check if this email already occurs in the database
+        
+        //push user data object to users
+
+      }  
 
     default:
       return state;

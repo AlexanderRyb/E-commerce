@@ -7,7 +7,8 @@ import Products from "./components/Products/Products";
 import { Route,  HashRouter } from "react-router-dom";
 import React, { Component } from "react";
 import Wishlist from "./components/Wishlist/Wishlist";
-import Login from "./components/Login/Login";
+import Signin from "./components/Login/Signin";
+import Signup from "./components/Login/Signup";
 
 export class App extends Component {
   render() {
@@ -25,7 +26,8 @@ export class App extends Component {
             />
 
             <Route path="/wishlist" render={() => <Wishlist />} />
-            <Route path="/login" render={() => <Login />} />
+            <Route path="/signin" render={() => <Signin />} />
+            <Route path="/signup" render={() => <Signup />} />
           </HashRouter>
         </div>
       </Provider>

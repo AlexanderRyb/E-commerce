@@ -17,7 +17,7 @@ input[type=text]:focus, input[type=password]:focus {
   outline: none;
 }
 
-.registerbtn {
+.registerbtn, .login-button {
   background-color: #04AA6D;
   color: white;
   padding: 16px 20px;
@@ -39,4 +39,8 @@ a {
   background-color: #f1f1f1;
   text-align: center;
   width: 100%;
+}
+
+.login-form{
+  display: flex;
 }
