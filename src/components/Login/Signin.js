@@ -1,9 +1,20 @@
 import React, { Component } from 'react'
+import { connect } from "react-redux";
 
-export default class Signin extends Component {
+
+
+export class Signin extends Component {
+  _onSubmit(e){
+    e.preventDefault();
+
+    this.props.login(e.target.email.value)
+  }
   render() {
+  
+    
     return (
-        <form className="login-form">
+        
+        <form className="login-form" onSubmit={this._onSubmit} >
         <h1>Log In</h1>
         <label htmlFor="email">Email</label>
         <input
@@ -11,6 +22,9 @@ export default class Signin extends Component {
           placeholder="Enter Email"
           name="email"
           id="email"
+         
+        
+
           required
         />
         <label htmlFor="psw">Password</label>
@@ -19,11 +33,12 @@ export default class Signin extends Component {
           placeholder="Enter Password"
           name="psw"
           id="psw"
-          required
+          
         ></input>
 
         <button
-        type="submit"
+        type='submit'
+       
         className="login-button"
         >
         Log in
@@ -35,3 +50,19 @@ export default class Signin extends Component {
     )
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    emailValue: state.emailValue,
+    passValue: state.passValue
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login: (email) => dispatch(email)
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signin);
+
+

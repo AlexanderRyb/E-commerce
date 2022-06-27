@@ -45,7 +45,7 @@ export default class Login extends Component {
             <p>
               Already have an account?
               <Link to="/signin">
-              <a to="/#">Sign in</a>.
+              Sign in
                 </Link> 
             </p>
           </div>

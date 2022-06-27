@@ -5,7 +5,6 @@ const initialState = {
   filteredItems: productList,
   wishList: [],
   cart: [],
-  users: [],
   submitData: [],
   maxValue: 40000,
   minValue: 0,
@@ -173,7 +172,12 @@ const Reducer = (state = initialState, action) => {
         
         //push user data object to users
 
-      }  
+      }
+    case 'LOGIN':
+      alert.log('YES')
+      return{
+        ...state
+      }    
 
     default:
       return state;
