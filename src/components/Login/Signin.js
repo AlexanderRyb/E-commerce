@@ -1,20 +1,41 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
+import { login } from '../../my-redux/actions';
+
 
 
 
 export class Signin extends Component {
-  _onSubmit(e){
-    e.preventDefault();
-
-    this.props.login(e.target.email.value)
+constructor(props){
+  super(props);
+  this.state = {
+    email: '',
+    password: ''
   }
-  render() {
-  
+
+  this.handleEmailChange = this.handleEmailChange.bind(this)
+  this.handlePasswordChange = this.handlePasswordChange.bind(this)
+  this.handleSubmit = this.handleSubmit.bind(this)
+}
+  handleEmailChange(event){
+    this.setState({...this.state, email: event.target.value})
+  }
+  handlePasswordChange(event){
+    this.setState({...this.state, password: event.target.value})
+  }
+  handleSubmit(event){
+    console.log("your email is "+ this.state.email)
+    
+    event.preventDefault()
+    this.props.login(this.state.email, this.state.password)
+  }
+
+
+  render() {  
     
     return (
         
-        <form className="login-form" onSubmit={this._onSubmit} >
+        <form className="login-form" onSubmit={this.handleSubmit}>
         <h1>Log In</h1>
         <label htmlFor="email">Email</label>
         <input
@@ -23,6 +44,8 @@ export class Signin extends Component {
           name="email"
           id="email"
          
+          value={this.state.email} 
+          onChange={this.handleEmailChange}
         
 
           required
@@ -33,6 +56,8 @@ export class Signin extends Component {
           placeholder="Enter Password"
           name="psw"
           id="psw"
+          value={this.state.password} 
+          onChange={this.handlePasswordChange}
           
         ></input>
 
@@ -59,7 +84,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    login: (email) => dispatch(email)
+    login: (email, password) => dispatch(login(email, password))
   };
 };
 

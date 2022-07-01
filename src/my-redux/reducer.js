@@ -4,6 +4,7 @@ const initialState = {
   items: productList,
   filteredItems: productList,
   wishList: [],
+  users: [{email: "transoceantrain@gmail.com", password: "123"}],
   cart: [],
   submitData: [],
   maxValue: 40000,
@@ -174,7 +175,8 @@ const Reducer = (state = initialState, action) => {
 
       }
     case 'LOGIN':
-      alert.log('YES')
+      console.log(action.email+action.password)
+//check if this email/password pair is in the database
       return{
         ...state
       }    
