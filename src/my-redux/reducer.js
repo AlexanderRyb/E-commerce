@@ -8,7 +8,7 @@ const initialState = {
   submitData: [],
   maxValue: 40000,
   minValue: 0,
-  users: [{email: "transoceantrain@gmail.com", password: "123"}],
+  users: [{email: "transoceantrain@gmail.com", password: "123", data: ""}],
   currentUser: 1,
 };
 const Reducer = (state = initialState, action) => {
@@ -181,15 +181,15 @@ const Reducer = (state = initialState, action) => {
 //check if this email/password pair is in the database
 let updatedUser = state.currentUser
 
-if(state.users.findIndex(findUser) !== -1){
-  console.log("match!")  
+if(state.users.findIndex(findUser) !== -1 ){
+  console.log("match! ")  
   updatedUser = state.users[state.users.findIndex(findUser)]
 }
 function findUser(e){
-return e.email === action.email
+return (e.email === action.email && e.password === action.password)
 }
 
-//is yes, change current user to it
+
 
       return{
         ...state,

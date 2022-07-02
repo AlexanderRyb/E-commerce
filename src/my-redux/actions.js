@@ -92,9 +92,9 @@ export const updatePriceRange = (min, max) => {
     min, max
   }
 }
-export const login = (email) => {
+export const login = (email, password) => {
   return{
     type: "LOGIN",
-    email
+    email, password
   }
 }
