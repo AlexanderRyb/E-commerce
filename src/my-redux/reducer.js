@@ -3,12 +3,13 @@ import productList from "../components/Products/productList.json";
 const initialState = {
   items: productList,
   filteredItems: productList,
-  wishList: [],
-  users: [{email: "transoceantrain@gmail.com", password: "123"}],
+  wishList: [],  
   cart: [],
   submitData: [],
   maxValue: 40000,
   minValue: 0,
+  users: [{email: "transoceantrain@gmail.com", password: "123"}],
+  currentUser: 1,
 };
 const Reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -176,9 +177,23 @@ const Reducer = (state = initialState, action) => {
       }
     case 'LOGIN':
       console.log(action.email+action.password)
+   
 //check if this email/password pair is in the database
+let updatedUser = state.currentUser
+
+if(state.users.findIndex(findUser) !== -1){
+  console.log("match!")  
+  updatedUser = state.users[state.users.findIndex(findUser)]
+}
+function findUser(e){
+return e.email === action.email
+}
+
+//is yes, change current user to it
+
       return{
-        ...state
+        ...state,
+        currentUser: updatedUser
       }    
 
     default:
