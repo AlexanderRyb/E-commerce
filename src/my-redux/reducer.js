@@ -168,9 +168,28 @@ const Reducer = (state = initialState, action) => {
         ),
       };
     case 'ADDNEWUSER':
-      return {
-        ...state
+      let newUser = {}
+      let updatedUsers = state.users
+        //check if password and passwordAgain are identical
+    if(action.password === action.passwordAgain){
         //check if this email already occurs in the database
+        function findEmail(e){
+          return (e.email === action.email)
+        }
+        if(state.users.findIndex(findEmail) === -1){
+          newUser.email = action.email
+          newUser.password = action.password
+          updatedUsers.push(newUser)
+
+
+        }
+
+
+    }
+      return {
+        ...state,
+        users: updatedUsers
+
         
         //push user data object to users
 
@@ -189,6 +208,7 @@ function findUser(e){
 return (e.email === action.email && e.password === action.password)
 }
 
+//open user page with custom data
 
 
       return{
