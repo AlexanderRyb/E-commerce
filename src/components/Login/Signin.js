@@ -77,8 +77,8 @@ constructor(props){
 }
 const mapStateToProps = (state) => {
   return {
-    emailValue: state.emailValue,
-    passValue: state.passValue
+    // emailValue: state.emailValue,
+    // passValue: state.passValue
   };
 };
 

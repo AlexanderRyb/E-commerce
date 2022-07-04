@@ -3,12 +3,12 @@ import productList from "../components/Products/productList.json";
 const initialState = {
   items: productList,
   filteredItems: productList,
-  wishList: [],  
+  wishList: [],
   cart: [],
   submitData: [],
   maxValue: 40000,
   minValue: 0,
-  users: [{email: "transoceantrain@gmail.com", password: "123", data: ""}],
+  users: [{ email: "transoceantrain@gmail.com", password: "123", data: "" }],
   currentUser: 1,
 };
 const Reducer = (state = initialState, action) => {
@@ -167,54 +167,58 @@ const Reducer = (state = initialState, action) => {
           (item) => item.price > state.minValue && item.price < state.maxValue
         ),
       };
-    case 'ADDNEWUSER':
-      let newUser = {}
-      let updatedUsers = state.users
-        //check if password and passwordAgain are identical
-    if(action.password === action.passwordAgain){
+    case "ADDNEWUSER":
+      let newUser = {};
+      let updatedUsers = state.users;
+      //check if password and passwordAgain are identical
+      if (action.password === action.passwordAgain) {
         //check if this email already occurs in the database
-        function findEmail(e){
-          return (e.email === action.email)
+        function findEmail(e) {
+          return e.email === action.email;
         }
-        if(state.users.findIndex(findEmail) === -1){
-          newUser.email = action.email
-          newUser.password = action.password
-          updatedUsers.push(newUser)
-
-
+        if (state.users.findIndex(findEmail) === -1) {
+          newUser.email = action.email;
+          newUser.password = action.password;
+          updatedUsers.push(newUser);
+          console.log("register success -"+ action.email, action.password + "users stored "+state.users.length)
+          console.log(state.users)
         }
-
-
-    }
-      return {
-        ...state,
-        users: updatedUsers
-
-        
-        //push user data object to users
+        else{
+          console.log('failure mode - Account with that email already exists.')
+        }
+      }
+      else{
+        console.log('failure mode - passwords dont match')
 
       }
-    case 'LOGIN':
-      console.log(action.email+action.password)
-   
-//check if this email/password pair is in the database
-let updatedUser = state.currentUser
-
-if(state.users.findIndex(findUser) !== -1 ){
-  console.log("match! ")  
-  updatedUser = state.users[state.users.findIndex(findUser)]
-}
-function findUser(e){
-return (e.email === action.email && e.password === action.password)
-}
-
-//open user page with custom data
-
-
-      return{
+      return {
         ...state,
-        currentUser: updatedUser
-      }    
+        users: updatedUsers,
+
+        //push user data object to users
+      };
+    case "LOGIN":
+      console.log(action.email + action.password);
+
+      //check if this email/password pair is in the database
+      let updatedUser = state.currentUser;
+
+      if (state.users.findIndex(findUser) !== -1) {
+        console.log("match! ");
+        updatedUser = state.users[state.users.findIndex(findUser)];
+      }
+      function findUser(e) {
+        console.log("no match")
+
+        return e.email === action.email && e.password === action.password;
+      }
+
+      //open user page with custom data
+
+      return {
+        ...state,
+        currentUser: updatedUser,
+      };
 
     default:
       return state;

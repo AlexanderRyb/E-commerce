@@ -100,7 +100,7 @@ export const login = (email, password) => {
 }
 export const register = (email, password, passwordAgain) => {
   return{
-    type: "REGISTER",
+    type: "ADDNEWUSER",
     email, password, passwordAgain
   }
 }
