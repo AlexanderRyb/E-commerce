@@ -28,6 +28,7 @@ export class App extends Component {
             <Route path="/wishlist" render={() => <Wishlist />} />
             <Route path="/signin" render={() => <Signin />} />
             <Route path="/signup" render={() => <Signup />} />
+            <Route path="/userPage" render={() => <userPage />} />
           </HashRouter>
         </div>
       </Provider>

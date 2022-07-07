@@ -8,7 +8,7 @@ const initialState = {
   submitData: [],
   maxValue: 40000,
   minValue: 0,
-  users: [{ email: "transoceantrain@gmail.com", password: "123", data: "" }],
+  users: [{ email: "transoceantrain@gmail.com", password: "123", data: "here, let's try it." }],
   currentUser: 1,
 };
 const Reducer = (state = initialState, action) => {
@@ -169,6 +169,7 @@ const Reducer = (state = initialState, action) => {
       };
     case "ADDNEWUSER":
       let newUser = {};
+      let currentUser = state.currentUser
       let updatedUsers = state.users;
       //check if password and passwordAgain are identical
       if (action.password === action.passwordAgain) {
@@ -182,6 +183,11 @@ const Reducer = (state = initialState, action) => {
           updatedUsers.push(newUser);
           console.log("register success -"+ action.email, action.password + "users stored "+state.users.length)
           console.log(state.users)
+          currentUser = state.users.length-1
+          console.log('current user is '+currentUser )
+          //open personal account page with user data on it.
+
+
         }
         else{
           console.log('failure mode - Account with that email already exists.')
@@ -194,6 +200,7 @@ const Reducer = (state = initialState, action) => {
       return {
         ...state,
         users: updatedUsers,
+        currentUser: currentUser
 
         //push user data object to users
       };
@@ -206,10 +213,13 @@ const Reducer = (state = initialState, action) => {
       if (state.users.findIndex(findUser) !== -1) {
         console.log("match! ");
         updatedUser = state.users[state.users.findIndex(findUser)];
+        
       }
-      function findUser(e) {
+      else{
         console.log("no match")
 
+      }
+      function findUser(e) {
         return e.email === action.email && e.password === action.password;
       }
 

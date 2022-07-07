@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
 import { login } from '../../my-redux/actions';
+import { UserPage } from "./UserPage";
 
 
 
@@ -30,11 +31,14 @@ constructor(props){
     this.props.login(this.state.email, this.state.password)
   }
 
-
   render() {  
+console.log("state is " + this.props.test)
+
     
     return (
-        
+      <div>
+
+        {this.props.test}
         <form className="login-form" onSubmit={this.handleSubmit}>
         <h1>Log In</h1>
         <label htmlFor="email">Email</label>
@@ -72,6 +76,11 @@ constructor(props){
 
 
       </form>
+      <div className='user-data'>
+        {this.props.test}
+      </div>
+      </div>
+
     )
   }
 }
@@ -79,6 +88,7 @@ const mapStateToProps = (state) => {
   return {
     // emailValue: state.emailValue,
     // passValue: state.passValue
+    test: state.users[0].data
   };
 };
 

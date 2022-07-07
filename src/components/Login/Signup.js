@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { register } from "../../my-redux/actions";
+import { UserPage } from "./UserPage";
 
 
 export class Signup extends Component {
@@ -87,6 +88,7 @@ export class Signup extends Component {
             </p>
           </div>
         </form>
+        <UserPage></UserPage>
         
       
       </div>
