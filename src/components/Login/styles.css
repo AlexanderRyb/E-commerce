@@ -44,3 +44,10 @@ a {
 .login-form{
   display: flex;
 }
+
+.visible{
+  display: flex;
+}
+.invisible{
+  display: none;
+}

@@ -104,3 +104,8 @@ export const register = (email, password, passwordAgain) => {
     email, password, passwordAgain
   }
 }
+export const logout = () => {
+  return{
+    type: "LOGOUT"
+  }
+}

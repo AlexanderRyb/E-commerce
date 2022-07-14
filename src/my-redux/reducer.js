@@ -8,8 +8,21 @@ const initialState = {
   submitData: [],
   maxValue: 40000,
   minValue: 0,
-  users: [{ email: "transoceantrain@gmail.com", password: "123", data: "here, let's try it." }],
+  users: [
+    {
+      email: "logged out",
+      password: "",
+      data: "",
+    },
+    {
+      email: "Transoceantran@gmail.com",
+      password: "123",
+      data: "here we go"
+    }
+  ],
   currentUser: 1,
+  loggedStatus: false
+
 };
 const Reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -169,7 +182,7 @@ const Reducer = (state = initialState, action) => {
       };
     case "ADDNEWUSER":
       let newUser = {};
-      let currentUser = state.currentUser
+      let currentUser = state.currentUser;
       let updatedUsers = state.users;
       //check if password and passwordAgain are identical
       if (action.password === action.passwordAgain) {
@@ -180,44 +193,41 @@ const Reducer = (state = initialState, action) => {
         if (state.users.findIndex(findEmail) === -1) {
           newUser.email = action.email;
           newUser.password = action.password;
+          newUser.data = "user data is " + action.email;
           updatedUsers.push(newUser);
-          console.log("register success -"+ action.email, action.password + "users stored "+state.users.length)
-          console.log(state.users)
-          currentUser = state.users.length-1
-          console.log('current user is '+currentUser )
+          console.log(
+            "register success -" + action.email,
+            action.password + "users stored " + state.users.length
+          );
+          console.log(state.users);
+          currentUser = state.users.length - 1;
+          console.log("current user is " + currentUser);
           //open personal account page with user data on it.
-
-
+        } else {
+          console.log("failure mode - Account with that email already exists.");
         }
-        else{
-          console.log('failure mode - Account with that email already exists.')
-        }
-      }
-      else{
-        console.log('failure mode - passwords dont match')
-
+      } else {
+        console.log("failure mode - passwords dont match");
       }
       return {
         ...state,
         users: updatedUsers,
-        currentUser: currentUser
+        currentUser: currentUser,
 
         //push user data object to users
       };
     case "LOGIN":
       console.log(action.email + action.password);
-
       //check if this email/password pair is in the database
       let updatedUser = state.currentUser;
 
       if (state.users.findIndex(findUser) !== -1) {
         console.log("match! ");
         updatedUser = state.users[state.users.findIndex(findUser)];
-        
-      }
-      else{
-        console.log("no match")
+        console.log("logged status is "+ state.loggedStatus)
 
+      } else {
+        console.log("no match");
       }
       function findUser(e) {
         return e.email === action.email && e.password === action.password;
@@ -228,10 +238,19 @@ const Reducer = (state = initialState, action) => {
       return {
         ...state,
         currentUser: updatedUser,
+        loggedStatus: true
       };
 
     default:
       return state;
+
+    case "LOGOUT":
+      console.log('logged out')  
+      return{
+        ...state, 
+        currentUser: 0,
+        loggedStatus: false
+      }
   }
 };
 export default Reducer;

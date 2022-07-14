@@ -7,7 +7,6 @@ export class UserPage extends Component {
     console.log(this.props.maxValue);
     console.log(this.props);
 
-    let maxValue = this.props.maxValue
    
 
     return (

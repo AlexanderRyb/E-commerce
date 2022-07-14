@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
 import { login } from '../../my-redux/actions';
-import { UserPage } from "./UserPage";
-
+import { logout } from '../../my-redux/actions';
 
 
 
@@ -33,14 +32,16 @@ constructor(props){
 
   render() {  
 console.log("state is " + this.props.test)
+console.log(this.props.loggedIn)
 
     
     return (
       <div>
 
-        {this.props.test}
-        <form className="login-form" onSubmit={this.handleSubmit}>
-        <h1>Log In</h1>
+        <form className={"login-form "+ (this.props.loggedIn? "invisible":"visible")} onSubmit={this.handleSubmit}>
+        <h1>Log In {this.props.loggedIn}</h1>
+        
+
         <label htmlFor="email">Email</label>
         <input
           type="text"
@@ -76,8 +77,9 @@ console.log("state is " + this.props.test)
 
 
       </form>
-      <div className='user-data'>
-        {this.props.test}
+      <div className={'user-data '+(this.props.loggedIn? "visible": "invisible")} >
+      <p>{this.props.userData}</p>
+        <button onClick={() => this.props.logout()}>Sign out</button>
       </div>
       </div>
 
@@ -86,15 +88,16 @@ console.log("state is " + this.props.test)
 }
 const mapStateToProps = (state) => {
   return {
-    // emailValue: state.emailValue,
-    // passValue: state.passValue
-    test: state.users[0].data
+
+    userData: state.users[0].data,
+    loggedIn: state.loggedStatus
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    login: (email, password) => dispatch(login(email, password))
+    login: (email, password) => dispatch(login(email, password)),
+    logout: () => dispatch(logout())
   };
 };
 
