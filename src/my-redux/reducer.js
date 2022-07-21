@@ -196,23 +196,25 @@ const Reducer = (state = initialState, action) => {
           newUser.data = "user data is " + action.email;
           updatedUsers.push(newUser);
           console.log(
-            "register success -" + action.email,
-            action.password + "users stored " + state.users.length
+            "register success - " + action.email,
+            action.password + " users stored " + state.users.length
           );
           console.log(state.users);
           currentUser = state.users.length - 1;
           console.log("current user is " + currentUser);
           //open personal account page with user data on it.
+
         } else {
-          console.log("failure mode - Account with that email already exists.");
+          console.log("Account with that email already exists.");
         }
       } else {
-        console.log("failure mode - passwords dont match");
+        console.log("passwords dont match");
       }
       return {
         ...state,
         users: updatedUsers,
         currentUser: currentUser,
+        loggedStatus: true
 
         //push user data object to users
       };

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { register } from "../../my-redux/actions";
-import { UserPage } from "./UserPage";
 
 
 export class Signup extends Component {
@@ -39,9 +38,17 @@ export class Signup extends Component {
   render() {
     return (
       <div>
-        <form className="registration-form" onSubmit={this.handleSubmit}>
+
+        <form 
+        className={
+          "registration-form " + (this.props.loggedIn ? "invisible" : "visible")
+        }
+        
+        onSubmit={this.handleSubmit}>
           <h1>Register</h1>
           <hr />
+          {this.props.userData}
+
           <label htmlFor="email">Email</label>
           <input
             type="text"
@@ -87,8 +94,16 @@ export class Signup extends Component {
                 </Link> 
             </p>
           </div>
+          {this.props.loggedIn}
         </form>
-        <UserPage></UserPage>
+        <div
+          className={
+            "user-data " + (this.props.loggedIn ? "visible" : "invisible")
+          }
+        >
+          <p>{this.props.userData}</p>
+          <button onClick={() => this.props.logout()}>Sign out</button>
+        </div>
         
       
       </div>
@@ -98,7 +113,10 @@ export class Signup extends Component {
 const mapStateToProps = (state) => {
   return {
     emailValue: state.emailValue,
-    passValue: state.passValue
+    passValue: state.passValue,
+    currentUser: state.currentUser,
+    userData: state.users[state.currentUser].data,
+    loggedIn: state.loggedStatus
     
   };
 };
