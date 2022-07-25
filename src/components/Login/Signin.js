@@ -71,6 +71,9 @@ export class Signin extends Component {
           <p>{this.props.userData}</p>
           <button onClick={() => this.props.logout()}>Sign out</button>
         </div>
+        <button onClick={()=> console.log(this.props.currentUser+"and "+ this.props.loggedIn)
+
+        }>test</button>
       </div>
     );
   }

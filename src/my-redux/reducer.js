@@ -6,7 +6,7 @@ const initialState = {
   wishList: [],
   cart: [],
   submitData: [],
-  maxValue: 40000,
+  maxValue: 20000,
   minValue: 0,
   users: [
     {
@@ -15,14 +15,13 @@ const initialState = {
       data: "",
     },
     {
-      email: "Transoceantran@gmail.com",
+      email: "transoceantran@gmail.com",
       password: "123",
-      data: "here we go"
-    }
+      data: "here we go",
+    },
   ],
-  currentUser: 1,
-  loggedStatus: false
-
+  currentUser: 0,
+  loggedStatus: false,
 };
 const Reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -202,8 +201,6 @@ const Reducer = (state = initialState, action) => {
           console.log(state.users);
           currentUser = state.users.length - 1;
           console.log("current user is " + currentUser);
-          //open personal account page with user data on it.
-
         } else {
           console.log("Account with that email already exists.");
         }
@@ -214,45 +211,42 @@ const Reducer = (state = initialState, action) => {
         ...state,
         users: updatedUsers,
         currentUser: currentUser,
-        loggedStatus: true
-
-        //push user data object to users
+        loggedStatus: true,
       };
     case "LOGIN":
       console.log(action.email + action.password);
       //check if this email/password pair is in the database
-      let updatedUser = state.currentUser;
+      let newCurrentUser = state.currentUser;
 
-      if (state.users.findIndex(findUser) !== -1) {
-        console.log("match! ");
-        updatedUser = state.users[state.users.findIndex(findUser)];
-        console.log("logged status is "+ state.loggedStatus)
-
-      } else {
+      if (state.users.findIndex(findUser) === -1) {
         console.log("no match");
+        console.log("new cur user "+newCurrentUser)        
+        console.log(action.email + action.password)
+        console.log(state.users.findIndex(findUser))
+      
+      } else {       
+        console.log("match!");
+        newCurrentUser = state.users.findIndex(findUser)
+        //newCurrentUser = state.users[state.users.findIndex(findUser)];
       }
       function findUser(e) {
-        return e.email === action.email && e.password === action.password;
+        return e.email === action.email && e.password == action.password;
       }
-
-      //open user page with custom data
-
       return {
         ...state,
-        currentUser: updatedUser,
-        loggedStatus: true
+        currentUser: newCurrentUser,
+        loggedStatus: true,
       };
 
     default:
       return state;
 
     case "LOGOUT":
-      console.log('logged out')  
-      return{
-        ...state, 
+      return {
+        ...state,
         currentUser: 0,
-        loggedStatus: false
-      }
+        loggedStatus: false,
+      };
   }
 };
 export default Reducer;

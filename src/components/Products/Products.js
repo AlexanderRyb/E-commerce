@@ -10,8 +10,7 @@ import { updateMinPrice } from "../../my-redux/actions";
 
 export class Products extends Component {
   render() {
-    console.log(this.props.maxValue);
-    console.log(this.props.minValue);
+    
     let maxValue = this.props.maxValue
     let minValue = this.props.minValue
 

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./styles.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { logout } from "../../my-redux/actions";
 
 import { register } from "../../my-redux/actions";
 
@@ -123,7 +124,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    register: (email, password, passwordAgain) => dispatch(register(email, password, passwordAgain))
+    register: (email, password, passwordAgain) => dispatch(register(email, password, passwordAgain)),
+    logout: () => dispatch(logout()),
+    
   };
 };
 
