@@ -7,21 +7,23 @@ const initialState = {
   cart: [],
   submitData: [],
   maxValue: 20000,
-  minValue: 0,
+  minValue: 10,
   users: [
     {
       email: "logged out",
-      password: "",
-      data: "",
+      password: "?",
+      data: "no",
     },
     {
-      email: "transoceantran@gmail.com",
+      email: "transoceantrain@gmail.com",
       password: "123",
       data: "here we go",
     },
   ],
   currentUser: 0,
-  loggedStatus: false,
+  logInPage: true,
+  signUpPage: false,
+  userDataPage: false
 };
 const Reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -211,7 +213,9 @@ const Reducer = (state = initialState, action) => {
         ...state,
         users: updatedUsers,
         currentUser: currentUser,
-        loggedStatus: true,
+        logInPage: false,
+        signUpPage: false,
+        userDataPage: true
       };
     case "LOGIN":
       console.log(action.email + action.password);
@@ -221,8 +225,9 @@ const Reducer = (state = initialState, action) => {
       if (state.users.findIndex(findUser) === -1) {
         console.log("no match");
         console.log("new cur user "+newCurrentUser)        
-        console.log(action.email + action.password)
-        console.log(state.users.findIndex(findUser))
+        console.log("input - "+action.email + action.password)
+        console.log("should be equal to  - "+state.users[1].email + state.users[1].password)
+        // console.log(state.users.findIndex(findUser))
       
       } else {       
         console.log("match!");
@@ -235,7 +240,9 @@ const Reducer = (state = initialState, action) => {
       return {
         ...state,
         currentUser: newCurrentUser,
-        loggedStatus: true,
+        logInPage: false,
+        signUpPage: false,
+        userDataPage: true
       };
 
     default:
@@ -245,8 +252,18 @@ const Reducer = (state = initialState, action) => {
       return {
         ...state,
         currentUser: 0,
-        loggedStatus: false,
+        logInPage: true,
+        signUpPage: false,
+        userDataPage: false
       };
+
+    case 'OPENSIGNUPPAGE': 
+    return{
+      ...state,
+      logInPage: false,
+      signUpPage: true,
+      userDataPage: false
+    }  
   }
 };
 export default Reducer;

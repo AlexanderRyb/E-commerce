@@ -99,7 +99,7 @@ export class Signup extends Component {
         </form>
         <div
           className={
-            "user-data " + (this.props.loggedIn ? "visible" : "invisible")
+            "user-data " + (this.props.loggedPage ? "visible" : "invisible")
           }
         >
           <p>{this.props.userData}</p>
@@ -117,7 +117,9 @@ const mapStateToProps = (state) => {
     passValue: state.passValue,
     currentUser: state.currentUser,
     userData: state.users[state.currentUser].data,
-    loggedIn: state.loggedStatus
+    logInPage: state.logInPage,
+    signUpPage: state.signUpPage,
+    userDataPage: state.userDataPage
     
   };
 };

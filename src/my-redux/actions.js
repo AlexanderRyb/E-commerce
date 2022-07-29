@@ -109,3 +109,8 @@ export const logout = () => {
     type: "LOGOUT"
   }
 }
+export const openSignUpPage = () => {
+  return{
+    type: "OPENSIGNUPPAGE"
+  }
+}

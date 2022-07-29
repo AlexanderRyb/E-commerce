@@ -37,7 +37,7 @@ export class Navigation extends Component {
 
           <div className="links">
             <div className="registration-page-link">
-              <Link to="/signup">
+              <Link to="/signin">
                 <User
                 fill="white"
                 width={30}
