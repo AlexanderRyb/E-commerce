@@ -142,7 +142,7 @@ export class Signin extends Component {
             "user-data " + (this.props.userDataPage ? "visible" : "invisible")
           }
         >
-          <p>{this.props.userData} come on</p>
+          <p>{this.props.userData}</p>
           <button onClick={() => this.props.logout()}>Sign out</button>
         </div>
         

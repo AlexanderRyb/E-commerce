@@ -185,6 +185,7 @@ const Reducer = (state = initialState, action) => {
       let newUser = {};
       let currentUser = state.currentUser;
       let updatedUsers = state.users;
+      let correctDataCheck = true
       //check if password and passwordAgain are identical
       if (action.password === action.passwordAgain) {
         //check if this email already occurs in the database
@@ -205,17 +206,19 @@ const Reducer = (state = initialState, action) => {
           console.log("current user is " + currentUser);
         } else {
           console.log("Account with that email already exists.");
+          correctDataCheck = false
         }
       } else {
         console.log("passwords dont match");
+        correctDataCheck = false
       }
       return {
         ...state,
         users: updatedUsers,
         currentUser: currentUser,
         logInPage: false,
-        signUpPage: false,
-        userDataPage: true
+        signUpPage:  !correctDataCheck,
+        userDataPage: correctDataCheck
       };
     case "LOGIN":
       console.log(action.email + action.password);
