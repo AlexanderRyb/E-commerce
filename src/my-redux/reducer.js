@@ -224,18 +224,19 @@ const Reducer = (state = initialState, action) => {
       console.log(action.email + action.password);
       //check if this email/password pair is in the database
       let newCurrentUser = state.currentUser;
+      let correctLoginDataCheck = true
+
 
       if (state.users.findIndex(findUser) === -1) {
         console.log("no match");
         console.log("new cur user "+newCurrentUser)        
         console.log("input - "+action.email + action.password)
         console.log("should be equal to  - "+state.users[1].email + state.users[1].password)
-        // console.log(state.users.findIndex(findUser))
+        correctLoginDataCheck = false
       
       } else {       
         console.log("match!");
         newCurrentUser = state.users.findIndex(findUser)
-        //newCurrentUser = state.users[state.users.findIndex(findUser)];
       }
       function findUser(e) {
         return e.email === action.email && e.password == action.password;
@@ -243,9 +244,9 @@ const Reducer = (state = initialState, action) => {
       return {
         ...state,
         currentUser: newCurrentUser,
-        logInPage: false,
+        logInPage: !correctLoginDataCheck,
         signUpPage: false,
-        userDataPage: true
+        userDataPage: correctLoginDataCheck
       };
 
     default:
