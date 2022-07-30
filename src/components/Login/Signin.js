@@ -3,7 +3,9 @@ import { connect } from "react-redux";
 import { login } from "../../my-redux/actions";
 import { logout } from "../../my-redux/actions";
 import { openSignUpPage } from "../../my-redux/actions";
+import { openSignInPage } from "../../my-redux/actions";
 import { register } from "../../my-redux/actions";
+import "./styles.css";
 
 export class Signin extends Component {
   constructor(props) {
@@ -132,7 +134,7 @@ export class Signin extends Component {
           
           </div>
           <p>already have an account? </p>
-            <a onClick={this.props.openSignUpPage}>log in</a>
+            <a onClick={this.props.openSignInPage}  >log in</a>
         </form>
 
 
@@ -165,7 +167,8 @@ const mapDispatchToProps = (dispatch) => {
     login: (email, password) => dispatch(login(email, password)),
     logout: () => dispatch(logout()),
     register: (email, password, passwordAgain) => dispatch(register(email, password, passwordAgain)),
-    openSignUpPage: () => dispatch(openSignUpPage())
+    openSignUpPage: () => dispatch(openSignUpPage()),
+    openSignInPage: () => dispatch(openSignInPage())
 
 
   };

@@ -268,6 +268,15 @@ const Reducer = (state = initialState, action) => {
       signUpPage: true,
       userDataPage: false
     }  
+    case 'OPENSIGNINPAGE': 
+    return{
+      ...state,
+      logInPage: true,
+      signUpPage: false,
+      userDataPage: false
+    }  
   }
-};
+  }
+ 
+
 export default Reducer;

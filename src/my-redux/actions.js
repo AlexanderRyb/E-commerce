@@ -114,3 +114,9 @@ export const openSignUpPage = () => {
     type: "OPENSIGNUPPAGE"
   }
 }
+export const openSignInPage = () => { 
+  return{
+    type: "OPENSIGNINPAGE"
+  }
+}
+
