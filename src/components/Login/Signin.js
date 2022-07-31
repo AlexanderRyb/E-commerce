@@ -90,7 +90,6 @@ export class Signin extends Component {
         onSubmit={this.handleRegisterSubmit}>
           <h1>Register</h1>
           <hr />
-          {this.props.userData}
 
           <label htmlFor="email">Email</label>
           <input
