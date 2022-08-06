@@ -43,8 +43,6 @@ export class Signin extends Component {
   render() {
     return (
       <div>
-      
-
         {/* log in page */}
         <form
           className={
@@ -143,7 +141,7 @@ export class Signin extends Component {
             "user-data " + (this.props.userDataPage ? "visible" : "invisible")
           }
         >
-          <p>{this.props.userData}</p>
+          <p>User email: {this.props.userData}</p>
           <button onClick={() => this.props.logout()}>Sign out</button>
         </div>
         
@@ -154,7 +152,7 @@ export class Signin extends Component {
 const mapStateToProps = (state) => {
   return {
     currentUser: state.currentUser,
-    userData: state.users[state.currentUser].data,
+    userData: state.users[state.currentUser].email,
     logInPage: state.logInPage,
     signUpPage: state.signUpPage,
     userDataPage: state.userDataPage

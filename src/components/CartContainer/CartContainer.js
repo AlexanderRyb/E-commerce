@@ -9,10 +9,11 @@ import Form from "./Form";
 
 
 export function CartContainer(props) {
+  console.log(props.cart)
   
   let cartItem = "";
   if (props.cart) {
-    cartItem = props.cart.map((item) => (
+    cartItem = props.userCart.map((item) => (
       <div className="cart-item-row" key={item.id}>
         <div className="image-block">
           <img className="mini-image" src={item.image} alt=""></img>
@@ -100,6 +101,8 @@ export function CartContainer(props) {
 const mapStateToProps = (state) => {
   return {
     cart: state.cart,
+    currentUser: state.currentUser,
+    userCart: state.users[state.currentUser].cart
   };
 };
 const mapDispatchToProps = (dispatch) => {

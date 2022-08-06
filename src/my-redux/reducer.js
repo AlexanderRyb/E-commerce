@@ -1,4 +1,3 @@
-import { CardContent } from "@material-ui/core";
 import productList from "../components/Products/productList.json";
 
 const initialState = {
@@ -6,7 +5,6 @@ const initialState = {
   filteredItems: productList,
   wishList: [],
   cart: [],
-  userData: [],
   submitData: [],
   maxValue: 20000,
   minValue: 10,
@@ -19,7 +17,9 @@ const initialState = {
     {
       email: "transoceantrain@gmail.com",
       password: "123",
-      data: [],
+      cart: [],
+      wishlist: [],
+
     },
   ],
   currentUser: 0,
@@ -31,6 +31,7 @@ const Reducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADDTOCART":
       //checks if items is already in the cart
+      console.log(action.payload)
       
       let itemIndex = state.cart.findIndex(checkItemIndex);
       
@@ -42,7 +43,7 @@ const Reducer = (state = initialState, action) => {
           ...state,
           cart: state.cart.concat(action.payload),
           users: state.users.map(
-            (user, i) => i === state.currentUser? {...user, data: action.payload}: user
+            (user, i) => i === state.currentUser? {...user, cart: user.cart.concat(action.payload)}: user
           )
          
         };
@@ -203,7 +204,7 @@ const Reducer = (state = initialState, action) => {
         if (state.users.findIndex(findEmail) === -1) {
           newUser.email = action.email;
           newUser.password = action.password;
-          newUser.data = []
+          newUser.cart = []
           updatedUsers.push(newUser);
           console.log(
             "register success - " + action.email,
