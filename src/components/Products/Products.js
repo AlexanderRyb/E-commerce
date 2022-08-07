@@ -33,7 +33,7 @@ export class Products extends Component {
           <button
             onClick={() => this.props.addToCart(item)}
             className={
-              this.props.cart.some((e) => e.id === item.id)
+              this.props.userCart.some((e) => e.id === item.id)
                 ? "cart-button-selected"
                 : "cart-button-unselected"
             }
@@ -79,11 +79,12 @@ export class Products extends Component {
 const mapStateToProps = (state) => {
   return {
     cart: state.cart,
-    wishList: state.wishList,
+    wishList:  state.users[state.currentUser].wishlist,
     items: state.items,
     filteredItems: state.filteredItems,
     maxValue: state.maxValue,
     minValue: state.minValue,
+    userCart: state.users[state.currentUser].cart
 
   };
 };

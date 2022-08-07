@@ -12,7 +12,8 @@ const initialState = {
     {
       email: "logged out",
       password: "?",
-      data: "no",
+      cart:[],
+      wishlist: []
     },
     {
       email: "transoceantrain@gmail.com",
@@ -33,7 +34,7 @@ const Reducer = (state = initialState, action) => {
       //checks if items is already in the cart
       console.log(action.payload)
       
-      let itemIndex = state.cart.findIndex(checkItemIndex);
+      let itemIndex = state.users[state.currentUser].cart.findIndex(checkItemIndex);
       
       function checkItemIndex(item) {
         return item.id === action.payload.id;
@@ -41,7 +42,7 @@ const Reducer = (state = initialState, action) => {
       if (itemIndex === -1) {
         return {
           ...state,
-          cart: state.cart.concat(action.payload),
+          // cart: state.cart.concat(action.payload),
           users: state.users.map(
             (user, i) => i === state.currentUser? {...user, cart: user.cart.concat(action.payload)}: user
           )
@@ -123,14 +124,16 @@ const Reducer = (state = initialState, action) => {
         };
       }
     case "ADDTOWISHLIST":
-      let wishlistItemIndex = state.wishList.findIndex(checkWishlistItemIndex);
+      let wishlistItemIndex = state.users[state.currentUser].wishlist.findIndex(checkWishlistItemIndex);
       function checkWishlistItemIndex(item) {
         return item.id === action.payload.id;
       }
       if (wishlistItemIndex === -1) {
         return {
           ...state,
-          wishList: state.wishList.concat(action.payload),
+          users: state.users.map(
+            (user, i) => i === state.currentUser? {...user, wishlist: user.wishlist.concat(action.payload)}: user
+          )
         };
       } else {
         return state;
@@ -205,6 +208,7 @@ const Reducer = (state = initialState, action) => {
           newUser.email = action.email;
           newUser.password = action.password;
           newUser.cart = []
+          newUser.wishlist = []
           updatedUsers.push(newUser);
           console.log(
             "register success - " + action.email,

@@ -54,7 +54,7 @@ export function CartContainer(props) {
       </div>
     ));
   }
-  let cartSum = props.cart.reduce(function (total, item) {
+  let cartSum = props.userCart.reduce(function (total, item) {
     return total + item.price * item.quantity;
   }, 0);
   if (cartSum < 1) {
@@ -64,7 +64,7 @@ export function CartContainer(props) {
     cartSum = cartSum + "₴";
 
   }
-  let checkCart = (props.cart.length>0)
+  let checkCart = (props.userCart.length>0)
   let cartContent =  <main className="cart-container">
   <Form></Form>   
   

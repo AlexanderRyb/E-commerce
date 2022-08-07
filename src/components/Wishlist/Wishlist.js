@@ -34,8 +34,8 @@ class Wishlist extends Component {
 }
 const mapStateToProps = (state) => {
   return {
-    cart: state.cart,
-    wishList: state.wishList,
+    cart: state.users[state.currentUser].cart,
+    wishList: state.users[state.currentUser].wishlist,
     filteredItems: state.filteredItems,
   };
 };

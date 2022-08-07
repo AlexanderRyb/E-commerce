@@ -97,8 +97,8 @@ export class Navigation extends Component {
 }
 const mapStateToProps = (state) => {
   return {
-    itemsInCart: state.cart.length,
-    itemsInWishlist: state.wishList.length,
+    itemsInCart: state.users[state.currentUser].cart.length,
+    itemsInWishlist: state.users[state.currentUser].wishlist.length,
   };
 };
 const mapDispatchToProps = (dispatch) => {
