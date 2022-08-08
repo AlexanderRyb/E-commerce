@@ -42,7 +42,6 @@ const Reducer = (state = initialState, action) => {
       if (itemIndex === -1) {
         return {
           ...state,
-          // cart: state.cart.concat(action.payload),
           users: state.users.map(
             (user, i) => i === state.currentUser? {...user, cart: user.cart.concat(action.payload)}: user
           )
@@ -55,44 +54,57 @@ const Reducer = (state = initialState, action) => {
     case "REMOVE":
       return {
         ...state,
-        cart: state.cart.filter((id) => id !== action.id),
+        users: state.users.map(
+          (user, i) => i === state.currentUser? {...user, cart: user.cart.filter((id) => id !== action.id)}: user
+
+        )
       };
     case "INCREMENT":
-      const index = state.cart.findIndex(checkIndex);
+      const index = state.users[state.currentUser].cart.findIndex(checkIndex);
       function checkIndex(el) {
         return el.id === action.item.id;
       }
       return {
         ...state,
-        cart: state.cart.map((item, i) =>
-          i === index ? { ...item, quantity: item.quantity + 1 } : item
-        ),
+        users: state.users.map(
+          (user, i) => i === state.currentUser? {...user, cart: user.cart.map((item, i) =>
+            i === index ? { ...item, quantity: item.quantity + 1 } : item
+          )}: user
+
+
+        )
       };
     case "DECREMENT":
-      const ind = state.cart.findIndex(checkInd);
+      const ind = state.users[state.currentUser].cart.findIndex(checkInd);
       function checkInd(el) {
         return el.id === action.item.id;
       }
 
-      if (state.cart[ind].quantity < 2) {
-        console.log(state.cart[ind].quantity);
+      if (state.users[state.currentUser].cart[ind].quantity < 2) {
         return {
           ...state,
-          cart: state.cart.filter((item) => item.id !== action.item.id),
+          users: state.users.map(
+          (user, i) => i === state.currentUser? {...user, cart: user.cart.filter((item) => item.id !== action.item.id)}: user
+
+          )
         };
       } else {
         return {
           ...state,
-          cart: state.cart.map((item, i) =>
-            i === ind ? { ...item, quantity: item.quantity - 1 } : item
-          ),
+          users: state.users.map(
+            (user, i) => i === state.currentUser? {...user, cart: user.cart.map((item, i) =>
+              i === ind ? { ...item, quantity: item.quantity - 1 } : item
+            )}: user
+
+
+          )
         };
       }
 
     case "SUBMIT":
-      let itemCount = state.cart.length;
+      let itemCount = state.users[state.currentUser].cart.length;
       console.log(itemCount);
-      let cartSum = state.cart.reduce(function (total, item) {
+      let cartSum = state.users[state.currentUser].cart.reduce(function (total, item) {
         return total + item.price * item.quantity;
       }, 0);
       console.log(
@@ -142,7 +154,9 @@ const Reducer = (state = initialState, action) => {
     case "REMOVEFROMWISHLIST":
       return {
         ...state,
-        wishList: state.wishList.filter((id) => id !== action.id),
+        users: state.users.map(
+          (user, i) => i === state.currentUser? {...user, wishlist: user.wishlist.filter((id) => id !== action.id)}: user
+        )
       };
     case "SHOWCOMPUTERS":
       return {
