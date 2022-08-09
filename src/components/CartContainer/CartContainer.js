@@ -68,15 +68,7 @@ export function CartContainer(props) {
   let cartContent =  <main className="cart-container">
   <Form></Form>   
   
-  <button
-      type="submit"
-      className="submit-form-button"
-      onClick={() => props.submit()     
-      }
 
-    >
-      Submit
-    </button>
     <div className="cart-products-container">
 
     {cartItem}
@@ -85,7 +77,17 @@ export function CartContainer(props) {
      
       
        </div>
+       <button
+      type="submit"
+      className="submit-form-button"
+      onClick={() => props.submit()     
+      }
+
+    >
+      Submit
+    </button>
         </div>
+        
       
   </main>
 

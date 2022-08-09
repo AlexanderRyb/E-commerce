@@ -43,6 +43,10 @@ a {
 
 .login-form{
   display: flex;
+  width: 30%;
+}
+.registration-form{
+  width: 30%;
 }
 
 .visible{

@@ -126,10 +126,7 @@ export class Signin extends Component {
             Register
           </button>
 
-          <div className="container signin">
-          
-          
-          </div>
+         
           <p>already have an account? </p>
             <a onClick={this.props.openSignInPage}  >log in</a>
         </form>
