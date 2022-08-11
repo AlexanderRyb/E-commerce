@@ -1,8 +1,8 @@
 import productList from "../components/Products/productList.json";
 
 const initialState = {
-  items: productList,
-  filteredItems: productList,
+  products: productList,
+  searchResult: [],
   wishList: [],
   cart: [],
   submitData: [],
@@ -125,14 +125,14 @@ const Reducer = (state = initialState, action) => {
         console.log("the payload:" + action.payload);
         return {
           ...state,
-          filteredItems: productList.filter((item) =>
+          products: state.products.filter((item) =>
             item.description.toLowerCase().includes(action.payload)
           ),
         };
       } else {
         return {
           ...state,
-          filteredItems: productList,
+          products: state.products,
         };
       }
     case "ADDTOWISHLIST":
@@ -161,21 +161,21 @@ const Reducer = (state = initialState, action) => {
     case "SHOWCOMPUTERS":
       return {
         ...state,
-        filteredItems: productList.filter(
+        searchResult: state.products.filter(
           (element) => element.category === "PC"
         ),
       };
     case "SHOWNOTEBOOKS":
       return {
         ...state,
-        filteredItems: productList.filter(
+        searchResult: state.products.filter(
           (element) => element.category === "notebook"
         ),
       };
     case "SHOWSMARTPHONES":
       return {
         ...state,
-        filteredItems: productList.filter(
+        searchResult: state.products.filter(
           (element) => element.category === "phone"
         ),
       };
@@ -183,19 +183,19 @@ const Reducer = (state = initialState, action) => {
     case "SHOWEVERYCATEGORY":
       return {
         ...state,
-        filteredItems: productList,
+        searchResult: state.products
       };
     case "UPDATEMAXPRICE":
       return {
         ...state,
         maxValue: action.value,
-        filteredItems: productList.filter((item) => item.price < action.value),
+        products: state.products.filter((item) => item.price < action.value),
       };
     case "UPDATEMINPRICE":
       return {
         ...state,
         minValue: action.value,
-        filteredItems: productList.filter((item) => item.price > action.value),
+        products: state.products.filter((item) => item.price > action.value),
       };
 
     case "UPDATEPRICERANGE":
@@ -203,7 +203,7 @@ const Reducer = (state = initialState, action) => {
         ...state,
         minValue: action.value,
         maxValue: action.value,
-        filteredItems: productList.filter(
+        products: state.products.filter(
           (item) => item.price > state.minValue && item.price < state.maxValue
         ),
       };

@@ -36,7 +36,7 @@ const mapStateToProps = (state) => {
   return {
     cart: state.users[state.currentUser].cart,
     wishList: state.users[state.currentUser].wishlist,
-    filteredItems: state.filteredItems,
+    products: state.products,
   };
 };
 const mapDispatchToProps = (dispatch) => {

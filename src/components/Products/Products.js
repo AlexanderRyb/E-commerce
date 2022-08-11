@@ -13,10 +13,16 @@ export class Products extends Component {
     
     let maxValue = this.props.maxValue
     let minValue = this.props.minValue
+    let areSearchResultsEmpty 
 
-    let searchResuts = [];
-    if (this.props.filteredItems !== []) {
-      searchResuts = this.props.filteredItems.map((item) => (
+    let displayedItems = [];
+    if(this.props.searchResults == []){
+      areSearchResultsEmpty = this.props.products
+    }
+    if(this.props.searchResults !== []){
+      areSearchResultsEmpty = this.props.searchResults
+    }
+      displayedItems = areSearchResultsEmpty.map((item) => (
         <div key={item.id} className="product-card">
           {item.title}
           <img src={item.image} alt={`Preview of ${item.title}`} />
@@ -40,7 +46,7 @@ export class Products extends Component {
           ></button>
         </div>
       ));
-    }
+          
 
     return (
       <main>
@@ -71,7 +77,7 @@ export class Products extends Component {
         </div>
         </div>
 
-        {searchResuts}
+        {displayedItems}
       </main>
     );
   }
@@ -79,9 +85,9 @@ export class Products extends Component {
 const mapStateToProps = (state) => {
   return {
     cart: state.cart,
-    wishList:  state.users[state.currentUser].wishlist,
-    items: state.items,
-    filteredItems: state.filteredItems,
+    wishList:  state.users[state.currentUser].wishlist,    
+    products: state.products,
+    searchResults: state.searchResult,
     maxValue: state.maxValue,
     minValue: state.minValue,
     userCart: state.users[state.currentUser].cart

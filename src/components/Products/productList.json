@@ -28,7 +28,7 @@
     "description": "Apple iPhone 6 16GB silver",
     "price": 10000,
     "image": "/images/iphone6.jpg",
-    "category": "notebook",
+    "category": "phone",
     "quantity": 1
   },
   {
@@ -68,7 +68,7 @@
     "description": "Philips 58PUS7505",
     "price": 8000,
     "image": "/images/philips58.jpg",
-    "category": "phone",
+    "category": "tv",
     "quantity": 1
   },
   {
