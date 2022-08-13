@@ -2,50 +2,55 @@ import productList from "../components/Products/productList.json";
 
 const initialState = {
   products: productList,
-  searchResult: [],
+
   wishList: [],
   cart: [],
   submitData: [],
+  searchResult: [],
   maxValue: 20000,
   minValue: 10,
+  textSearchValue: "",
+  currentCategory: ["PC", "laptop", "phone"],
   users: [
     {
       email: "logged out",
       password: "?",
-      cart:[],
-      wishlist: []
+      cart: [],
+      wishlist: [],
     },
     {
       email: "transoceantrain@gmail.com",
       password: "123",
       cart: [],
       wishlist: [],
-
     },
   ],
   currentUser: 0,
   logInPage: true,
   signUpPage: false,
-  userDataPage: false
+  userDataPage: false,
 };
+
 const Reducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADDTOCART":
       //checks if items is already in the cart
-      console.log(action.payload)
-      
-      let itemIndex = state.users[state.currentUser].cart.findIndex(checkItemIndex);
-      
+      console.log(action.payload);
+
+      let itemIndex =
+        state.users[state.currentUser].cart.findIndex(checkItemIndex);
+
       function checkItemIndex(item) {
         return item.id === action.payload.id;
       }
       if (itemIndex === -1) {
         return {
           ...state,
-          users: state.users.map(
-            (user, i) => i === state.currentUser? {...user, cart: user.cart.concat(action.payload)}: user
-          )
-         
+          users: state.users.map((user, i) =>
+            i === state.currentUser
+              ? { ...user, cart: user.cart.concat(action.payload) }
+              : user
+          ),
         };
       } else {
         return state;
@@ -54,10 +59,11 @@ const Reducer = (state = initialState, action) => {
     case "REMOVE":
       return {
         ...state,
-        users: state.users.map(
-          (user, i) => i === state.currentUser? {...user, cart: user.cart.filter((id) => id !== action.id)}: user
-
-        )
+        users: state.users.map((user, i) =>
+          i === state.currentUser
+            ? { ...user, cart: user.cart.filter((id) => id !== action.id) }
+            : user
+        ),
       };
     case "INCREMENT":
       const index = state.users[state.currentUser].cart.findIndex(checkIndex);
@@ -66,13 +72,16 @@ const Reducer = (state = initialState, action) => {
       }
       return {
         ...state,
-        users: state.users.map(
-          (user, i) => i === state.currentUser? {...user, cart: user.cart.map((item, i) =>
-            i === index ? { ...item, quantity: item.quantity + 1 } : item
-          )}: user
-
-
-        )
+        users: state.users.map((user, i) =>
+          i === state.currentUser
+            ? {
+                ...user,
+                cart: user.cart.map((item, i) =>
+                  i === index ? { ...item, quantity: item.quantity + 1 } : item
+                ),
+              }
+            : user
+        ),
       };
     case "DECREMENT":
       const ind = state.users[state.currentUser].cart.findIndex(checkInd);
@@ -83,30 +92,41 @@ const Reducer = (state = initialState, action) => {
       if (state.users[state.currentUser].cart[ind].quantity < 2) {
         return {
           ...state,
-          users: state.users.map(
-          (user, i) => i === state.currentUser? {...user, cart: user.cart.filter((item) => item.id !== action.item.id)}: user
-
-          )
+          users: state.users.map((user, i) =>
+            i === state.currentUser
+              ? {
+                  ...user,
+                  cart: user.cart.filter((item) => item.id !== action.item.id),
+                }
+              : user
+          ),
         };
       } else {
         return {
           ...state,
-          users: state.users.map(
-            (user, i) => i === state.currentUser? {...user, cart: user.cart.map((item, i) =>
-              i === ind ? { ...item, quantity: item.quantity - 1 } : item
-            )}: user
-
-
-          )
+          users: state.users.map((user, i) =>
+            i === state.currentUser
+              ? {
+                  ...user,
+                  cart: user.cart.map((item, i) =>
+                    i === ind ? { ...item, quantity: item.quantity - 1 } : item
+                  ),
+                }
+              : user
+          ),
         };
       }
 
     case "SUBMIT":
       let itemCount = state.users[state.currentUser].cart.length;
       console.log(itemCount);
-      let cartSum = state.users[state.currentUser].cart.reduce(function (total, item) {
+      let cartSum = state.users[state.currentUser].cart.reduce(function (
+        total,
+        item
+      ) {
         return total + item.price * item.quantity;
-      }, 0);
+      },
+      0);
       console.log(
         "Ви купили " +
           itemCount +
@@ -125,93 +145,159 @@ const Reducer = (state = initialState, action) => {
         console.log("the payload:" + action.payload);
         return {
           ...state,
-          products: state.products.filter((item) =>
-            item.description.toLowerCase().includes(action.payload)
-          ),
+          textSearchValue: action.payload,
+          searchResult: state.products
+            .filter((item) =>
+              item.description
+                .toLowerCase()
+                .includes(state.textSearchValue.toLowerCase())
+            )
+            .filter(
+              (item) =>
+                item.price > state.minValue && item.price < state.maxValue
+            )
+            .filter(
+              (item) => state.currentCategory.indexOf(item.category) !== -1
+            ),
         };
       } else {
-        return {
-          ...state,
-          products: state.products,
-        };
+        return state;
       }
     case "ADDTOWISHLIST":
-      let wishlistItemIndex = state.users[state.currentUser].wishlist.findIndex(checkWishlistItemIndex);
+      let wishlistItemIndex = state.users[state.currentUser].wishlist.findIndex(
+        checkWishlistItemIndex
+      );
       function checkWishlistItemIndex(item) {
         return item.id === action.payload.id;
       }
       if (wishlistItemIndex === -1) {
         return {
           ...state,
-          users: state.users.map(
-            (user, i) => i === state.currentUser? {...user, wishlist: user.wishlist.concat(action.payload)}: user
-          )
+          users: state.users.map((user, i) =>
+            i === state.currentUser
+              ? { ...user, wishlist: user.wishlist.concat(action.payload) }
+              : user
+          ),
         };
       } else {
         return state;
       }
 
+    // case "FILTERUPDATED":
+    //   return {
+
+    //   }
+
     case "REMOVEFROMWISHLIST":
       return {
         ...state,
-        users: state.users.map(
-          (user, i) => i === state.currentUser? {...user, wishlist: user.wishlist.filter((id) => id !== action.id)}: user
-        )
+        users: state.users.map((user, i) =>
+          i === state.currentUser
+            ? {
+                ...user,
+                wishlist: user.wishlist.filter((id) => id !== action.id),
+              }
+            : user
+        ),
       };
     case "SHOWCOMPUTERS":
       return {
         ...state,
-        searchResult: state.products.filter(
-          (element) => element.category === "PC"
-        ),
+        currentCategory: ["PC"],
+        searchResult: state.products
+          .filter((item) =>
+            item.description
+              .toLowerCase()
+              .includes(state.textSearchValue.toLowerCase())
+          )
+
+          .filter(
+            (item) => item.price > state.minValue && item.price < state.maxValue
+          )
+          .filter((item) => ["PC"].indexOf(item.category) !== -1),
       };
-    case "SHOWNOTEBOOKS":
+    case "SHOWLAPTOPS":
       return {
         ...state,
-        searchResult: state.products.filter(
-          (element) => element.category === "notebook"
-        ),
+        currentCategory: ["laptop"],
+        searchResult: state.products
+          .filter((item) =>
+            item.description
+              .toLowerCase()
+              .includes(state.textSearchValue.toLowerCase())
+          )
+
+          .filter(
+            (item) => item.price > state.minValue && item.price < state.maxValue
+          )
+          .filter((item) => ["laptop"].indexOf(item.category) !== -1),
       };
     case "SHOWSMARTPHONES":
       return {
         ...state,
-        searchResult: state.products.filter(
-          (element) => element.category === "phone"
-        ),
+        currentCategory: ["phone"],
+        searchResult: state.products
+          .filter((item) =>
+            item.description
+              .toLowerCase()
+              .includes(state.textSearchValue.toLowerCase())
+          )
+
+          .filter(
+            (item) => item.price > state.minValue && item.price < state.maxValue
+          )
+          .filter((item) => ["phone"].indexOf(item.category) !== -1),
       };
 
     case "SHOWEVERYCATEGORY":
       return {
         ...state,
+        currentCategory: ["PC", "laptop", "phone"],
+
         searchResult: state.products
+          .filter((item) =>
+            item.description
+              .toLowerCase()
+              .includes(state.textSearchValue.toLowerCase())
+          )
+
+          .filter(
+            (item) => item.price > state.minValue && item.price < state.maxValue
+          )
+          .filter(
+            (item) => ["PC", "laptop", "phone"].indexOf(item.category) !== -1
+          ),
       };
     case "UPDATEMAXPRICE":
       return {
         ...state,
         maxValue: action.value,
-        products: state.products.filter((item) => item.price < action.value),
+        searchResult: state.products
+          .filter(
+            (item) => item.price > state.minValue && item.price < state.maxValue
+          )
+          .filter(
+            (item) => state.currentCategory.indexOf(item.category) !== -1
+          ),
       };
     case "UPDATEMINPRICE":
       return {
         ...state,
         minValue: action.value,
-        products: state.products.filter((item) => item.price > action.value),
+        searchResult: state.products
+          .filter(
+            (item) => item.price > state.minValue && item.price < state.maxValue
+          )
+          .filter(
+            (item) => state.currentCategory.indexOf(item.category) !== -1
+          ),
       };
 
-    case "UPDATEPRICERANGE":
-      return {
-        ...state,
-        minValue: action.value,
-        maxValue: action.value,
-        products: state.products.filter(
-          (item) => item.price > state.minValue && item.price < state.maxValue
-        ),
-      };
     case "ADDNEWUSER":
       let newUser = {};
       let currentUser = state.currentUser;
       let updatedUsers = state.users;
-      let correctDataCheck = true
+      let correctDataCheck = true;
       //check if password and passwordAgain are identical
       if (action.password === action.passwordAgain) {
         //check if this email already occurs in the database
@@ -221,8 +307,8 @@ const Reducer = (state = initialState, action) => {
         if (state.users.findIndex(findEmail) === -1) {
           newUser.email = action.email;
           newUser.password = action.password;
-          newUser.cart = []
-          newUser.wishlist = []
+          newUser.cart = [];
+          newUser.wishlist = [];
           updatedUsers.push(newUser);
           console.log(
             "register success - " + action.email,
@@ -233,37 +319,39 @@ const Reducer = (state = initialState, action) => {
           console.log("current user is " + currentUser);
         } else {
           console.log("Account with that email already exists.");
-          correctDataCheck = false
+          correctDataCheck = false;
         }
       } else {
         console.log("passwords dont match");
-        correctDataCheck = false
+        correctDataCheck = false;
       }
       return {
         ...state,
         users: updatedUsers,
         currentUser: currentUser,
         logInPage: false,
-        signUpPage:  !correctDataCheck,
-        userDataPage: correctDataCheck
+        signUpPage: !correctDataCheck,
+        userDataPage: correctDataCheck,
       };
     case "LOGIN":
       console.log(action.email + action.password);
       //check if this email/password pair is in the database
       let newCurrentUser = state.currentUser;
-      let correctLoginDataCheck = true
-
+      let correctLoginDataCheck = true;
 
       if (state.users.findIndex(findUser) === -1) {
         console.log("no match");
-        console.log("new cur user "+newCurrentUser)        
-        console.log("input - "+action.email + action.password)
-        console.log("should be equal to  - "+state.users[1].email + state.users[1].password)
-        correctLoginDataCheck = false
-      
-      } else {       
+        console.log("new cur user " + newCurrentUser);
+        console.log("input - " + action.email + action.password);
+        console.log(
+          "should be equal to  - " +
+            state.users[1].email +
+            state.users[1].password
+        );
+        correctLoginDataCheck = false;
+      } else {
         console.log("match!");
-        newCurrentUser = state.users.findIndex(findUser)
+        newCurrentUser = state.users.findIndex(findUser);
       }
       function findUser(e) {
         return e.email === action.email && e.password == action.password;
@@ -273,7 +361,7 @@ const Reducer = (state = initialState, action) => {
         currentUser: newCurrentUser,
         logInPage: !correctLoginDataCheck,
         signUpPage: false,
-        userDataPage: correctLoginDataCheck
+        userDataPage: correctLoginDataCheck,
       };
 
     default:
@@ -285,25 +373,24 @@ const Reducer = (state = initialState, action) => {
         currentUser: 0,
         logInPage: true,
         signUpPage: false,
-        userDataPage: false
+        userDataPage: false,
       };
 
-    case 'OPENSIGNUPPAGE': 
-    return{
-      ...state,
-      logInPage: false,
-      signUpPage: true,
-      userDataPage: false
-    }  
-    case 'OPENSIGNINPAGE': 
-    return{
-      ...state,
-      logInPage: true,
-      signUpPage: false,
-      userDataPage: false
-    }  
+    case "OPENSIGNUPPAGE":
+      return {
+        ...state,
+        logInPage: false,
+        signUpPage: true,
+        userDataPage: false,
+      };
+    case "OPENSIGNINPAGE":
+      return {
+        ...state,
+        logInPage: true,
+        signUpPage: false,
+        userDataPage: false,
+      };
   }
-  }
- 
+};
 
 export default Reducer;

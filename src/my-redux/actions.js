@@ -57,9 +57,9 @@ export const showComputers = ()  => {
     type: "SHOWCOMPUTERS"
   }
 }
-export const showNotebooks = ()  => {
+export const showLaptops = ()  => {
   return {
-    type: "SHOWNOTEBOOKS"
+    type: "SHOWLAPTOPS"
   }
 }
 
@@ -86,12 +86,7 @@ export const updateMinPrice = (value) => {
   }
 }
 
-export const updatePriceRange = (min, max) => {
-  return{
-    type: "UPDATEPRICERANGE",
-    min, max
-  }
-}
+
 export const login = (email, password) => {
   return{
     type: "LOGIN",

@@ -52,16 +52,7 @@ export class Products extends Component {
       <main>
         <Categories></Categories>
         <div className="slider">
-          <input
-            type="range"
-            min="0"
-            max="40000"
-            defaultValue={40000}
-            id="max-price"
-            onChange={(event) => this.props.updateMaxPrice(event.target.value)}
-          />
-          <h1 id="rangevalue"  >{maxValue}</h1>
-
+        
         <div className="min-slider">
           <input
           type="range"
@@ -75,6 +66,15 @@ export class Products extends Component {
           <h1 id="minValue">{minValue}</h1>
 
         </div>
+        <input
+            type="range"
+            min="0"
+            max="40000"
+            defaultValue={40000}
+            id="max-price"
+            onChange={(event) => this.props.updateMaxPrice(event.target.value)}
+          />
+          <h1 id="rangevalue"  >{maxValue}</h1>
         </div>
 
         {displayedItems}
@@ -100,7 +100,6 @@ const mapDispatchToProps = (dispatch) => {
     addToWishList: (item) => dispatch(addToWishList(item)),
     updateMaxPrice: (value) => dispatch(updateMaxPrice(value)),
     updateMinPrice: (value) => dispatch(updateMinPrice(value)),
-    updatePriceRange: (min, max) => dispatch(updatePriceRange(min,max))
   };
 };
 

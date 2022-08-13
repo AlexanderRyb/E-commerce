@@ -4,7 +4,7 @@
     "description": "Mi Notebook Pro 15 i5/8/512/MX250",
     "price": 23999,
     "image": "/images/miNotebookPro.jpg",
-    "category": "notebook",
+    "category": "laptop",
     "quantity": 1
   },
   {
@@ -12,7 +12,7 @@
     "description": "Ноутбук Mi RedmiBook 14 II R5/16/512/W",
     "price": 6000,
     "image": "/images/miRedmiBook.jpg",
-    "category": "notebook",
+    "category": "laptop",
     "quantity": 1
   },
   {
@@ -116,7 +116,7 @@
     "description": " Lenovo 320 AMD (8S5B20P11116)",
     "price": 1399,
     "image": "/images/lenovo320.jpg",
-    "category": "notebook",
+    "category": "laptop",
     "quantity": 1
   },
   {
@@ -124,7 +124,7 @@
     "description": "  MacBook Air 13 M1",
     "price": 7999,
     "image": "/images/appleMac.jpg",
-    "category": "notebook",
+    "category": "laptop",
     "quantity": 1
   },
   {
@@ -132,7 +132,7 @@
     "description": "ASUS M570D",
     "price": 5999,
     "image": "/images/asusM.jpg",
-    "category": "notebook",
+    "category": "laptop",
     "quantity": 1
   },
   {
@@ -148,7 +148,7 @@
     "description": "Ноутбук Acer Extensa EX215-31 (NX.EFTEU.01P) Black",
     "price": 9999,
     "image": "/images/acer_ex.jpg",
-    "category": "notebook",
+    "category": "laptop",
     "quantity": 1
   },
   {
@@ -156,7 +156,7 @@
     "description": "Ноутбук Acer Spin 5 SP513-54N (NX.HQUEU.00A) Gray",
     "price": 8000,
     "image": "/images/acer_spin.jpg",
-    "category": "notebook",
+    "category": "laptop",
     "quantity": 1
   },
   {
@@ -196,7 +196,7 @@
     "description": "Apple MacBook Air 2018 Gold",
     "price": 12000,
     "image": "/images/macBook.jpg",
-    "category": "notebook",
+    "category": "laptop",
     "quantity": 1
   },
   {
@@ -204,7 +204,7 @@
     "description": "Ноутбук Dell Vostro 3400",
     "price": 20000,
     "image": "/images/Vostro.jpg",
-    "category": "notebook",
+    "category": "laptop",
     "quantity": 1
   }
 ]

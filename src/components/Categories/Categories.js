@@ -1,7 +1,7 @@
 import "./styles.css";
 import { connect } from "react-redux";
 import { showComputers } from "../../my-redux/actions";
-import { showNotebooks } from "../../my-redux/actions";
+import { showLaptops } from "../../my-redux/actions";
 import { showSmartphones } from "../../my-redux/actions";
 
 
@@ -16,9 +16,9 @@ export  class Categories extends Component {
                 
                 > Computers</div>
                 <div
-            onClick={() => this.props.showNotebooks()}
+            onClick={() => this.props.showLaptops()}
                 
-                className="category"> Notebooks</div>
+                className="category"> Laptops</div>
                 <div 
             onClick={() => this.props.showSmartphones()}
                 
@@ -32,12 +32,13 @@ export  class Categories extends Component {
 
 const mapStateToProps = (state) => {
     return { 
+     
     };
   };
   const mapDispatchToProps = (dispatch) => {
     return {
       showComputers: () => dispatch(showComputers()),
-      showNotebooks: () => dispatch(showNotebooks()),
+      showLaptops: () => dispatch(showLaptops()),
       showSmartphones: () => dispatch(showSmartphones()),
     }
 }
