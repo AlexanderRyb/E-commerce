@@ -5,7 +5,7 @@ const initialState = {
 
   wishList: [],
   cart: [],
-  submitData: [],
+  gData: [],
   searchResult: [],
   maxValue: 20000,
   minValue: 10,
@@ -145,6 +145,9 @@ const Reducer = (state = initialState, action) => {
                 ...user,
                 cart: [],
                 history: user.history.concat(user.cart)
+
+
+                
               }
             : user
         )
