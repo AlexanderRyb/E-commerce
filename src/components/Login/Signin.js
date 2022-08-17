@@ -139,6 +139,9 @@ export class Signin extends Component {
           }
         >
           <p>User email: {this.props.userData}</p>
+          <p>User history: 
+            {this.props.userHistory}
+          </p>
           <button onClick={() => this.props.logout()}>Sign out</button>
         </div>
         
@@ -150,9 +153,10 @@ const mapStateToProps = (state) => {
   return {
     currentUser: state.currentUser,
     userData: state.users[state.currentUser].email,
+    userHistory: state.users[state.currentUser].history,
     logInPage: state.logInPage,
     signUpPage: state.signUpPage,
-    userDataPage: state.userDataPage
+    userDataPage: state.userDataPage,
   };
 };
 

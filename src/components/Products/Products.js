@@ -69,8 +69,8 @@ export class Products extends Component {
         <input
             type="range"
             min="0"
-            max="40000"
-            defaultValue={40000}
+            max="30000"
+            defaultValue={30000}
             id="max-price"
             onChange={(event) => this.props.updateMaxPrice(event.target.value)}
           />

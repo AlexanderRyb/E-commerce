@@ -17,12 +17,14 @@ const initialState = {
       password: "?",
       cart: [],
       wishlist: [],
+      history: []
     },
     {
       email: "transoceantrain@gmail.com",
       password: "123",
       cart: [],
       wishlist: [],
+      history: []
     },
   ],
   currentUser: 0,
@@ -81,7 +83,7 @@ const Reducer = (state = initialState, action) => {
                 ),
               }
             : user
-        ),
+        )
       };
     case "DECREMENT":
       const ind = state.users[state.currentUser].cart.findIndex(checkInd);
@@ -132,12 +134,21 @@ const Reducer = (state = initialState, action) => {
           itemCount +
           " товарів. До оплати " +
           cartSum +
-          " гривень."
+          " гривень"
       );
 
       return {
         ...state,
-        cart: [],
+        users: state.users.map((user, i) =>
+          i === state.currentUser
+            ? {
+                ...user,
+                cart: [],
+                history: user.history.concat(user.cart)
+              }
+            : user
+        )
+        
       };
 
     case "SEARCH":
