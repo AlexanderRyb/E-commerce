@@ -206,5 +206,30 @@
     "image": "/images/Vostro.jpg",
     "category": "laptop",
     "quantity": 1
+  },
+   {
+    "id": "27",
+    "description": "Lenovo Tab M10 Plus FHD 4/128GB LTE Iron Grey (ZA5V0111UA)",
+    "price": 10500,
+    "image": "/images/lenovotab.jpg",
+    "category": "tablet",
+    "quantity": 1
+  },
+  {
+    "id": "28",
+    "description": "Samsung Galaxy Tab S7 FE LTE 4/64Gb Green (SM-T735NLGASEK)",
+    "price": 8500,
+    "image": "/images/samTab.jpg",
+    "category": "tablet",
+    "quantity": 1
+  }
+  ,
+  {
+    "id": "29",
+    "description": "COBRA Advanced (I11F.16.S2.15T.A4295)",
+    "price": 25500,
+    "image": "/images/cobra.jpg",
+    "category": "PC",
+    "quantity": 1
   }
 ]

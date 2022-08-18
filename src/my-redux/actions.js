@@ -62,6 +62,12 @@ export const showLaptops = ()  => {
     type: "SHOWLAPTOPS"
   }
 }
+export const showTablets = ()  => {
+  return {
+    type: "SHOWTABLETS"
+  }
+}
+
 
 export const showSmartphones = ()  => {
   return {

@@ -262,6 +262,22 @@ const Reducer = (state = initialState, action) => {
           )
           .filter((item) => ["phone"].indexOf(item.category) !== -1),
       };
+    case "SHOWTABLETS":
+        return {
+          ...state,
+          currentCategory: ["tablet"],
+          searchResult: state.products
+            .filter((item) =>
+              item.description
+                .toLowerCase()
+                .includes(state.textSearchValue.toLowerCase())
+            )
+  
+            .filter(
+              (item) => item.price > state.minValue && item.price < state.maxValue
+            )
+            .filter((item) => ["tablet"].indexOf(item.category) !== -1),
+        };
 
     case "SHOWEVERYCATEGORY":
       return {
@@ -368,7 +384,7 @@ const Reducer = (state = initialState, action) => {
         newCurrentUser = state.users.findIndex(findUser);
       }
       function findUser(e) {
-        return e.email === action.email && e.password == action.password;
+        return e.email === action.email && e.password === action.password;
       }
       return {
         ...state,
