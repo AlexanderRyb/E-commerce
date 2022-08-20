@@ -2,12 +2,11 @@ import productList from "../components/Products/productList.json";
 
 const initialState = {
   products: productList,
-
   wishList: [],
   cart: [],
   gData: [],
   searchResult: [],
-  maxValue: 20000,
+  maxValue: 30000,
   minValue: 10,
   textSearchValue: "",
   currentCategory: ["PC", "laptop", "phone"],
