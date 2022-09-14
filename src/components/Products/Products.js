@@ -1,14 +1,36 @@
 import "./styles.css";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addToCart, updatePriceRange } from "../../my-redux/actions";
+import { addToCart} from "../../my-redux/actions";
 import Categories from "../Categories/Categories";
 
 import { addToWishList } from "../../my-redux/actions";
 import { updateMaxPrice } from "../../my-redux/actions";
 import { updateMinPrice } from "../../my-redux/actions";
+import { updateSorting } from "../../my-redux/actions";
 
 export class Products extends Component {
+  componentDidUpdate(prevProps, prevState){
+    if(prevProps !== this.props){
+      this.setState(this.state)
+    }
+  }
+  constructor(props){
+    super(props);
+
+    this.state = {
+        selectedOption:"name"
+    }
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event){
+    console.log("Event.target.value is", event.target.value);
+
+    this.setState({selectedOption:event.target.value});
+  }
+
   render() {
     
     let maxValue = this.props.maxValue
@@ -16,7 +38,7 @@ export class Products extends Component {
     let areSearchResultsEmpty 
 
     let displayedItems = [];
-    if(this.props.searchResults == []){
+    if(this.props.searchResults === []){
       areSearchResultsEmpty = this.props.products
     }
     if(this.props.searchResults !== []){
@@ -50,38 +72,60 @@ export class Products extends Component {
 
     return (
       <main>
+
+
+
         <Categories></Categories>
+        <div className="sorting">
+
+        </div>
         <div className="slider">
+          Sort by: <select name="sorting" id="sorting"
+          value={this.state.selectedOption} 
+           onChange={this.handleChange}
+          
+          >
+            <option value="name">name</option>
+            <option value="fromCheap">from least expensive to most expensive</option>
+            <option value="fromExpensive">from most expensive to least expensive</option>
+
+          </select>
         
-        <div className="min-slider">
           <input
           type="range"
-          min="0"
-          max="40000"
+          min={0}
+          max={25000}
+          defaultValue={0}
+
           id="min-price"
           onChange={(event) => this.props.updateMinPrice(event.target.value)}
 
 
           />
-          <h1 id="minValue">{minValue}</h1>
 
-        </div>
         <input
             type="range"
-            min="0"
-            max="30000"
-            defaultValue={30000}
+            min={0}
+            max={25000}
             id="max-price"
+          defaultValue={25000}
+
             onChange={(event) => this.props.updateMaxPrice(event.target.value)}
           />
+          <h1 id="minValue">{minValue}</h1>
+
           <h1 id="rangevalue"  >{maxValue}</h1>
         </div>
+        
+
+        
 
         {displayedItems}
       </main>
     );
   }
 }
+
 const mapStateToProps = (state) => {
   return {
     cart: state.cart,
@@ -100,6 +144,7 @@ const mapDispatchToProps = (dispatch) => {
     addToWishList: (item) => dispatch(addToWishList(item)),
     updateMaxPrice: (value) => dispatch(updateMaxPrice(value)),
     updateMinPrice: (value) => dispatch(updateMinPrice(value)),
+    updateSorting: (value) => dispatch(updateSorting(value)),
   };
 };
 

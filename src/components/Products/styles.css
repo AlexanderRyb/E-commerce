@@ -140,4 +140,23 @@ button:hover {
     width: 100%;
     color: #579E81;
   }
+  #min-price{
+    position: relative;
+    top: 14px;
+    left: 0;
+
+  }
+  #max-price{
+    position: relative;
+    top: 0;
+    left: 0;
+
+    }
+  #sorting{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+  }
   

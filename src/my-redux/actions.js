@@ -120,4 +120,10 @@ export const openSignInPage = () => {
     type: "OPENSIGNINPAGE"
   }
 }
+export const updateSorting = () => { 
+  return{
+    type: "UPDATESORTING"
+  }
+}
+
 

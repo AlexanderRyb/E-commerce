@@ -41,6 +41,19 @@ export class Signin extends Component {
     this.props.register(this.state.email, this.state.password, this.state.passwordAgain);
   }
   render() {
+
+  //
+  let userHistory = this.props.userHistory.map((item) => (
+    <div key={item.id} className="history-product-card">
+            <p>{item.description}</p>
+          <img className="history-item-image" src={item.image} alt={`Preview of ${item.title}`} />
+
+
+      
+    </div>
+  ));
+  //
+
     return (
       <div>
         {/* log in page */}
@@ -138,11 +151,12 @@ export class Signin extends Component {
             "user-data " + (this.props.userDataPage ? "visible" : "invisible")
           }
         >
-          <p>User email: {this.props.userData}</p>
-          <p>User history: 
-            {this.props.userHistory}
-          </p>
-          <button onClick={() => this.props.logout()}>Sign out</button>
+          <p className="user-information">User email: {this.props.userData}</p>
+          <div className="user-history-block">User history: 
+            {userHistory}
+          
+          </div>
+          <button className="sign-out-button" onClick={() => this.props.logout()}>Sign out</button>
         </div>
         
       </div>

@@ -4,10 +4,9 @@ const initialState = {
   products: productList,
   wishList: [],
   cart: [],
-  gData: [],
   searchResult: [],
-  maxValue: 30000,
-  minValue: 10,
+  maxValue: 25000,
+  minValue: 0,
   textSearchValue: "",
   currentCategory: ["PC", "laptop", "phone"],
   users: [
@@ -16,14 +15,14 @@ const initialState = {
       password: "?",
       cart: [],
       wishlist: [],
-      history: []
+      history: [],
     },
     {
       email: "transoceantrain@gmail.com",
       password: "123",
       cart: [],
       wishlist: [],
-      history: []
+      history: [],
     },
   ],
   currentUser: 0,
@@ -82,7 +81,7 @@ const Reducer = (state = initialState, action) => {
                 ),
               }
             : user
-        )
+        ),
       };
     case "DECREMENT":
       const ind = state.users[state.currentUser].cart.findIndex(checkInd);
@@ -129,12 +128,9 @@ const Reducer = (state = initialState, action) => {
       },
       0);
       console.log(
-        "Ви купили " +
-          itemCount +
-          " товарів. До оплати " +
-          cartSum +
-          " гривень"
+        "Ви купили " + itemCount + " товарів. До оплати " + cartSum + " гривень"
       );
+     // console.log(state.users[currentUser].cart)
 
       return {
         ...state,
@@ -143,14 +139,10 @@ const Reducer = (state = initialState, action) => {
             ? {
                 ...user,
                 cart: [],
-                history: user.history.concat(user.cart)
-
-
-                
+                // history: user.history.concat(user.cart),
               }
             : user
-        )
-        
+        ),
       };
 
     case "SEARCH":
@@ -262,21 +254,21 @@ const Reducer = (state = initialState, action) => {
           .filter((item) => ["phone"].indexOf(item.category) !== -1),
       };
     case "SHOWTABLETS":
-        return {
-          ...state,
-          currentCategory: ["tablet"],
-          searchResult: state.products
-            .filter((item) =>
-              item.description
-                .toLowerCase()
-                .includes(state.textSearchValue.toLowerCase())
-            )
-  
-            .filter(
-              (item) => item.price > state.minValue && item.price < state.maxValue
-            )
-            .filter((item) => ["tablet"].indexOf(item.category) !== -1),
-        };
+      return {
+        ...state,
+        currentCategory: ["tablet"],
+        searchResult: state.products
+          .filter((item) =>
+            item.description
+              .toLowerCase()
+              .includes(state.textSearchValue.toLowerCase())
+          )
+
+          .filter(
+            (item) => item.price > state.minValue && item.price < state.maxValue
+          )
+          .filter((item) => ["tablet"].indexOf(item.category) !== -1),
+      };
 
     case "SHOWEVERYCATEGORY":
       return {
@@ -298,17 +290,27 @@ const Reducer = (state = initialState, action) => {
           ),
       };
     case "UPDATEMAXPRICE":
+      // if(state.minValue>action.value){
+      //   console.log("hey! "+"state min value is "+state.minValue+" and action value is "+action.value)
+      //   return{
+      //     state
+      //   }
+
+      // }
+      //  else{
       return {
         ...state,
         maxValue: action.value,
         searchResult: state.products
           .filter(
-            (item) => item.price > state.minValue && item.price < state.maxValue
+            (item) => item.price > state.minValue && item.price < action.value
           )
           .filter(
             (item) => state.currentCategory.indexOf(item.category) !== -1
           ),
       };
+    //   }
+
     case "UPDATEMINPRICE":
       return {
         ...state,
@@ -418,6 +420,11 @@ const Reducer = (state = initialState, action) => {
         logInPage: true,
         signUpPage: false,
         userDataPage: false,
+      };
+    case "UPDATESORTING":
+      console.log(action.payload)
+      return {
+        ...state,
       };
   }
 };
