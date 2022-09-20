@@ -130,7 +130,6 @@ const Reducer = (state = initialState, action) => {
       console.log(
         "Ви купили " + itemCount + " товарів. До оплати " + cartSum + " гривень"
       );
-     // console.log(state.users[currentUser].cart)
 
       return {
         ...state,
@@ -138,8 +137,9 @@ const Reducer = (state = initialState, action) => {
           i === state.currentUser
             ? {
                 ...user,
-                cart: [],
-                // history: user.history.concat(user.cart),
+                history:user.history.concat(user.cart),
+                cart: []
+                
               }
             : user
         ),
@@ -187,13 +187,7 @@ const Reducer = (state = initialState, action) => {
       } else {
         return state;
       }
-
-    // case "FILTERUPDATED":
-    //   return {
-
-    //   }
-
-    case "REMOVEFROMWISHLIST":
+        case "REMOVEFROMWISHLIST":
       return {
         ...state,
         users: state.users.map((user, i) =>
@@ -290,14 +284,6 @@ const Reducer = (state = initialState, action) => {
           ),
       };
     case "UPDATEMAXPRICE":
-      // if(state.minValue>action.value){
-      //   console.log("hey! "+"state min value is "+state.minValue+" and action value is "+action.value)
-      //   return{
-      //     state
-      //   }
-
-      // }
-      //  else{
       return {
         ...state,
         maxValue: action.value,
@@ -309,8 +295,6 @@ const Reducer = (state = initialState, action) => {
             (item) => state.currentCategory.indexOf(item.category) !== -1
           ),
       };
-    //   }
-
     case "UPDATEMINPRICE":
       return {
         ...state,
@@ -338,6 +322,7 @@ const Reducer = (state = initialState, action) => {
         if (state.users.findIndex(findEmail) === -1) {
           newUser.email = action.email;
           newUser.password = action.password;
+          newUser.history = []
           newUser.cart = [];
           newUser.wishlist = [];
           updatedUsers.push(newUser);

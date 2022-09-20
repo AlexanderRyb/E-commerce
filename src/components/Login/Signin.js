@@ -47,6 +47,8 @@ export class Signin extends Component {
     <div key={item.id} className="history-product-card">
             <p>{item.description}</p>
           <img className="history-item-image" src={item.image} alt={`Preview of ${item.title}`} />
+          <p> date</p>
+          <p>{item.quantity}</p>
 
 
       
