@@ -123,7 +123,10 @@ const Reducer = (state = initialState, action) => {
       let cartSum = state.users[state.currentUser].cart.reduce(function (
         total,
         item
-      ) {
+      )
+
+      {
+
         return total + item.price * item.quantity;
       },
       0);
@@ -131,13 +134,19 @@ const Reducer = (state = initialState, action) => {
         "Ви купили " + itemCount + " товарів. До оплати " + cartSum + " гривень"
       );
 
+      let timeStampedCart = state.users[state.currentUser].cart.map(obj => ({ ...obj, timeStamp:  Date().toLocaleString() }))
+
+      console.log(timeStampedCart)
+
+
       return {
         ...state,
         users: state.users.map((user, i) =>
           i === state.currentUser
             ? {
                 ...user,
-                history:user.history.concat(user.cart),
+                history:user.history.concat(timeStampedCart),
+                //capitals.forEach(function(itm){itm.global = true //});
                 cart: []
                 
               }
