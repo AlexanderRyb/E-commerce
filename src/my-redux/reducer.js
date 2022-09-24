@@ -18,8 +18,8 @@ const initialState = {
       history: [],
     },
     {
-      email: "transoceantrain@gmail.com",
-      password: "123",
+      email: "1",
+      password: "1",
       cart: [],
       wishlist: [],
       history: [],
@@ -118,11 +118,23 @@ const Reducer = (state = initialState, action) => {
       }
 
     case "SUBMIT":
+      let dateObj = new Date()
+      let day = dateObj.getDate();
+      var month = dateObj.getUTCMonth() + 1; //months from 1-12
+      var year = dateObj.getUTCFullYear();
+
+  
+
+      let newdate = day + "/" + month + "/" + year;
+
+
+
       let itemCount = state.users[state.currentUser].cart.length;
       console.log(itemCount);
       let cartSum = state.users[state.currentUser].cart.reduce(function (
         total,
         item
+
       )
 
       {
@@ -134,7 +146,7 @@ const Reducer = (state = initialState, action) => {
         "Ви купили " + itemCount + " товарів. До оплати " + cartSum + " гривень"
       );
 
-      let timeStampedCart = state.users[state.currentUser].cart.map(obj => ({ ...obj, timeStamp:  Date().toLocaleString() }))
+      let timeStampedCart = state.users[state.currentUser].cart.map(obj => ({ ...obj, timeStamp:  newdate }))
 
       console.log(timeStampedCart)
 

@@ -45,6 +45,7 @@ export class Signin extends Component {
   //
   let userHistory = this.props.userHistory.map((item) => (
     <div key={item.id} className="history-product-card">
+      <div>{item.price}</div>
             <p>{item.description}</p>
           <img className="history-item-image" src={item.image} alt={`Preview of ${item.title}`} />
           <p> {item.timeStamp}</p>
