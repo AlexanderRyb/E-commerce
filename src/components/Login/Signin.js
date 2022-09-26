@@ -7,6 +7,8 @@ import { openSignInPage } from "../../my-redux/actions";
 import { register } from "../../my-redux/actions";
 import "./styles.css";
 
+
+
 export class Signin extends Component {
   constructor(props) {
     super(props);
@@ -40,16 +42,19 @@ export class Signin extends Component {
     event.preventDefault();
     this.props.register(this.state.email, this.state.password, this.state.passwordAgain);
   }
+
   render() {
 
   //
+
   let userHistory = this.props.userHistory.map((item) => (
     <div key={item.id} className="history-product-card">
-      <div>{item.price}</div>
-            <p>{item.description}</p>
-          <img className="history-item-image" src={item.image} alt={`Preview of ${item.title}`} />
-          <p> {item.timeStamp}</p>
-          <p>{item.quantity}</p>
+            <p className="item-description">{item.description}</p>
+            <div className="item-price">{item.price}</div>
+
+          {/* <img className="history-item-image" src={item.image} alt={`Preview of ${item.title}`} /> */}
+          <p className="item-time"> {item.timeStamp}</p>
+          <p className="item-quantity">{item.quantity}</p>
 
 
       
@@ -156,6 +161,13 @@ export class Signin extends Component {
         >
           <p className="user-information">User email: {this.props.userData}</p>
           <div className="user-history-block">User history: 
+          <div className="columns">
+            <div className="columns-name">Name</div>
+            <div className="columns-cost">Cost</div>
+            <div>date of purchase</div>
+            <div>quantity</div>
+          </div>
+          
             {userHistory}
           
           </div>
