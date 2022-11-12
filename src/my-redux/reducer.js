@@ -118,53 +118,55 @@ const Reducer = (state = initialState, action) => {
       }
 
     case "SUBMIT":
-      let dateObj = new Date()
-      let day = dateObj.getDate();
-      var month = dateObj.getUTCMonth() + 1; //months from 1-12
-      var year = dateObj.getUTCFullYear();
+     
+      if(state.currentUser != 0){
 
+        console.log("current use is "+ state.currentUser)
+        let dateObj = new Date()
+        let day = dateObj.getDate();
+        var month = dateObj.getUTCMonth() + 1; //months from 1-12
+        var year = dateObj.getUTCFullYear();  
+        let newdate = day + "/" + month + "/" + year;
+    
+        let itemCount = state.users[state.currentUser].cart.length;
+        console.log(itemCount);
+        let cartSum = state.users[state.currentUser].cart.reduce(function (
+          total,
+          item
   
+        )
+  
+        {
+  
+          return total + item.price * item.quantity;
+        },
+        0);
+        console.log(
+          "Ви купили " + itemCount + " товарів. До оплати " + cartSum + " гривень"
+        );
+  
+        let timeStampedCart = state.users[state.currentUser].cart.map(obj => ({ ...obj, timeStamp:  newdate }))
+  
+        console.log(timeStampedCart)
 
-      let newdate = day + "/" + month + "/" + year;
+        return {
+          ...state,
+          users: state.users.map((user, i) =>
+            i === state.currentUser
+              ? {
+                  ...user,
+                  history:user.history.concat(timeStampedCart),
+                  cart: []
+                  
+                }
+              : user
+          ),
+        };
+
+      }
 
 
-
-      let itemCount = state.users[state.currentUser].cart.length;
-      console.log(itemCount);
-      let cartSum = state.users[state.currentUser].cart.reduce(function (
-        total,
-        item
-
-      )
-
-      {
-
-        return total + item.price * item.quantity;
-      },
-      0);
-      console.log(
-        "Ви купили " + itemCount + " товарів. До оплати " + cartSum + " гривень"
-      );
-
-      let timeStampedCart = state.users[state.currentUser].cart.map(obj => ({ ...obj, timeStamp:  newdate }))
-
-      console.log(timeStampedCart)
-
-
-      return {
-        ...state,
-        users: state.users.map((user, i) =>
-          i === state.currentUser
-            ? {
-                ...user,
-                history:user.history.concat(timeStampedCart),
-                //capitals.forEach(function(itm){itm.global = true //});
-                cart: []
-                
-              }
-            : user
-        ),
-      };
+     
 
     case "SEARCH":
       if (action.payload) {
