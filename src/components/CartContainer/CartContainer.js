@@ -8,6 +8,10 @@ import { submit } from "../../my-redux/actions";
 import Form from "./Form";
 
 
+
+
+
+
 export function CartContainer(props) {
   console.log(props.cart)
   
@@ -80,8 +84,13 @@ export function CartContainer(props) {
        <button
       type="submit"
       className="submit-form-button"
-      onClick={() => props.submit()     
-      }
+      // onClick={() => props.submit()       
+    
+      // }
+      onClick={()=> {props.submit(); alert("you are not logged in!")} }
+
+      //onClick={function(){}}
+      
 
     >
       Submit

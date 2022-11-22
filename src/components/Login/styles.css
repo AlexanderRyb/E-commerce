@@ -70,7 +70,6 @@ a {
   margin: 0;
 }
 .user-data{
-  display: flex;
   flex-wrap: wrap;
 }
 .user-information{

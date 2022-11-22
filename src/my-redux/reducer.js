@@ -1,5 +1,6 @@
 import productList from "../components/Products/productList.json";
 
+
 const initialState = {
   products: productList,
   wishList: [],
@@ -164,6 +165,14 @@ const Reducer = (state = initialState, action) => {
         };
 
       }
+      // else{
+
+      //   return{
+      //     ...state
+
+      
+      //   }
+      // }
 
 
      

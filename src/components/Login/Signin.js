@@ -156,7 +156,7 @@ export class Signin extends Component {
         {/* user page */}
         <div
           className={
-            "user-data " + (this.props.userDataPage ? "visible" : "invisible")
+            "user-data " + (this.props.currentUser !=0 ? "visible" : "invisible")
           }
         >
           <p className="user-information">User email: {this.props.userData}</p>
