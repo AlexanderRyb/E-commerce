@@ -126,8 +126,12 @@ button:hover {
     width: 100px;
     height: 40px;
     position: absolute;
+    font-size: 14px;
+    font-weight: 400;
+    color: #303030;
     left: 50px;
     top: 200px;
+
   }
   #minValue{
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
@@ -163,31 +167,36 @@ button:hover {
 
     }
   #sorting{
-    width: 100%;
+    width: 120%;
+    height: 30px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    
+    border: 1px solid #e0e0e0;
 
   }
-  input[type=range] {
-    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-    width: 100%; /* Specific width is required for Firefox. */
-    background: transparent; /* Otherwise white in Chrome */
-  }
-  input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-  }
-  
-  input[type=range]:focus {
-    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
-  }
-  
+input[type=text]{
+  border:1px solid red;
+}
+input[type="text"], textarea {
+  border:1px solid red;
+
+
+  background-color : white; 
+
+}
+#min-price-text, #max-price-text{
+  border: 1px solid #e0e0e0;
+  background-color: white;
+  width: 50%;
+  height: 2px;
+
+}
   input[type=range]::-ms-track {
     width: 100%;
     cursor: pointer;
-  
-    /* Hides the slider so custom styles can be added */
-    background: transparent; 
+     background: transparent; 
     border-color: transparent;
     color: transparent;
   }

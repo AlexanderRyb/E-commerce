@@ -80,18 +80,21 @@ export class Products extends Component {
 
         </div>
         <div className="slider">
-          Sort by: <select name="sorting" id="sorting"
+           <select name="sorting" id="sorting"
           value={this.state.selectedOption} 
            onChange={this.handleChange}
           
           >
-            <option value="name">name</option>
-            <option value="fromCheap">from least expensive to most expensive</option>
-            <option value="fromExpensive">from most expensive to least expensive</option>
+            <option value="name">Sort by name</option>
+            <option value="fromCheap">Sort by price descending</option>
+            <option value="fromExpensive">Sort by price ascending</option>
 
           </select>
-        
-          <input
+        <div>Price</div>
+        <input type="text" id="min-price-text"></input>
+        <input type="text" id="max-price-text"></input>
+
+          {/* <input
           type="range"
           min={0}
           max={25000}
@@ -99,8 +102,6 @@ export class Products extends Component {
 
           id="min-price"
           onChange={(event) => this.props.updateMinPrice(event.target.value)}
-
-
           />
 
         <input
@@ -111,7 +112,7 @@ export class Products extends Component {
           defaultValue={25000}
 
             onChange={(event) => this.props.updateMaxPrice(event.target.value)}
-          />
+          /> */}
           <h1 id="minValue">{minValue}</h1>
 
           <h1 id="rangevalue"  >{maxValue}</h1>
