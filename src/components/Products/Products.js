@@ -12,9 +12,13 @@ import {sortByName} from '../../my-redux/actions'
 import { showEveryCategory } from "../../my-redux/actions";
 
 export class Products extends Component {
-  componentDidUpdate(prevProps, prevState){
 
+
+  componentDidMount(){
     this.props.showEveryCategory()
+
+  }
+  componentDidUpdate(prevProps, prevState){
 
     if(prevProps !== this.props){
       this.setState(this.state)
