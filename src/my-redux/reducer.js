@@ -39,7 +39,7 @@ const Reducer = (state = initialState, action) => {
       console.log(action.payload);
 
       let itemIndex =
-        state.users[state.currentUser].cart.findIndex(checkItemIndex);
+        state.users[state.currentUser].cart.indexOf(checkItemIndex);
 
       function checkItemIndex(item) {
         return item.id === action.payload.id;
