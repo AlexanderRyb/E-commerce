@@ -125,5 +125,10 @@ export const updateSorting = () => {
     type: "UPDATESORTING"
   }
 }
+export const sortByName = () => { 
+  return{
+    type: "SORTBYNAME"
+  }
+}
 
 

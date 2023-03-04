@@ -176,10 +176,10 @@ button:hover {
     border: 1px solid #e0e0e0;
 
   }
-input[type=text]{
+input[type=number]{
   border:1px solid red;
 }
-input[type="text"], textarea {
+input[type=number], textarea {
   border:1px solid red;
 
 
@@ -190,7 +190,7 @@ input[type="text"], textarea {
   border: 1px solid #e0e0e0;
   background-color: white;
   width: 50%;
-  height: 2px;
+  height: 20px;
 
 }
   input[type=range]::-ms-track {

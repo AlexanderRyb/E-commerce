@@ -8,6 +8,7 @@ import { addToWishList } from "../../my-redux/actions";
 import { updateMaxPrice } from "../../my-redux/actions";
 import { updateMinPrice } from "../../my-redux/actions";
 import { updateSorting } from "../../my-redux/actions";
+import {sortByName} from '../../my-redux/actions'
 
 export class Products extends Component {
   componentDidUpdate(prevProps, prevState){
@@ -85,14 +86,15 @@ export class Products extends Component {
            onChange={this.handleChange}
           
           >
-            <option value="name">Sort by name</option>
+
+            <option value="name" onClick={()=> this.props.sortByName()}>Sort by name</option>
             <option value="fromCheap">Sort by price descending</option>
             <option value="fromExpensive">Sort by price ascending</option>
 
           </select>
         <div>Price</div>
-        <input type="text" id="min-price-text"></input>
-        <input type="text" id="max-price-text"></input>
+        <input type="number" id="min-price-text" onChange={(event) => this.props.updateMinPrice(event.target.value)}></input>
+        <input type="number" id="max-price-text"     onChange={(event) => this.props.updateMaxPrice(event.target.value)}></input>
 
           {/* <input
           type="range"
@@ -113,9 +115,9 @@ export class Products extends Component {
 
             onChange={(event) => this.props.updateMaxPrice(event.target.value)}
           /> */}
-          <h1 id="minValue">{minValue}</h1>
+          {/* <h1 id="minValue">{minValue}</h1>
 
-          <h1 id="rangevalue"  >{maxValue}</h1>
+          <h1 id="rangevalue"  >{maxValue}</h1> */}
         </div>
         
 
@@ -146,6 +148,7 @@ const mapDispatchToProps = (dispatch) => {
     updateMaxPrice: (value) => dispatch(updateMaxPrice(value)),
     updateMinPrice: (value) => dispatch(updateMinPrice(value)),
     updateSorting: (value) => dispatch(updateSorting(value)),
+    sortByName: () => dispatch(sortByName()),
   };
 };
 

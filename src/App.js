@@ -10,6 +10,9 @@ import Wishlist from "./components/Wishlist/Wishlist";
 import Signin from "./components/Login/Signin";
 
 export class App extends Component {
+  componentDidMount() {
+    document.title = "Commerce";
+}
   render() {
     return (
       <Provider store={store}>
