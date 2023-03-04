@@ -67,7 +67,7 @@ const Reducer = (state = initialState, action) => {
         ),
       };
     case "INCREMENT":
-      const index = state.users[state.currentUser].cart.findIndex(checkIndex);
+      const index = state.users[state.currentUser].cart.indexOf(checkIndex);
       function checkIndex(el) {
         return el.id === action.item.id;
       }
@@ -85,7 +85,7 @@ const Reducer = (state = initialState, action) => {
         ),
       };
     case "DECREMENT":
-      const ind = state.users[state.currentUser].cart.findIndex(checkInd);
+      const ind = state.users[state.currentUser].cart.indexOf(checkInd);
       function checkInd(el) {
         return el.id === action.item.id;
       }
@@ -363,7 +363,7 @@ const Reducer = (state = initialState, action) => {
         function findEmail(e) {
           return e.email === action.email;
         }
-        if (state.users.findIndex(findEmail) === -1) {
+        if (state.users.indexOf(findEmail) === -1) {
           newUser.email = action.email;
           newUser.password = action.password;
           newUser.history = []
@@ -399,7 +399,7 @@ const Reducer = (state = initialState, action) => {
       let newCurrentUser = state.currentUser;
       let correctLoginDataCheck = true;
 
-      if (state.users.findIndex(findUser) === -1) {
+      if (state.users.indexOf(findUser) === -1) {
         console.log("no match");
         console.log("new cur user " + newCurrentUser);
         console.log("input - " + action.email + action.password);
@@ -411,7 +411,7 @@ const Reducer = (state = initialState, action) => {
         correctLoginDataCheck = false;
       } else {
         console.log("match!");
-        newCurrentUser = state.users.findIndex(findUser);
+        newCurrentUser = state.users.indexOf(findUser);
       }
       function findUser(e) {
         return e.email === action.email && e.password === action.password;
