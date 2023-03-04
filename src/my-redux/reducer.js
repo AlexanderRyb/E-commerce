@@ -67,7 +67,7 @@ const Reducer = (state = initialState, action) => {
         ),
       };
     case "INCREMENT":
-      const index = state.users[state.currentUser].cart.indexOf(checkIndex);
+      const index = state.users[state.currentUser].cart.findIndex(checkIndex);
       function checkIndex(el) {
         return el.id === action.item.id;
       }
@@ -85,7 +85,7 @@ const Reducer = (state = initialState, action) => {
         ),
       };
     case "DECREMENT":
-      const ind = state.users[state.currentUser].cart.indexOf(checkInd);
+      const ind = state.users[state.currentUser].cart.findIndex(checkInd);
       function checkInd(el) {
         return el.id === action.item.id;
       }
@@ -363,7 +363,7 @@ const Reducer = (state = initialState, action) => {
         function findEmail(e) {
           return e.email === action.email;
         }
-        if (state.users.indexOf(findEmail) === -1) {
+        if (state.users.findIndex(findEmail) === -1) {
           newUser.email = action.email;
           newUser.password = action.password;
           newUser.history = []
