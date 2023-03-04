@@ -316,7 +316,6 @@ const Reducer = (state = initialState, action) => {
           ),
       };
     case "SORTBYNAME":
-      console.log("suck my dick")
 
       let sortedResult = state.products.sort(function(a, b) {
         if(a.description.toLowerCase() < b.description.toLowerCase()) return -1;

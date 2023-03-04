@@ -19,9 +19,14 @@ export class Products extends Component {
   constructor(props){
     super(props);
 
+
     this.state = {
         selectedOption:"name"
     }
+
+
+
+
 
     this.handleChange = this.handleChange.bind(this);
   }
@@ -81,7 +86,7 @@ export class Products extends Component {
 
         </div>
         <div className="slider">
-           <select name="sorting" id="sorting"
+           {/* <select name="sorting" id="sorting"
           value={this.state.selectedOption} 
            onChange={this.handleChange}
           
@@ -91,12 +96,10 @@ export class Products extends Component {
             <option value="fromCheap">Sort by price descending</option>
             <option value="fromExpensive">Sort by price ascending</option>
 
-          </select>
+          </select> */}
         <div>Price</div>
-        <input type="number" id="min-price-text" onChange={(event) => this.props.updateMinPrice(event.target.value)}></input>
-        <input type="number" id="max-price-text"     onChange={(event) => this.props.updateMaxPrice(event.target.value)}></input>
-
-          {/* <input
+      
+          <input
           type="range"
           min={0}
           max={25000}
@@ -105,6 +108,8 @@ export class Products extends Component {
           id="min-price"
           onChange={(event) => this.props.updateMinPrice(event.target.value)}
           />
+                     <h1 id="minValue">from {minValue}</h1>
+
 
         <input
             type="range"
@@ -114,12 +119,17 @@ export class Products extends Component {
           defaultValue={25000}
 
             onChange={(event) => this.props.updateMaxPrice(event.target.value)}
-          /> */}
-          {/* <h1 id="minValue">{minValue}</h1>
 
-          <h1 id="rangevalue"  >{maxValue}</h1> */}
-        </div>
-        
+          /> 
+
+
+          <h1 id="rangevalue"  >to {maxValue}</h1>
+
+          <div class="slider-wrapper">
+ 
+
+</div>
+        </div>        
 
         
 
