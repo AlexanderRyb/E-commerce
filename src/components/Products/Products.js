@@ -9,9 +9,13 @@ import { updateMaxPrice } from "../../my-redux/actions";
 import { updateMinPrice } from "../../my-redux/actions";
 import { updateSorting } from "../../my-redux/actions";
 import {sortByName} from '../../my-redux/actions'
+import { showEveryCategory } from "../../my-redux/actions";
 
 export class Products extends Component {
   componentDidUpdate(prevProps, prevState){
+
+    this.props.showEveryCategory()
+
     if(prevProps !== this.props){
       this.setState(this.state)
     }
@@ -159,6 +163,9 @@ const mapDispatchToProps = (dispatch) => {
     updateMinPrice: (value) => dispatch(updateMinPrice(value)),
     updateSorting: (value) => dispatch(updateSorting(value)),
     sortByName: () => dispatch(sortByName()),
+    showEveryCategory: () => dispatch(showEveryCategory()),
+
+
   };
 };
 
