@@ -201,7 +201,7 @@ const Reducer = (state = initialState, action) => {
         return state;
       }
     case "ADDTOWISHLIST":
-      let wishlistItemIndex = state.users[state.currentUser].wishlist.findIndex(
+      let wishlistItemIndex = state.users[state.currentUser].wishlist.indexOf(
         checkWishlistItemIndex
       );
       function checkWishlistItemIndex(item) {
