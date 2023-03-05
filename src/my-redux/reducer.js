@@ -67,10 +67,11 @@ const Reducer = (state = initialState, action) => {
         ),
       };
     case "INCREMENT":
-      const index = state.users[state.currentUser].cart.findIndex(checkIndex);
       function checkIndex(el) {
         return el.id === action.item.id;
       }
+    const index = state.users[state.currentUser].cart.findIndex(checkIndex);
+      
       return {
         ...state,
         users: state.users.map((user, i) =>

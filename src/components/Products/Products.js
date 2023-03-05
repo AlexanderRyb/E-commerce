@@ -133,7 +133,7 @@ export class Products extends Component {
 
           <h1 id="rangevalue"  >to {maxValue}</h1>
 
-          <div class="slider-wrapper">
+          <div className="slider-wrapper">
  
 
 </div>
