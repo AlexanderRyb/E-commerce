@@ -86,10 +86,10 @@ const Reducer = (state = initialState, action) => {
         ),
       };
     case "DECREMENT":
-      const ind = state.users[state.currentUser].cart.findIndex(checkInd);
       function checkInd(el) {
         return el.id === action.item.id;
       }
+      const ind = state.users[state.currentUser].cart.findIndex(checkInd);
 
       if (state.users[state.currentUser].cart[ind].quantity < 2) {
         return {
@@ -121,7 +121,7 @@ const Reducer = (state = initialState, action) => {
 
     case "SUBMIT":
      
-      if(state.currentUser != 0){
+      if(state.currentUser !== 0){
 
         console.log("current use is "+ state.currentUser)
         let dateObj = new Date()
@@ -176,7 +176,7 @@ const Reducer = (state = initialState, action) => {
       // }
 
 
-     
+     break
 
     case "SEARCH":
       if (action.payload) {
@@ -371,10 +371,7 @@ const Reducer = (state = initialState, action) => {
           newUser.cart = [];
           newUser.wishlist = [];
           updatedUsers.push(newUser);
-          console.log(
-            "register success - " + action.email,
-            action.password + " users stored " + state.users.length
-          );
+         
           console.log(state.users);
           currentUser = state.users.length - 1;
           console.log("current user is " + currentUser);
@@ -395,28 +392,25 @@ const Reducer = (state = initialState, action) => {
         userDataPage: correctDataCheck,
       };
     case "LOGIN":
-      console.log(action.email + action.password);
       //check if this email/password pair is in the database
       let newCurrentUser = state.currentUser;
       let correctLoginDataCheck = true;
 
-      if (state.users.indexOf(findUser) === -1) {
-        console.log("no match");
-        console.log("new cur user " + newCurrentUser);
-        console.log("input - " + action.email + action.password);
-        console.log(
-          "should be equal to  - " +
-            state.users[1].email +
-            state.users[1].password
-        );
-        correctLoginDataCheck = false;
-      } else {
-        console.log("match!");
-        newCurrentUser = state.users.indexOf(findUser);
-      }
       function findUser(e) {
         return e.email === action.email && e.password === action.password;
       }
+      if (state.users.findIndex(findUser) === -1) {
+        console.log("no match");
+        console.log("input - " + action.email + action.password);
+        console.log()
+      
+        correctLoginDataCheck = false;
+      } else {
+        newCurrentUser = state.users.findIndex(findUser);
+        console.log("match!"+newCurrentUser);
+
+      }
+      
       return {
         ...state,
         currentUser: newCurrentUser,
