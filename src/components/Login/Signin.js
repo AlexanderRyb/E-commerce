@@ -48,6 +48,7 @@ export class Signin extends Component {
   //
 
   let userHistory = this.props.userHistory.map((item) => (
+    
     <div key={item.id} className="history-product-card">
             <p className="item-description">{item.description}</p>
             <div className="item-price">{item.price}</div>
@@ -159,7 +160,7 @@ export class Signin extends Component {
             "user-data " + (this.props.currentUser !=0 ? "visible" : "invisible")
           }
         >
-          <p className="user-information">User email: {this.props.userData}</p>
+          <p className="user-information">Current user: {this.props.userData}</p>
           <div className="user-history-block">User history: 
           <div className="columns">
             <div className="columns-name">Name</div>

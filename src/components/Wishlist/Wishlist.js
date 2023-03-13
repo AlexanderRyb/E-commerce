@@ -28,10 +28,19 @@ class Wishlist extends Component {
         ></button>
       </div>
     ));
+    console.log(listOfWishedItems)
 
-    return <div className="wishlist-container">{listOfWishedItems}</div>;
+    if(listOfWishedItems = []){
+      listOfWishedItems = <div>Nothing in your Wishlist. </div>
+    }  
+    return (
+      <div className="wishlist-container">{listOfWishedItems}</div>
+      );
   }
-}
+  
+
+  }
+
 const mapStateToProps = (state) => {
   return {
     cart: state.users[state.currentUser].cart,

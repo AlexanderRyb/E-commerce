@@ -4,6 +4,8 @@ import { showComputers } from "../../my-redux/actions";
 import { showLaptops } from "../../my-redux/actions";
 import { showSmartphones } from "../../my-redux/actions";
 import { showTablets } from "../../my-redux/actions";
+import { showEveryCategory } from "../../my-redux/actions";
+
 
 
 import React, { Component } from 'react'
@@ -28,6 +30,10 @@ export  class Categories extends Component {
             onClick={() => this.props.showTablets()}
                 
                 className="category"> Tablets</div>
+                <div 
+            onClick={() => this.props.showEveryCategory()}
+                
+                className="category"> All</div>
 
                 
             </div>
@@ -46,6 +52,8 @@ const mapStateToProps = (state) => {
       showLaptops: () => dispatch(showLaptops()),
       showSmartphones: () => dispatch(showSmartphones()),
       showTablets: () => dispatch(showTablets()),
+      showEveryCategory: () => dispatch(showEveryCategory()),
+
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Categories);

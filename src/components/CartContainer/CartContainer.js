@@ -87,7 +87,7 @@ export function CartContainer(props) {
       // onClick={() => props.submit()       
     
       // }
-      onClick={()=> {props.submit(); alert("you are not logged in!")} }
+      onClick={()=> {props.submit();} }
 
       //onClick={function(){}}
       
