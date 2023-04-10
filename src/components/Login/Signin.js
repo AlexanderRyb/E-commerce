@@ -49,17 +49,15 @@ export class Signin extends Component {
 
   let userHistory = this.props.userHistory.map((item) => (
     
-    <div key={item.id} className="history-product-card">
+    <td key={item.id} className="history-product-card">
             <p className="item-description">{item.description}</p>
             <div className="item-price">{item.price}</div>
 
           {/* <img className="history-item-image" src={item.image} alt={`Preview of ${item.title}`} /> */}
           <p className="item-time"> {item.timeStamp}</p>
           <p className="item-quantity">{item.quantity}</p>
-
-
       
-    </div>
+    </td>
   ));
   //
 
@@ -161,17 +159,24 @@ export class Signin extends Component {
           }
         >
           <p className="user-information">Current user: {this.props.userData}</p>
-          <div className="user-history-block">User history: 
-          <div className="columns">
+          <table className="user-history-block">User history:
+          <tr className="columns">
+          <th>Name</th> 
+          <th>Cost</th> 
+          <th>Date of purchase</th> 
+          <th>quantity</th> 
+          </tr>  
+
+          {/* <div className="columns">
             <div className="columns-name">Name</div>
             <div className="columns-cost">Cost</div>
             <div>date of purchase</div>
             <div>quantity</div>
-          </div>
+          </div> */}
           
             {userHistory}
           
-          </div>
+          </table>
           <button className="sign-out-button" onClick={() => this.props.logout()}>Sign out</button>
         </div>
         
