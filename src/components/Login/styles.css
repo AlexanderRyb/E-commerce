@@ -66,12 +66,11 @@ a {
   box-shadow: 0 2px 5px rgb(48 48 48 / 5%);
 }
 .item-description{
-  width: 40%;
+  /* width: 40%; */
   margin: 0;
 }
 .user-data{
   flex-wrap: wrap;
-  display: flex;
   flex-direction: column;
 }
 .user-information{
@@ -80,6 +79,7 @@ a {
   text-align: right;
   vertical-align: top;
   width: 150px;
+  margin-left: 0;
 }
 .sign-out-button{
   background-color: #fff;
@@ -107,4 +107,11 @@ a {
 .columns-name{
   width: 30%;
   margin: 0;
+}
+th{
+  width: 25%;
+}
+td{
+  width: 25%;
+  text-align: center;
 }

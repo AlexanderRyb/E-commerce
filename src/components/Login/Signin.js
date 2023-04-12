@@ -49,15 +49,15 @@ export class Signin extends Component {
 
   let userHistory = this.props.userHistory.map((item) => (
     
-    <td key={item.id} className="history-product-card">
-            <p className="item-description">{item.description}</p>
-            <div className="item-price">{item.price}</div>
+    <tr key={item.id} className="history-product-card">
+            <td className="item-description">{item.description}</td>
+            <td className="item-price">{item.price}</td>
 
           {/* <img className="history-item-image" src={item.image} alt={`Preview of ${item.title}`} /> */}
-          <p className="item-time"> {item.timeStamp}</p>
-          <p className="item-quantity">{item.quantity}</p>
+          <td className="item-time"> {item.timeStamp}</td>
+          <td className="item-quantity">{item.quantity}</td>
       
-    </td>
+    </tr>
   ));
   //
 
@@ -158,8 +158,10 @@ export class Signin extends Component {
             "user-data " + (this.props.currentUser !=0 ? "visible" : "invisible")
           }
         >
-          <p className="user-information">Current user: {this.props.userData}</p>
-          <table className="user-history-block">User history:
+                    <p className="user-information">Current user: {this.props.userData}</p>
+
+          <h3>User history:</h3>
+          <table className="user-history-block">
           <tr className="columns">
           <th>Name</th> 
           <th>Cost</th> 
