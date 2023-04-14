@@ -34,7 +34,15 @@ export  class Categories extends Component {
             onClick={() => this.props.showEveryCategory()}
                 
                 className="category"> All</div>
+                <div>
+                <label for="sort">Sort by price:</label>
+                <select id="sort" name="sort">
+  <option value="name">Name</option>
+  <option value="price-low-to-high">Price: Low to High</option>
+  <option value="price-high-to-low">Price: High to Low</option>
+</select>
 
+                </div>
                 
             </div>
         )

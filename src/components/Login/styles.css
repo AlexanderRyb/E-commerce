@@ -68,13 +68,18 @@ a {
 .item-description{
   /* width: 40%; */
   margin: 0;
+  font-family: 'calibri';
+}
+.item-time{
+  font-family: "calibri", serif;
 }
 .user-data{
   flex-wrap: wrap;
   flex-direction: column;
 }
 .user-information{
-  font-weight: bold;
+  font-weight: normal;
+  font-family: 'calibri';
   padding-right: 10px;
   text-align: right;
   vertical-align: top;
@@ -102,7 +107,7 @@ a {
 
 .columns{
   display: flex;
-  color: #929292;
+  color: #3a3a3a;
 }
 .columns-name{
   width: 30%;
