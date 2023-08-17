@@ -94,17 +94,7 @@ export class Products extends Component {
 
         </div>
         <div className="slider">
-           {/* <select name="sorting" id="sorting"
-          value={this.state.selectedOption} 
-           onChange={this.handleChange}
-          
-          >
-
-            <option value="name" onClick={()=> this.props.sortByName()}>Sort by name</option>
-            <option value="fromCheap">Sort by price descending</option>
-            <option value="fromExpensive">Sort by price ascending</option>
-
-          </select> */}
+        
         <div>Price</div>
       
           <input

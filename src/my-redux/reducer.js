@@ -298,6 +298,7 @@ const Reducer = (state = initialState, action) => {
       };
 
     case "SHOWEVERYCATEGORY":
+
       return {
         ...state,
         currentCategory: ["PC", "laptop", "phone"],
@@ -318,16 +319,8 @@ const Reducer = (state = initialState, action) => {
       };
     case "SORTBYNAME":
 
-      let sortedResult = state.products.sort(function(a, b) {
-        if(a.description.toLowerCase() < b.description.toLowerCase()) return -1;
-        if(a.description.toLowerCase() > b.description.toLowerCase()) return 1;
-        return 0;
-       }) 
-
-      return{
-        ...state, 
-        searchResult: sortedResult
-      }  
+    
+      
     case "UPDATEMAXPRICE":
       return {
         ...state,
