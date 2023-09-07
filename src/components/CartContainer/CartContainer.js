@@ -101,7 +101,7 @@ export function CartContainer(props) {
   </main>
 
   if(!checkCart){
-    cartContent = <div>Nothing in your cart. </div>
+    cartContent = <div className="empty-cart-container">Nothing in your cart. </div>
   }
 
   return (

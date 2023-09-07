@@ -6,7 +6,7 @@ import { search } from "../../my-redux/actions";
 import { ReactComponent as Wishlist } from "./heart.svg";
 import { ReactComponent as Cart } from "./cart.svg";
 import { ReactComponent as Grid } from "./grid.svg";
-import { ReactComponent as User} from "./user.svg"
+import { ReactComponent as User } from "./user.svg";
 import { showEveryCategory } from "../../my-redux/actions";
 
 export class Navigation extends Component {
@@ -38,19 +38,8 @@ export class Navigation extends Component {
           <div className="links">
             <div className="registration-page-link">
               <Link to="/signin">
-                <User
-                fill="white"
-                width={30}
-                className="nav-icon"
-
-                >
-
-                </User>
-               
-              
+                <User fill="white" width={30} className="nav-icon" title="sign in"></User>
               </Link>
-             
-
             </div>
 
             <div className="shop-link">
@@ -62,12 +51,13 @@ export class Navigation extends Component {
                   onClick={() => this.props.showEveryCategory()}
                   id="shop-icon"
                   to="/"
+                  title="shop"
                 ></Grid>
               </Link>
             </div>
             <div className="cart-link">
               <Link to="/Cart">
-                <Cart fill="white" width={30} className="nav-icon" />
+                <Cart fill="white" width={30}  title="cart" className="nav-icon" />
                 <div id="cart-count" className={cartEmpty ? "hidden" : null}>
                   {numberOfCartItems}
                 </div>
@@ -80,6 +70,8 @@ export class Navigation extends Component {
                   className="nav-icon"
                   fill="white"
                   width={25}
+                  title="wishlist"
+
                 ></Wishlist>
                 <div
                   id="wishlist-count"
