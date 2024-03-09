@@ -96,7 +96,8 @@ export class Products extends Component {
         <div className="slider">
         
         <div>Price</div>
-      
+        <h1 id="minValue">from {minValue}</h1>
+
           <input
           type="range"
           min={0}
@@ -106,14 +107,15 @@ export class Products extends Component {
           id="min-price"
           onChange={(event) => this.props.updateMinPrice(event.target.value)}
           />
-                     <h1 id="minValue">from {minValue}</h1>
 
+<h1 id="rangevalue"  >to {maxValue}</h1>
 
         <input
             type="range"
             min={0}
             max={25000}
             id="max-price"
+            
           defaultValue={25000}
 
             onChange={(event) => this.props.updateMaxPrice(event.target.value)}
@@ -121,7 +123,6 @@ export class Products extends Component {
           /> 
 
 
-          <h1 id="rangevalue"  >to {maxValue}</h1>
 
           <div className="slider-wrapper">
  
