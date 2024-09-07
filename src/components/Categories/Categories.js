@@ -5,7 +5,6 @@ import { showLaptops } from "../../my-redux/actions";
 import { showSmartphones } from "../../my-redux/actions";
 import { showTablets } from "../../my-redux/actions";
 import { showEveryCategory } from "../../my-redux/actions";
-
 import React, { Component } from "react";
 
 export class Categories extends Component {
@@ -14,12 +13,6 @@ export class Categories extends Component {
       case 'name':
         this.props.sortByName();
         break;
-      // case 'price-low-to-high':
-      //   this.props.sortByPriceHighToLow();
-      //   break;
-      // case 'price-high-to-low':
-      //   this.props.sortByPriceLowToHigh();
-      //   break;
       default:
         break;
     }
@@ -27,6 +20,13 @@ export class Categories extends Component {
   render() {
     return (
       <div className="categories-block">
+        <div
+          onClick={() => this.props.showEveryCategory()}
+          className="category"
+        >
+          {" "}
+          All
+        </div>
         <div className="category" onClick={() => this.props.showComputers()}>
           {" "}
           Computers
@@ -43,21 +43,6 @@ export class Categories extends Component {
           {" "}
           Tablets
         </div>
-        <div
-          onClick={() => this.props.showEveryCategory()}
-          className="category"
-        >
-          {" "}
-          All
-        </div>
-        {/* <div>
-          <label for="sort">Sort by</label>
-          <select id="sort" name="sort" onChange={this.handleOptionChange}>
-            <option value="name"> Name</option>
-            <option value="price-low-to-high">Price, Low to High</option>
-            <option value="price-high-to-low">Price, High to Low</option>
-          </select>
-        </div> */}
       </div>
     );
   }
