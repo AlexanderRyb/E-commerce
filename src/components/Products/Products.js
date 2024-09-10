@@ -10,53 +10,34 @@ import { updateMinPrice } from "../../my-redux/actions";
 import { updateSorting } from "../../my-redux/actions";
 import {sortByName} from '../../my-redux/actions'
 import { showEveryCategory } from "../../my-redux/actions";
+import {useState, useEffect} from 'react'
 
-export class Products extends Component {
+function Products(props) {
+  const [selectedOption, setSelectedOption] = useState('name');
 
-
-  componentDidMount(){
-    this.props.showEveryCategory()
-
-  }
-  componentDidUpdate(prevProps, prevState){
-
-    if(prevProps !== this.props){
-      this.setState(this.state)
-    }
-  }
-  constructor(props){
-    super(props);
+  useEffect(() => {
+    showEveryCategory(); // Call prop function on mount
+  }, []); // Empty dependency array for initial call only
 
 
-    this.state = {
-        selectedOption:"name"
-    }
+  // componentDidUpdate(prevProps, prevState){
 
-
-
-
-
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event){
-    console.log("Event.target.value is", event.target.value);
-
-    this.setState({selectedOption:event.target.value});
-  }
-
-  render() {
-    
-    let maxValue = this.props.maxValue
-    let minValue = this.props.minValue
+  //   if(prevProps !== props){
+  //     this.setState(this.state)
+  //   }
+  // }
+ 
+     
+    let maxValue = props.maxValue
+    let minValue = props.minValue
     let areSearchResultsEmpty 
 
     let displayedItems = [];
-    if(this.props.searchResults === []){
-      areSearchResultsEmpty = this.props.products
+    if(props.searchResults === []){
+      areSearchResultsEmpty = props.products
     }
-    if(this.props.searchResults !== []){
-      areSearchResultsEmpty = this.props.searchResults
+    if(props.searchResults !== []){
+      areSearchResultsEmpty = props.searchResults
     }
       displayedItems = areSearchResultsEmpty.map((item) => (
         <div key={item.id} className="product-card">
@@ -65,23 +46,24 @@ export class Products extends Component {
           <p className="description">{item.description}</p>
           <p className="price">{item.price} ₴</p>
           <button
-            onClick={() => this.props.addToWishList(item)}
+            onClick={() => props.addToWishList(item)}
             className={
-              this.props.wishList.some((e) => e.id === item.id)
+              props.wishList.some((e) => e.id === item.id)
                 ? "wishlist-button-selected"
                 : "wishlist-button-unselected"
             }
           ></button>
           <button
-            onClick={() => this.props.addToCart(item)}
+            onClick={() => props.addToCart(item)}
             className={
-              this.props.userCart.some((e) => e.id === item.id)
+              props.userCart.some((e) => e.id === item.id)
                 ? "cart-button-selected"
                 : "cart-button-unselected"
             }
           ></button>
         </div>
       ));
+    
           
 
     return (
@@ -105,7 +87,7 @@ export class Products extends Component {
           defaultValue={0}
 
           id="min-price"
-          onChange={(event) => this.props.updateMinPrice(event.target.value)}
+          onChange={(event) => props.updateMinPrice(event.target.value)}
           />
 
 <h1 id="rangevalue"  >to {maxValue}</h1>
@@ -118,7 +100,7 @@ export class Products extends Component {
             
           defaultValue={25000}
 
-            onChange={(event) => this.props.updateMaxPrice(event.target.value)}
+            onChange={(event) => props.updateMaxPrice(event.target.value)}
 
           /> 
 
@@ -136,7 +118,7 @@ export class Products extends Component {
       </main>
     );
   }
-}
+
 
 const mapStateToProps = (state) => {
   return {
