@@ -9,8 +9,9 @@ import { ReactComponent as User } from "./user.svg";
 import { showEveryCategory } from "../../my-redux/actions";
 
 import {useState, useEffect} from 'react'
-
+ 
 function Navigation(props){
+  
   let numberOfCartItems = props.itemsInCart;
   let numberOfWishlistItems = props.itemsInWishlist;
   let cartEmpty = false;

@@ -53,7 +53,8 @@ const Reducer = (state = initialState, action) => {
               : user
           ),
         };
-      } else {
+      }      
+      else {
         return state;
       }
 
@@ -181,6 +182,8 @@ const Reducer = (state = initialState, action) => {
     case "SEARCH":
       if (action.payload) {
         console.log("the payload:" + action.payload);
+        console.log("textSearchValue:" + state.textSearchValue);
+
         return {
           ...state,
           textSearchValue: action.payload,
@@ -188,7 +191,7 @@ const Reducer = (state = initialState, action) => {
             .filter((item) =>
               item.description
                 .toLowerCase()
-                .includes(state.textSearchValue.toLowerCase())
+                .includes(action.payload.toLowerCase())
             )
             .filter(
               (item) =>
@@ -196,11 +199,14 @@ const Reducer = (state = initialState, action) => {
             )
             .filter(
               (item) => state.currentCategory.indexOf(item.category) !== -1
-            ),
+            )
         };
-      } else {
-        return state;
       }
+     
+      else {
+        return state;
+      }      
+      
     case "ADDTOWISHLIST":
       let wishlistItemIndex = state.users[state.currentUser].wishlist.indexOf(
         checkWishlistItemIndex
@@ -220,6 +226,7 @@ const Reducer = (state = initialState, action) => {
       } else {
         return state;
       }
+      
         case "REMOVEFROMWISHLIST":
       return {
         ...state,
@@ -232,6 +239,7 @@ const Reducer = (state = initialState, action) => {
             : user
         ),
       };
+      
     case "SHOWCOMPUTERS":
       return {
         ...state,

@@ -13,7 +13,7 @@ import { showEveryCategory } from "../../my-redux/actions";
 import {useState, useEffect} from 'react'
 
 function Products(props) {
-  const [selectedOption, setSelectedOption] = useState('name');
+  //const [selectedOption, setSelectedOption] = useState('name');
 
   useEffect(() => {
     showEveryCategory(); // Call prop function on mount
@@ -30,16 +30,8 @@ function Products(props) {
      
     let maxValue = props.maxValue
     let minValue = props.minValue
-    let areSearchResultsEmpty 
 
-    let displayedItems = [];
-    if(props.searchResults === []){
-      areSearchResultsEmpty = props.products
-    }
-    if(props.searchResults !== []){
-      areSearchResultsEmpty = props.searchResults
-    }
-      displayedItems = areSearchResultsEmpty.map((item) => (
+    let displayedItems = props.searchResults.map((item) => (
         <div key={item.id} className="product-card">
           {item.title}
           <img src={item.image} alt={`Preview of ${item.title}`} />
