@@ -5,7 +5,7 @@ const initialState = {
   products: productList,
   wishList: [],
   cart: [],
-  searchResult: [],
+  searchResult: productList,
   maxValue: 25000,
   minValue: 0,
   textSearchValue: "",
@@ -167,22 +167,11 @@ const Reducer = (state = initialState, action) => {
         };
 
       }
-      // else{
-
-      //   return{
-      //     ...state
-
-      
-      //   }
-      // }
-
-
      break
 
     case "SEARCH":
       if (action.payload) {
         console.log("the payload:" + action.payload);
-        console.log("textSearchValue:" + state.textSearchValue);
 
         return {
           ...state,
@@ -201,6 +190,13 @@ const Reducer = (state = initialState, action) => {
               (item) => state.currentCategory.indexOf(item.category) !== -1
             )
         };
+      }
+
+      else if (action.payload === ""){
+        console.log('empty search result')
+        return{
+        ...state,
+        searchResult: state.products}
       }
      
       else {
@@ -309,7 +305,7 @@ const Reducer = (state = initialState, action) => {
 
       return {
         ...state,
-        currentCategory: ["PC", "laptop", "phone"],
+        currentCategory: ["PC", "laptop", "phone", "tablet"],
 
         searchResult: state.products
           .filter((item) =>
