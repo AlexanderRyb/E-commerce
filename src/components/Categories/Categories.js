@@ -6,47 +6,38 @@ import { showSmartphones } from "../../my-redux/actions";
 import { showTablets } from "../../my-redux/actions";
 import { showEveryCategory } from "../../my-redux/actions";
 import React, { Component } from "react";
+import {useState, useEffect} from 'react'
 
-export class Categories extends Component {
-  handleOptionChange = (event) => {
-    switch (event.target.value) {
-      case 'name':
-        this.props.sortByName();
-        break;
-      default:
-        break;
-    }
-  };
-  render() {
+function Categories(props){
     return (
       <div className="categories-block">
         <div
-          onClick={() => this.props.showEveryCategory()}
+          onClick={() => props.showEveryCategory()}
           className="category"
         >
           {" "}
           All
         </div>
-        <div className="category" onClick={() => this.props.showComputers()}>
+        <div className="category" onClick={() => props.showComputers()}>
           {" "}
           Computers
         </div>
-        <div onClick={() => this.props.showLaptops()} className="category">
+        <div onClick={() => props.showLaptops()} className="category">
           {" "}
           Laptops
         </div>
-        <div onClick={() => this.props.showSmartphones()} className="category">
+        <div onClick={() => props.showSmartphones()} className="category">
           {" "}
           Smartphones
         </div>
-        <div onClick={() => this.props.showTablets()} className="category">
+        <div onClick={() => props.showTablets()} className="category">
           {" "}
           Tablets
         </div>
       </div>
     );
   }
-}
+
 
 const mapStateToProps = (state) => {
   return {};

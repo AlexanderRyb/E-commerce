@@ -4,25 +4,24 @@ import { connect } from "react-redux";
 import { submitRegistration } from "../../my-redux/actions";
 
 import React, { Component } from 'react'
+import {useState, useEffect} from 'react'
 
-class CreateAccount extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      username: "",
-      password: ""
-    }
-    this.onUsernameChange = this.onUsernameChange.bind(this)
-    this.onPasswordChange = this.onPasswordChange.bind(this)
-  }
-  onUsernameChange(e){
-    this.setState({[e.target.name]: e.target.value});   
-  }
-  onPasswordChange(e){
-    this.setState({[e.target.name]: e.target.value});   
-  }
+
+function CreateAccount(props) {
+  
+  const [userName, setuserName] = useState('');
+  const [input2Value, setInput2Value] = useState('');
+  const dispatch = useDispatch();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = {
+      input1: userName,
+      input2: input2Value,
+    };
+    dispatch(submitForm(formData));
+  };
  
-  render() {
     return (
       <div className="sign-in-block">
       <h2>Register</h2>
@@ -33,20 +32,18 @@ class CreateAccount extends Component {
           type="text"
           name="username"
           id="userName"
-          value={this.state.username}
-          onChange={this.onUsernameChange}
+          value={userName} onChange={(e) => setuserName(e.target.value)}
           
         ></input>
         <label htmlFor="password">Password</label>
         <input type="password"
          name="password"
-         value={this.state.password}
-         onChange={this.onPasswordChange}
+         value={input2Value} onChange={(e) => setInput2Value(e.target.value)} 
           
         
         ></input>
         <button type="button" id="register-button"
-        onClick={()=>this.props.submitRegistration(this.state.username, this.state.password)
+        onClick={()=>props.submitRegistration(this.state.username, this.state.password)
         }
         >
           Register
@@ -59,7 +56,7 @@ class CreateAccount extends Component {
     </div>
     )
   }
-}
+
 
 
 const mapStateToProps = (state) => {
