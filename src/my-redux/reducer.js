@@ -205,11 +205,9 @@ const Reducer = (state = initialState, action) => {
       
     case "ADDTOWISHLIST":
       let wishlistItemIndex = state.users[state.currentUser].wishlist.indexOf(
-        checkWishlistItemIndex
+        action.payload
       );
-      function checkWishlistItemIndex(item) {
-        return item.id === action.payload.id;
-      }
+    
       if (wishlistItemIndex === -1) {
         return {
           ...state,
@@ -220,6 +218,8 @@ const Reducer = (state = initialState, action) => {
           ),
         };
       } else {
+        console.log("duplicate!")
+
         return state;
       }
       

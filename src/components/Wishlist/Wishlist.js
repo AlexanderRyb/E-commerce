@@ -28,9 +28,9 @@ class Wishlist extends Component {
         ></button>
       </div>
     ));
-    console.log(listOfWishedItems)
+    console.log("heere"+ listOfWishedItems)
 
-    if(listOfWishedItems = []){
+    if(listOfWishedItems.length === 0){
       listOfWishedItems = <div>Nothing in your Wishlist. </div>
     }  
     return (
