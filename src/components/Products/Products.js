@@ -1,16 +1,17 @@
 import "./styles.css";
-import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addToCart} from "../../my-redux/actions";
 import Categories from "../Categories/Categories";
 
 import { addToWishList } from "../../my-redux/actions";
+import { removeFromWishList } from "../../my-redux/actions";
+
 import { updateMaxPrice } from "../../my-redux/actions";
 import { updateMinPrice } from "../../my-redux/actions";
 import { updateSorting } from "../../my-redux/actions";
 import {sortByName} from '../../my-redux/actions'
 import { showEveryCategory } from "../../my-redux/actions";
-import {useState, useEffect} from 'react'
+import { useEffect} from 'react'
 
 function Products(props) {
   //const [selectedOption, setSelectedOption] = useState('name');
@@ -19,15 +20,7 @@ function Products(props) {
     showEveryCategory(); // Call prop function on mount
   }, []); // Empty dependency array for initial call only
 
-
-  // componentDidUpdate(prevProps, prevState){
-
-  //   if(prevProps !== props){
-  //     this.setState(this.state)
-  //   }
-  // }
- 
-     
+    
     let maxValue = props.maxValue
     let minValue = props.minValue
 
@@ -38,7 +31,11 @@ function Products(props) {
           <p className="description">{item.description}</p>
           <p className="price">{item.price} ₴</p>
           <button
-            onClick={() => props.addToWishList(item)}
+            onClick={() => {
+              props.wishList.some((e) => e.id === item.id)
+                ? props.removeFromWishList(item) // Item already in wishlist, remove it
+                : props.addToWishList(item); // Item not in wishlist, add it
+            }}
             className={
               props.wishList.some((e) => e.id === item.id)
                 ? "wishlist-button-selected"
@@ -128,6 +125,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (item) => dispatch(addToCart(item)),
     addToWishList: (item) => dispatch(addToWishList(item)),
+    removeFromWishList: (item) => dispatch(removeFromWishList(item)),
     updateMaxPrice: (value) => dispatch(updateMaxPrice(value)),
     updateMinPrice: (value) => dispatch(updateMinPrice(value)),
     updateSorting: (value) => dispatch(updateSorting(value)),

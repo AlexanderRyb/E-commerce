@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { removeFromWishlist } from "../../my-redux/actions";
+import { removeFromWishList } from "../../my-redux/actions";
 import { addToCart } from "../../my-redux/actions";
 
 import "./styles.css";
@@ -24,7 +24,7 @@ class Wishlist extends Component {
         ></button>
         <button
           className="remove-item"
-          onClick={() => this.props.removeFromWishlist(item)}
+          onClick={() => this.props.removeFromWishList(item)}
         ></button>
       </div>
     ));
@@ -51,7 +51,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (item) => dispatch(addToCart(item)),
-    removeFromWishlist: (item) => dispatch(removeFromWishlist(item)),
+    removeFromWishList: (item) => dispatch(removeFromWishList(item)),
   };
 };
 

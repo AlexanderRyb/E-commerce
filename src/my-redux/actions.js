@@ -46,7 +46,7 @@ export const addToWishList = (item) => {
     payload: item,
   };
 };
-export const removeFromWishlist = (id) => {
+export const removeFromWishList = (id) => {
   return {
     type: "REMOVEFROMWISHLIST",
     id,
