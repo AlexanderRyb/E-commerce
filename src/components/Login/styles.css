@@ -77,15 +77,21 @@ a {
 .user-data{
   flex-wrap: wrap;
   flex-direction: column;
+  margin-top: 10px;
 }
 .user-information{
   font-weight: normal;
   font-family: 'calibri';
+  font-size: 18px;
+  
   padding-right: 10px;
   text-align: right;
   vertical-align: top;
   width: 150px;
   margin-left: 0;
+  margin-top: 10px;
+  position: absolute;
+  
 }
 .sign-out-button{
   background-color: #fff;

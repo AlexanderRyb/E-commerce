@@ -160,7 +160,7 @@ export class Signin extends Component {
         >
                     <p className="user-information">Current user: {this.props.userData}</p>
 
-          <h3>User history:</h3>
+          <h3> Your history:</h3>
           <table className="user-history-block">
           <tr className="columns">
           <th>Name</th> 
