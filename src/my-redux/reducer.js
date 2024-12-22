@@ -38,12 +38,9 @@ const Reducer = (state = initialState, action) => {
       //checks if items is already in the cart
       console.log(action.payload);
 
-      let itemIndex =
-        state.users[state.currentUser].cart.indexOf(checkItemIndex);
-
-      function checkItemIndex(item) {
-        return item.id === action.payload.id;
-      }
+      let itemIndex = state.users[state.currentUser].cart.findIndex(
+        (item) => item.id === action.payload.id
+      );
       if (itemIndex === -1) {
         return {
           ...state,
@@ -55,15 +52,25 @@ const Reducer = (state = initialState, action) => {
         };
       }      
       else {
+        console.log("duplicate!")
+
         return state;
       }
 
-    case "REMOVE":
+    case "REMOVEFROMCART":
+      console.log("REMOVEFROMCART action received with payload:", action.item);
+
       return {
         ...state,
         users: state.users.map((user, i) =>
           i === state.currentUser
-            ? { ...user, cart: user.cart.filter((id) => id !== action.id) }
+            ? {
+                ...user,
+                cart: user.cart.filter((item) => item.id !== action.payload.id)
+                
+
+
+              }
             : user
         ),
       };
@@ -207,8 +214,11 @@ const Reducer = (state = initialState, action) => {
       let wishlistItemIndex = state.users[state.currentUser].wishlist.indexOf(
         action.payload
       );
+      console.log("adding!")
+
     
       if (wishlistItemIndex === -1) {
+
         return {
           ...state,
           users: state.users.map((user, i) =>
@@ -221,9 +231,11 @@ const Reducer = (state = initialState, action) => {
         console.log("duplicate!")
 
         return state;
+        ///
       }
       
         case "REMOVEFROMWISHLIST":
+          console.log("hereeee"+action.id)
       return {
         ...state,
         users: state.users.map((user, i) =>

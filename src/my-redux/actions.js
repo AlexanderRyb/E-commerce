@@ -4,9 +4,23 @@ export const addToCart = (item) => {
     payload: item,
   };
 };
-export const removeFromCart = (id) => {
+export const removeFromCart = (item) => {
+  console.log("Dispatching REMOVEFROMCART action with item:", item);
+
   return {
-    type: "REMOVE",
+    type: "REMOVEFROMCART",
+    payload: item,
+  };
+};
+export const addToWishList = (item) => {
+  return {
+    type: "ADDTOWISHLIST",
+    payload: item,
+  };
+};
+export const removeFromWishList = (id) => {
+  return {
+    type: "REMOVEFROMWISHLIST",
     id,
   };
 };
@@ -40,18 +54,7 @@ export const submitRegistration = (name, password) => {
     password: password,
   };
 };
-export const addToWishList = (item) => {
-  return {
-    type: "ADDTOWISHLIST",
-    payload: item,
-  };
-};
-export const removeFromWishList = (id) => {
-  return {
-    type: "REMOVEFROMWISHLIST",
-    id,
-  };
-};
+
 export const showComputers = ()  => {
   return {
     type: "SHOWCOMPUTERS"
