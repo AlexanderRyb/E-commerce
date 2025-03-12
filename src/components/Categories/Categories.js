@@ -4,6 +4,7 @@ import { showComputers, sortByName } from "../../my-redux/actions";
 import { showLaptops } from "../../my-redux/actions";
 import { showSmartphones } from "../../my-redux/actions";
 import { showTablets } from "../../my-redux/actions";
+import { showTvs } from "../../my-redux/actions";
 import { showEveryCategory } from "../../my-redux/actions";
 import React, { Component } from "react";
 import {useState, useEffect} from 'react'
@@ -34,6 +35,10 @@ function Categories(props){
           {" "}
           Tablets
         </div>
+        <div onClick={() => props.showTvs()} className="category">
+          {" "}
+          TVs
+        </div>
       </div>
     );
   }
@@ -48,6 +53,8 @@ const mapDispatchToProps = (dispatch) => {
     showLaptops: () => dispatch(showLaptops()),
     showSmartphones: () => dispatch(showSmartphones()),
     showTablets: () => dispatch(showTablets()),
+    showTvs: () => dispatch(showTvs()),
+
     showEveryCategory: () => dispatch(showEveryCategory()),
     sortByName: ()=> dispatch(sortByName())
   };

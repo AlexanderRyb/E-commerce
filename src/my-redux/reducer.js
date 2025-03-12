@@ -9,7 +9,7 @@ const initialState = {
   maxValue: 25000,
   minValue: 0,
   textSearchValue: "",
-  currentCategory: ["PC", "laptop", "phone"],
+  currentCategory: ["PC", "laptop", "phone", "tablet","tv" ],
   users: [
     {
       email: "logged out",
@@ -198,12 +198,15 @@ const Reducer = (state = initialState, action) => {
             )
         };
       }
-
       else if (action.payload === ""){
         console.log('empty search result')
         return{
-        ...state,
-        searchResult: state.products}
+          ...state,
+          textSearchValue: "",
+          searchResult: state.products
+            .filter((item) => item.price > state.minValue && item.price < state.maxValue)
+            .filter((item) => state.currentCategory.indexOf(item.category) !== -1)
+      }
       }
      
       else {
@@ -312,12 +315,28 @@ const Reducer = (state = initialState, action) => {
           )
           .filter((item) => ["tablet"].indexOf(item.category) !== -1),
       };
+      case "SHOWTVS":
+        return {
+          ...state,
+          currentCategory: ["tv"],
+          searchResult: state.products
+            .filter((item) =>
+              item.description
+                .toLowerCase()
+                .includes(state.textSearchValue.toLowerCase())
+            )
+  
+            .filter(
+              (item) => item.price > state.minValue && item.price < state.maxValue
+            )
+            .filter((item) => ["tv"].indexOf(item.category) !== -1),
+        };
 
     case "SHOWEVERYCATEGORY":
 
       return {
         ...state,
-        currentCategory: ["PC", "laptop", "phone", "tablet"],
+        currentCategory: ["PC", "laptop", "phone", "tablet","tv"],
 
         searchResult: state.products
           .filter((item) =>
@@ -330,7 +349,7 @@ const Reducer = (state = initialState, action) => {
             (item) => item.price > state.minValue && item.price < state.maxValue
           )
           .filter(
-            (item) => ["PC", "laptop", "phone"].indexOf(item.category) !== -1
+            (item) => ["PC", "laptop", "phone", "tablet", "tv"].indexOf(item.category) !== -1
           ),
       };
     case "SORTBYNAME":

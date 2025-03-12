@@ -70,8 +70,11 @@ export const showTablets = ()  => {
     type: "SHOWTABLETS"
   }
 }
-
-
+export const showTvs = ()  => {
+  return {
+    type: "SHOWTVS"
+  }
+}
 export const showSmartphones = ()  => {
   return {
     type: "SHOWSMARTPHONES"
